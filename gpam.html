@@ -1,0 +1,355 @@
+<!doctype html>
+<html >
+  <head>
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+
+    <script src="node_modules/angular/angular.js"></script>
+    <script src="codemirror/codemirror.js"></script>
+    <script src="codemirror/mode/javascript/javascript.js"></script>
+
+ 
+    <script src="https://d3js.org/d3.v3.min.js"></script>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="codemirror/codemirror.css">
+    <link rel="stylesheet" href="app.css">
+
+    <link rel="icon" href="images/popscl.ico">
+    <title>GPAM</title>
+
+  </head>
+  <body ng-app="app">
+    
+    <div class="app container" ng-controller="StartController">
+
+      <div class="row">
+        <div class="lmenu">
+	  <a href="pam.html">PAM</a><br/>
+	  <a href="gpam.html">GPAM</a><br/>
+	  <a href="prism.html">PRISM</a><br/>
+          <a href="plots.html">PLOTS</a><br/>
+	</div>
+      </div>
+      
+      <div class="row">
+	<div class='services collapsed'>
+	  <div class="btn btn-default" ng-click="toggleServices()">Detail</div>
+          <arhmm-status></arhmm-status>
+	</div>
+      </div>
+
+      <div class="row">
+	<div class="col-xs-12 error-top"><h1 style="color: #305C80">GPAM</h1>
+	  <p>Create a model using the ARHMM algorithm</p>
+	</div>
+      </div>
+      
+      <div class="row">
+	<div class="col-xs-12 error-top">{{ model.error }}</div>
+      </div>
+      
+      <div class="row">
+	<div class="col-xs-12">
+          <h3>Input data file</h3>
+          <input class="form-control" type="file" fileread="model.rawfile">
+          Input contains {{ model.data.length }} lines
+	</div>
+      </div>
+      
+      <div ng-if="model.data">
+	<div class="timecuts">
+	  <h3>Time cuts</h3>
+	  <div class="row timecut" ng-repeat="cut in model.timecuts">
+            <timecut-config timecut="cut" onremove="removeTimecut($index)" />
+	  </div>
+          <div>
+            <button class="btn btn-default" ng-click="addTimecut()">+</button>
+          </div>
+        </div>
+        
+	<div ng-if="!model.emAnalysis" class="row arhmmparams">
+          <div class="col-xs-12">
+            <h3>ARHMM Parameters</h3>
+            <object-edit object="model.arhmmParameters"></object-edit>
+	    
+            <code-area class="hidden makePRISMfromARHMM-function" f="fs.makePRISMfromARHMM" init="makePRISMfromARHMM">
+            </code-area>
+	    
+          </div>
+	</div>
+      	
+	<div class="row" ng-if="!model.models.length">
+          <div class="col-xs-12">
+	    <button class='btn btn-primary' ng-click="startModelling()">
+              Start modelling
+	    </button>
+	  </div>
+	</div>
+
+      </div>
+
+      <div class="hspacer"></div>      
+
+      <!-- Display the parameters learnt for GPAM -->
+      <div ng-if="model.models.length>0">
+	<h3>Modelling results</h3>
+
+        <div ng-repeat="model in model.models">
+	  <div class="hspacer"></div>
+          <p style="font-size: 120%; color: #337AB7">Timecut [{{ model.timecut.start }}, {{ model.timecut.end }}) with mindays={{ model.timecut.mindays }}</p>
+          <div ng-repeat="dtmc in model.arhmmmodel.ObsvProb" style="display:inline-block">
+            <dtmc-graph dtmc="dtmc" name="{{ 'AP' + ($index + 1) }}"></dtmc-graph>
+	    <div style="display:none">
+	      <canvas id="{{ 'canvas_AP' + ($index + 1) }}" width="480" height="525">
+		<!-- not displayed, but used to draw the PNG for download -->
+	      </canvas>
+	    </div>
+	    <button class="btn btn-success" ng-click="exportGraph('AP' + ($index + 1))"><span class="glyphicon glyphicon-download-alt"></span> Save</button>
+          </div>
+	  <br/>
+     	  <p style="font-weight:bold">Dictionary</p>
+	  <!--pre>{{ model.arhmmmodel.Alphabet | json }}</pre-->
+          <span ng-repeat="item in model.arhmmmodel.Alphabet" style="color: #337AB7; padding-left: 16px;">
+            {{ $index + '. ' }} {{ item | json }} <br/>
+          </span>
+	  <br/>
+	  <p style="font-weight:bold">Initial probability matrix</p>
+          <div>{{ model.arhmmmodel.InitProb | json }}</div>
+          <br/>
+  	  <p style="font-weight:bold">Transition probability matrix</p>
+     	  <div>{{ model.arhmmmodel.TranProb | json }}</div>         
+	  <br/>
+	  <p style="font-weight:bold">Activity patterns</p>
+	  <div ng-repeat="dtmc in model.arhmmmodel.ObsvProb" style="display:inline-block;">
+	    <div>{{ 'AP' + ($index + 1) }}</div>
+	    <div>{{ dtmc | json }}</div> 
+	  </div>
+        </div>
+      </div>
+      
+      <div class="hspacer"></div>
+      
+      <div ng-if="model.models.length>0">
+	<!--p>Models saved in '<a href="/blocks/docker_dir/archive/gpam-models.json">gpam-models.json</a>'</p>
+	<a href="/blocks/docker_dir/archive/gpam-models.json" target="_new" download-->
+	  <div class="btn btn-success" ng-click="saveModel('gpam')">
+	    <span class="glyphicon glyphicon-download-alt"></span>
+	    Download model(s)
+	  </div>
+	<!--/a-->
+      </div>
+      
+      <div class="hspacer"></div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.17/d3.min.js"></script>
+    <script src="index.js"></script>
+    <script src="data-directives.js"></script>
+    <script src="helper-directives.js"></script>
+    <script src="charts.js"></script>
+    <script src="graphs.js"></script>
+    <script src="analysis.js"></script>
+    <script src="code-directives.js"></script>
+    <script src="services.js"></script>
+
+    <script id="dtmc2prism" type="x-stuff/stuff">
+    
+function (dtmc, dictionary) {
+
+  var str = "\ndtmc\n\n";
+  str += "const init_y = " + dictionary.indexOf("UseStart") + ";\n";
+  str += "\nmodule DTMC\n";
+  str += "  y:[0.." + (dtmc.length - 1) + "] init init_y;\n";
+  str += "\n";
+
+
+  for (var i = 0; i < dtmc.length; i++) {
+    var terms = [];
+    for (var j = 0; j < dtmc[i].length; j++) {
+    if (dtmc[i][j] != 0.0)
+      terms.push(dtmc[i][j] + ":(y'=" + j + ")");
+    }
+
+    if (terms.length > 0)
+    str += "  [] (y=" + i + ") -> " + terms.join(" + ") + ";\n";
+  }
+
+  str += "endmodule\n";
+  str += "\n";
+
+  dictionary.forEach(function (word, i) {
+    str += "label \"" + word + "\" = (y=" + i + ");\n";
+  });
+
+  str += "\n";
+
+  dictionary.forEach(function (word, i) {
+    str += "rewards \"r_" + word + "\"\n";
+    str += "  (y=" + i + ") : 1;\n";
+    str += "endrewards\n\n";
+  });
+
+  str += "rewards \"r_Steps\"\n";
+  str += "	[] true : 1;\n";
+  str += "endrewards\n";
+
+  return str;
+}
+    </script>
+
+    <script id="createUserModels" type="x-stuff/stuff">
+      function(cut, dictionary) {
+      var data = cut.data;
+      
+      var matrixes = [];
+      
+      data.forEach(function(d) {
+      var userTrace = concatSessions(d.sessions);
+      var matrix = createEmptyMatrix();
+      
+    for (var i=0;i<userTrace.length-1;i++) {
+      var from = getDictionaryIndex(userTrace[i].data);
+      var to = getDictionaryIndex(userTrace[i+1].data);
+      if (from==-1) console.log("missing ", userTrace[i].data);
+      if (to==-1) console.log("missing ", userTrace[i+1].data);
+      matrix[from][to]++;
+    }
+
+    matrixes.push(matrix);
+  });
+
+  return matrixes;
+
+  function getDictionaryIndex(word) {
+    var i = dictionary.indexOf(word);
+    if (i === -1) {
+      dictionary.push(word);
+      return dictionary.length - 1;
+    } else {
+      return i;
+    }
+  }
+
+  function createEmptyMatrix() {
+    var m = [];
+    for (var i=0;i<dictionary.length;i++) {
+      var mm = [];
+      for (var j=0;j<dictionary.length;j++) {
+        mm.push(0);
+      }
+      m.push(mm);
+    }
+    return m;
+  }
+
+  function concatSessions(sessions) {
+    var trace = [];
+    sessions.forEach(function(session) {
+      session.forEach(function(action) {
+          trace.push(action);
+      });
+    });
+
+    return trace;
+  }
+}
+					   
+</script>
+
+
+<script id="makePRISMfromARHMM" type="x-stuff/stuff">
+function makePRISMfromARHMM(data) {
+var A = data.TranProb;
+var B = data.ObsvProb;
+var iota = data.InitProb;
+var dictionary = data.Alphabet;
+
+  function round(m) {
+    return m.map(function (r) {
+      var row = r.map(v => (Number(v)).toFixed(2));
+      var sum = d3.sum(row);
+      return row.map(function (v) { return v / sum; });
+    });
+  }
+
+  var str = "\ndtmc\n\n";
+
+str += "const init_y = " + dictionary.indexOf("UseStart") + ";\n";
+
+str += "\nmodule DTMC\n";
+
+str += "  x:[0.." + A.length + "] init 0;\n";
+// init value for y should be the id of UseStart on the alphabet
+str += "  y:[0.." + (B[0].length-1) + "] init init_y;\n";
+str += "\n";
+
+var numHStates = A.length;
+var numOStates = B[0].length;
+
+var terms1 = [];
+str += "  [] (x=0) & (y=init_y) -> ";
+
+for (var k=0; k<numHStates; k++) {
+    if (iota[k] !== 0) {
+        terms1.push(iota[k] + ":(x'=" + (k+1) + ") & (y'=init_y)");
+    }
+}
+
+if (terms1.length>0) {
+    str += terms1.join(" + ") + ";\n";
+}
+
+for (var k=0;k<numHStates;k++) {
+  for (var i=0;i<numOStates;i++) {
+    var terms = [];
+    for (var l=0;l<numHStates;l++) {
+        for (var j=0;j<numOStates;j++) {
+            if (A[k][l]*B[l][i][j] !== 0.0)
+                terms.push(A[k][l]*B[l][i][j] + ":(x'=" + (l+1) + ")&(y'=" + j +")");
+        }
+    }
+    if (terms.length>0) {
+        str += "  [] (x=" + (k+1) + ") & (y=" + i + ") -> " + terms.join(" + ") + ";\n";
+    }
+  }
+}
+str += "endmodule\n";
+
+str += "\n";
+
+dictionary.forEach(function(word,i) {
+    str += "label \"" + word + "\" = (y=" + i + ");\n";
+});
+
+str += "\n";
+
+dictionary.forEach(function(word,i) {
+    
+    for (var k=0;k<numHStates;k++) {
+    	str += "rewards \"r_" + word + "_AP" + (k+1) + "\"\n";
+    	str += "  (y=" + i + ") & (x=" + (k+1) + ") : 1;\n";
+	    str += "endrewards\n\n";
+    }
+});
+
+str += "rewards \"r_Steps\"\n";
+str += "	[] true : 1;\n";
+str += "endrewards\n\n";
+
+for (var k=0;k<numHStates;k++) {
+	str += "rewards \"r_Steps_AP" + (k+1) + "\"\n";
+	str += "	[] (x=" + (k+1) + ") : 1;\n";
+	str += "endrewards\n\n";
+}
+
+
+
+  return str;
+}
+</script>
+
+  </body>
+</html>

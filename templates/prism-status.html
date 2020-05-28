@@ -1,0 +1,6 @@
+<div class='service-status prism-status' ng-class="{ running: status.running, error: !!status.error }">
+  PRISM
+  <div class='btn btn-link' ng-click="clear()">&times;</div>
+  <div class='prism-status-text'>{{ status.status }}</div>
+  <div class='prism-status-output'><pre>{{ (status.lastOutput) }}</pre></div>
+</div>

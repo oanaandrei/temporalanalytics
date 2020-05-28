@@ -1,0 +1,13 @@
+<h1>Playground</h1>
+Transforms
+<d-set input="sampleData" output="model.someData">
+  <ds-fun ng-repeat="fun in dsfuns" type="{{ fun.type }}" f="fun.f"></ds-fun>
+  <button ng-click="addMap()">map</button>
+  <button ng-click="addFilter()">filter</button>
+</d-set>
+
+<div class="row">
+  <div class="col-xs-12">
+    <d-table data="model.someData"></d-table>
+  </div>
+</div>

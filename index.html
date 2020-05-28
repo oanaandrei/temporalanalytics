@@ -1,0 +1,579 @@
+<!doctype html>
+<html >
+  <head>
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+
+    <script src="node_modules/angular/angular.js"></script>
+    <script src="codemirror/codemirror.js"></script>
+    <script src="codemirror/mode/javascript/javascript.js"></script>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="codemirror/codemirror.css">
+    <link rel="stylesheet" href="app.css">
+
+    <link rel="icon" href="images/popscl.ico">
+    <title>PRISM</title>
+
+  </head>
+  <body ng-app="app">
+
+    <div class="app container" ng-controller="StartController">
+
+      <div class="row">
+	<div class='lmenu'>
+          <a href="pam.html">PAM</a><br/>
+          <a href="gpam.html">GPAM</a><br/>
+          <a href="prism.html">PRISM</a><br/>
+          <a href="plots.html">PLOTS</a><br/>
+        </div>
+      </div>
+
+      <div class="row">
+	<div class='services collapsed'>
+          <div class="btn btn-default" ng-click="toggleServices()">Detail</div>
+          <prism-status></prism-status>
+	</div>
+      </div>
+      
+      <div class="row">
+        <div class="col-xs-12 error-top">
+	  <h1 style="color: #305C80">PRISM</h1>
+	  <p>Use this interface to perform property analysis on models loaded from a JSON file. Models can be of type PAM, GPAM or UAM.</p> 
+	</div>
+      </div>
+
+      <div class="row">
+        <div class="col-xs-12 error-top">{{ model.error }}</div>
+      </div>
+
+      <div class="row">
+        <div class="col-xs-12">
+          <h3>Model file</h3>
+          <input class="form-control" type="file" fileread="model.resfile">
+          Input contains {{ model.models.length }} <a href="#" onclick="toggleVisibility('lmd')">model(s)</a> ...
+        </div>
+      </div>
+
+      <div class="hspacer"></div>      
+
+      <div ng-if="model.models.length>0" id="lmd" style="display:none">
+        <div ng-repeat="model in model.models">	  
+	  <div ng-if="model.emmodel">
+	    <h3>PAM Model</h3>
+            <p style="font-size: 120%; color: #337AB7">
+	      Timecut [{{ model.timecut.start }}, {{ model.timecut.end }}) with {{ model.emmodel.theta.length }} user traces</p>
+            <p style="font-weight:bold">Graphs</p>
+            <div ng-repeat="dtmc in model.emmodel.phi" style="display:inline-block;">
+	      <dtmc-graph dtmc="dtmc" name="{{ 'AP' + ($index + 1) }}"></dtmc-graph>
+            </div>
+            <p style="font-weight:bold">Dictionary</p>
+            <!--pre>{{ model.dictionary | json }}</pre-->
+            <span ng-repeat="item in model.dictionary" style="color: #337AB7; padding-left: 16px;">
+              {{ $index + '. ' }} {{ item | json }} <br/>
+            </span>
+	    <div class="hspacer"></div>
+            <p style="font-weight:bold">Activity patterns</p>
+            <div ng-repeat="dtmc in model.emmodel.phi" style="display:inline-block;">
+              <div>{{ 'AP' + ($index + 1) }}</div>
+              <div>{{ dtmc | json }}</div>
+              <br/>
+            </div>
+            <br/>
+            <!--p style="font-weight:bold">Phi</p>
+            <div>{{ model.emmodel.phi | json }}</div-->
+	    <p style="font-weight:bold">Theta</p>
+            <div>{{ model.emmodel.theta | json }}</div>
+            <div class="hspacer"></div>
+
+	    <!--h4 my-toggle=".createUserModels">create user models <span class="caret"></span></h4-->
+            <code-area class="hidden createUserModels" f="fs.createUserModels" init="createUserModels">
+            </code-area>
+	   	    
+	  </div>
+	  
+	  <div ng-if="model.arhmmmodel">     
+	    <h3>GPAM Model</h3>
+            <p style="font-size: 120%; color: #337AB7">Timecut [{{ model.timecut.start }}, {{ model.timecut.end }}) </p>
+	    <p style="font-weight:bold">Graphs</p>
+            <div ng-repeat="dtmc in model.arhmmmodel.ObsvProb" style="display:inline-block;">
+              <dtmc-graph dtmc="dtmc" name="{{ 'AP' + ($index + 1) }}"></dtmc-graph>
+            </div>
+	    <p style="font-weight:bold">Dictionary</p>
+	    <!--pre>{{ model.arhmmmodel.Alphabet | json }}</pre-->
+	    <span ng-repeat="item in model.arhmmmodel.Alphabet" style="color: #337AB7; padding-left: 16px;">
+              {{ $index + '. ' }} {{ item | json }} <br/>
+            </span>
+	    <br/>
+            <p style="font-weight:bold">Initial probability matrix</p>
+            <div>{{ model.arhmmmodel.InitProb | json }}</div>
+	    <br/>
+  	    <p style="font-weight:bold">Transition probability matrix</p>
+     	    <div>{{ model.arhmmmodel.TranProb | json }}</div>         
+	    <br/>
+	    <p style="font-weight:bold">Activity patterns</p>
+            <div ng-repeat="dtmc in model.arhmmmodel.ObsvProb" style="display:inline-block;">
+              <div>{{ 'AP' + ($index + 1) }}</div>
+              <div>{{ dtmc | json }}</div> 
+            </div>
+	    <div class="hspacer"></div>
+
+	    <!--h4 my-toggle=".makePRISMfromARHMM-function">makePRISMfromARHMM function <span class="caret"></span></h4-->
+	    <code-area class="hidden makePRISMfromARHMM-function" f="fs.makePRISMfromARHMM" init="makePRISMfromARHMM">
+            </code-area>
+
+          </div>
+	</div>    
+      </div>
+
+      <div ng-if="model.pctls.length>0">
+	<div class="pctls">
+          <h3>PCTLs</h3>
+	  <p>Probabilistic Computation Tree Logic items<p>
+          <div class="row pctl" ng-repeat="pctl in model.pctls track by $index">
+            <pctl-config pctl="pctl" onremove="removePCTL($index)" />
+          </div>
+          <div class="row">
+            <div class="col-xs-12">
+              <button class="btn btn-default" ng-click="addPCTL()">+</button>
+            </div>
+          </div>
+	  <div class="row">
+            <div class="col-xs-12">
+              <h3>Load more PCTLs</h3>
+              <input class="form-control" type="file" fileread="model.pctlfile">
+              Will analyse {{ model.pctls.length }} PCTL(s) ...
+	    </div>
+	  </div>
+	</div>
+
+	<div class="hspacer"></div>
+
+	<div ng-if="model.pctls.length>1" class="row">
+          <div class="col-xs-12">
+            <div class='btn btn-success' ng-click="savePCTLs()"><span class="glyphicon glyphicon-download-alt"></span> 
+              Save PCTLS
+            </div>
+          </div>
+        </div>
+
+        <div class="hspacer"></div>	
+	
+	<div ng-if="model.models.length>0">
+          <div class="row">
+	    <div class="col-xs-12">
+
+	       <!--h4 my-toggle=".dtmc2prism-function">dtmc2prism function <span class="caret"></span></h4-->
+               <code-area class="hidden dtmc2prism-function" f="fs.dtmc2prism" init="dtmc2prism">
+               </code-area>
+
+              <h3>Analysis type</h3>
+	      <p>Select the type of analysis you would like to perform:</p>
+	      <div class="radio" ng-if="!model.emAnalysis">
+		<label><input name="at1" type="radio" ng-model="prismanalysis.type" value="GPAM" ng-click="model.patternGPAM=false" checked="true"> GPAM &nbsp;</label>
+		<label><input name="at1" type="radio" ng-model="prismanalysis.type" value="Pattern_GPAM" ng-click="model.patternGPAM=true"> Pattern GPAM</label>
+	      </div>
+	      <div class="radio" ng-if="model.emAnalysis || model.emAdmixture">
+                <label><input name="at2" type="radio" ng-model="prismanalysis.type" value="UAM" ng-click="model.emAdmixture=true"> UAM &nbsp;</label>
+                <label><input name="at2" type="radio" ng-model="prismanalysis.type" value="Pattern_PAM" ng-click="model.emAdmixture=false" checked="true"> Pattern PAM</label>
+              </div>
+	      <div ng-if="model.emAdmixture">
+		<div class="form-group">
+                  <label>Theta for one user trace</label>
+		  <input class="form-control" ng-model="oneUserTrace.theta">
+		</div>
+		<div ng-if="checkOneUserTraceValue()">
+		  <p style="color: #ee0000; font-weight: bold">
+		    <span class="glyphicon glyphicon-warning-sign"></span>
+		    Invalid 'oneUserTrace.theta' value: {{ oneUserTrace.theta | json}}</p>
+		</div>
+		<!--h4 my-toggle=".userAdmixturePRISM-function">userAdmixturePRISM function <span class="caret"></span></h4-->
+		<code-area class="hidden userAdmixturePRISM-function" f="fs.userAdmixturePRISM" init="userAdmixturePRISM">
+                </code-area>
+	      </div>
+	      <!--tt>{{ 'oneUserTrace.theta = ' + oneUserTrace.theta | json}} </tt><br/>
+	      <tt>{{ 'model.emAnalysis   = ' + model.emAnalysis | json}} </tt><br/>
+	      <tt>{{ 'model.emAdmixture  = ' + model.emAdmixture | json}} </tt><br/>
+	      <tt>{{ 'model.patternGPAM  = ' + model.patternGPAM | json}} </tt-->
+	    </div>
+          </div>
+	</div>
+	
+	<div class="hspacer"></div>
+	
+	<div ng-if="model.models.length>0" class="row">
+          <div class="col-xs-12"> <!-- ng-if="!model.tabledata"-->
+            <button class='btn btn-primary' ng-click="startPropertyAnalysis()">Start Property Analysis</button>
+          </div>
+          <div class="col-xs-12" ng-if="model.tabledata">
+            <h3 style="color: #337AB7">Analysing properties ...</h3>
+          </div>
+	</div>
+      </div>
+
+      <div class="hspacer"></div>
+
+      <div ng-if="model.tabledata.length>0">
+	
+	<div class="row">
+          <div class="col-xs-12">
+	    <p style="font-weight:bold">Results</p>
+            <table class="table">
+	      <tr>
+		<th>Timecut</th>
+		<th>Model type</th>
+		<th>k</th>
+		<th>Property name</th>
+		<th>Result</th>
+              </tr>
+              <tr ng-repeat="row in model.tabledata">
+		<td>[{{ row.timecut.start }}, {{ row.timecut.end }})</td>
+		<td>{{ row.modeltype }}</td>
+		<td>{{ row.k }}</td>
+		<td>{{ row.pctl.name }}</td>
+		<td>{{ row.result }}</td>
+              </tr>
+            </table>
+          </div>
+	</div>
+	
+	<br/>
+	
+	<div class="row">
+          <div class="col-xs-12">
+	    <p style="font-weight:bold">Table data</p>
+            <pre>{{ model.tabledataexport }}</pre>
+          </div>
+	</div>
+	
+	<div class="hspacer"></div>
+	
+	<div class="row">
+	  <div class="col-xs-12">
+	    <!--p>Results saved in 'prism-results.json'</p-->
+            <div class='btn btn-success' ng-click="savePrismResults()"><span class="glyphicon glyphicon-download-alt"></span>
+              Download results
+            </div>
+	  </div>
+	</div>
+	<div class="hspacer"></div>
+      </div>      
+    </div>
+    
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.17/d3.min.js"></script>
+    <script src="index.js"></script>
+    <script src="data-directives.js"></script>
+    <script src="helper-directives.js"></script>
+    <script src="charts.js"></script>
+    <script src="graphs.js"></script>
+    <script src="analysis.js"></script>
+    <script src="code-directives.js"></script>
+    <script src="services.js"></script>
+
+    <script type="text/javascript">
+
+      function toggleVisibility(id) {
+        var e = document.getElementById(id);
+        if (e.style.display == '') 
+          e.style.display = 'none';
+        else e.style.display = '';
+      }
+
+    </script>
+
+    <script id="dtmc2prism" type="x-stuff/stuff">
+    
+      function (dtmc, dictionary) {
+
+  var str = "\ndtmc\n\n";
+  str += "const init_y = " + dictionary.indexOf("UseStart") + ";\n";
+  str += "\nmodule DTMC\n";
+  str += "  y:[0.." + (dtmc.length - 1) + "] init init_y;\n";
+  str += "\n";
+
+
+  for (var i = 0; i < dtmc.length; i++) {
+    var terms = [];
+    for (var j = 0; j < dtmc[i].length; j++) {
+    if (dtmc[i][j] != 0.0)
+      terms.push(dtmc[i][j] + ":(y'=" + j + ")");
+    }
+
+    if (terms.length > 0)
+    str += "  [] (y=" + i + ") -> " + terms.join(" + ") + ";\n";
+  }
+
+  str += "endmodule\n";
+  str += "\n";
+
+  dictionary.forEach(function (word, i) {
+    str += "label \"" + word + "\" = (y=" + i + ");\n";
+  });
+
+  str += "\n";
+
+  dictionary.forEach(function (word, i) {
+    str += "rewards \"r_" + word + "\"\n";
+    str += "  (y=" + i + ") : 1;\n";
+    str += "endrewards\n\n";
+  });
+
+  str += "rewards \"r_Steps\"\n";
+  str += "	[] true : 1;\n";
+  str += "endrewards\n";
+
+  return str;
+}
+    </script>
+
+    <script id="createUserModels" type="x-stuff/stuff">
+function(cut, dictionary) {
+  var data = cut.data;
+
+  var matrixes = [];
+
+  data.forEach(function(d) {
+    var userTrace = concatSessions(d.sessions);
+    var matrix = createEmptyMatrix();
+
+    for (var i=0;i<userTrace.length-1;i++) {
+      var from = getDictionaryIndex(userTrace[i].data);
+      var to = getDictionaryIndex(userTrace[i+1].data);
+      if (from==-1) console.log("missing ", userTrace[i].data);
+      if (to==-1) console.log("missing ", userTrace[i+1].data);
+      matrix[from][to]++;
+    }
+
+    matrixes.push(matrix);
+  });
+
+  return matrixes;
+
+  function getDictionaryIndex(word) {
+    var i = dictionary.indexOf(word);
+    if (i === -1) {
+      dictionary.push(word);
+      return dictionary.length - 1;
+    } else {
+      return i;
+    }
+  }
+
+  function createEmptyMatrix() {
+    var m = [];
+    for (var i=0;i<dictionary.length;i++) {
+      var mm = [];
+      for (var j=0;j<dictionary.length;j++) {
+        mm.push(0);
+      }
+      m.push(mm);
+    }
+    return m;
+  }
+
+  function concatSessions(sessions) {
+    var trace = [];
+    sessions.forEach(function(session) {
+      session.forEach(function(action) {
+          trace.push(action);
+      });
+    });
+
+    return trace;
+  }
+}
+    </script>
+
+<script id="userAdmixturePRISM" type="x-stuff/stuff">
+function userAdmixturePRISM(emparams, dictionary, thetaOneUserTrace) {
+
+  var params = emparams;
+  var thetas = params.theta;
+
+  console.log("thetas[0]=" + thetas[0] + " and thetaOneUserTrace=" + thetaOneUserTrace);
+
+  var A = thetaOneUserTrace;
+  var B = params.phi;
+  var numHStates = A.length;
+  var numOStates = B[0].length;
+  var iota = thetaOneUserTrace;
+
+  var str = "\ndtmc\n\n";
+
+  str += "const init_y = " + dictionary.indexOf("UseStart") + ";\n";
+
+  str += "\nmodule DTMC\n";
+
+  str += "  x:[0.." + A.length + "] init 0;\n";
+
+  // init value for y should be the id of UseStart on the alphabet
+  str += "  y:[0.." + (B[0].length - 1) + "] init init_y;\n";
+  str += "\n";
+
+  var terms1 = [];
+  str += "  [] (x=0) & (y=init_y) -> ";
+
+  for (var k = 0; k < numHStates; k++) {
+    if (iota[k] !== 0) {
+      terms1.push(iota[k] + ":(x'=" + (k + 1) + ") & (y'=init_y)");
+    }
+  }
+
+  if (terms1.length > 0) {
+    str += terms1.join(" + ") + ";\n";
+  }
+
+  for (var k = 0; k < numHStates; k++) {
+    for (var i = 0; i < numOStates; i++) {
+      var terms = [];
+      for (var l = 0; l < numHStates; l++) {
+        for (var j = 0; j < numOStates; j++) {
+          if (A[l] * B[l][i][j] !== 0.0) {
+            terms.push(A[l] * B[l][i][j] + ":(x'=" + (l + 1) + ")&(y'=" + j + ")");
+          }
+        }
+      }
+
+      if (terms.length > 0) {
+        str += "  [] (x=" + (k + 1) + ") & (y=" + i + ") -> " + terms.join(" + ") + ";\n";
+      }
+    }
+  }
+
+  str += "endmodule\n";
+  str += "\n";
+
+  dictionary.forEach(function (word, i) {
+    str += "label \"" + word + "\" = (y=" + i + ");\n";
+  });
+
+  str += "\n";
+
+  dictionary.forEach(function (word, i) {
+    str += "rewards \"r_" + word + "\"\n";
+    str += "  (y=" + i + ") : 1;\n";
+    str += "endrewards\n\n";
+    
+    for (var k=0;k<numHStates;k++) {
+    	str += "rewards \"r_" + word + "_AP" + (k+1) + "\"\n";
+    	str += "  (y=" + i + ") & (x=" + (k+1) + ") : 1;\n";
+	    str += "endrewards\n\n";
+    }
+  });
+
+  str += "rewards \"r_Steps\"\n";
+  str += "	[] true : 1;\n";
+  str += "endrewards\n";
+
+	for (var k=0;k<numHStates;k++) {
+		str += "rewards \"r_Steps_AP" + (k+1) + "\"\n";
+		str += "	[] (x=" + (k+1) + ") : 1;\n";
+		str += "endrewards\n\n";
+	}
+
+  function round(m) {
+    return m.map(function (r) {
+      var row = r.map(function (v) { return (Number(v)).toFixed(2); });
+
+      var sum = d3.sum(row);
+      return row.map(function (v) { return v / sum; });
+    });
+  }
+
+  return str;
+}
+</script>
+
+<script id="makePRISMfromARHMM" type="x-stuff/stuff">
+function makePRISMfromARHMM(data) {
+var A = data.TranProb;
+var B = data.ObsvProb;
+var iota = data.InitProb;
+var dictionary = data.Alphabet;
+
+  function round(m) {
+    return m.map(function (r) {
+      var row = r.map(v => (Number(v)).toFixed(2));
+      var sum = d3.sum(row);
+      return row.map(function (v) { return v / sum; });
+    });
+  }
+
+  var str = "\ndtmc\n\n";
+
+str += "const init_y = " + dictionary.indexOf("UseStart") + ";\n";
+
+str += "\nmodule DTMC\n";
+
+str += "  x:[0.." + A.length + "] init 0;\n";
+// init value for y should be the id of UseStart on the alphabet
+str += "  y:[0.." + (B[0].length-1) + "] init init_y;\n";
+str += "\n";
+
+var numHStates = A.length;
+var numOStates = B[0].length;
+
+var terms1 = [];
+str += "  [] (x=0) & (y=init_y) -> ";
+
+for (var k=0; k<numHStates; k++) {
+    if (iota[k] !== 0) {
+        terms1.push(iota[k] + ":(x'=" + (k+1) + ") & (y'=init_y)");
+    }
+}
+
+if (terms1.length>0) {
+    str += terms1.join(" + ") + ";\n";
+}
+
+for (var k=0;k<numHStates;k++) {
+  for (var i=0;i<numOStates;i++) {
+    var terms = [];
+    for (var l=0;l<numHStates;l++) {
+        for (var j=0;j<numOStates;j++) {
+            if (A[k][l]*B[l][i][j] !== 0.0)
+                terms.push(A[k][l]*B[l][i][j] + ":(x'=" + (l+1) + ")&(y'=" + j +")");
+        }
+    }
+    if (terms.length>0) {
+        str += "  [] (x=" + (k+1) + ") & (y=" + i + ") -> " + terms.join(" + ") + ";\n";
+    }
+  }
+}
+str += "endmodule\n";
+
+str += "\n";
+
+dictionary.forEach(function(word,i) {
+    str += "label \"" + word + "\" = (y=" + i + ");\n";
+});
+
+str += "\n";
+
+dictionary.forEach(function(word,i) {
+    
+    for (var k=0;k<numHStates;k++) {
+    	str += "rewards \"r_" + word + "_AP" + (k+1) + "\"\n";
+    	str += "  (y=" + i + ") & (x=" + (k+1) + ") : 1;\n";
+	    str += "endrewards\n\n";
+    }
+});
+
+str += "rewards \"r_Steps\"\n";
+str += "	[] true : 1;\n";
+str += "endrewards\n\n";
+
+for (var k=0;k<numHStates;k++) {
+	str += "rewards \"r_Steps_AP" + (k+1) + "\"\n";
+	str += "	[] (x=" + (k+1) + ") : 1;\n";
+	str += "endrewards\n\n";
+}
+
+  return str;
+}
+</script>
+
+  </body>
+</html>

@@ -1,0 +1,6 @@
+<div class='service-status em-status' ng-class="{ running: status.running, error: !!status.error }">
+  EM algorithm
+  <div class='btn btn-link' ng-click="clear()">&times;</div>
+  <div class='status-text'>{{ status.status }}</div>
+  <div class='status-output'><pre>{{ (status.lastOutput) }}</pre></div>
+</div>

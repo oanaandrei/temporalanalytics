@@ -1,0 +1,17 @@
+[
+  {
+  	"name":"MAP_State2End",
+  	"properties":"const int i; const int j; const double p; \nP>=1[F(x=i & y=j)] & P>=1[G((x=i & y=j) => P>=p[(x=i) U "UseStop"])]\n",
+  	"arguments":"-const i=0:1:2,j=0:1:17,p=0:0.01:1"
+  },
+  {
+  	"name":"MAP_Response_OUApp_PS",
+  	"properties":"const int i; const double p; \nP>=1[F ((y=13) & (x=i))] & P>=1[F ((y=9) & (x=i))] & P>=1[F((! ((y=13) & (x=i)) & !((y=9) & (x=i))) U P>=1[(((y=13) & (x=i)) & !((y=9) & (x=i))) U P>=p[X ((y=9) & (x=i))] ])]\n",
+  	"arguments":"-const i=0:1:2,p=0:0.01:1"
+  },  
+  {
+  	"name":"MAP_Response_PS_OUApp",
+  	"properties":"const int i; const double p; \nP>=1[F ((y=9) & (x=i))] & P>=1[F ((y=13) & (x=i))] & P>=1[F((! ((y=9) & (x=i)) & !((y=13) & (x=i))) U P>=1[(((y=9) & (x=i)) & !((y=13) & (x=i))) U P>=p[X ((y=13) & (x=i))] ])]\n",
+  	"arguments":"-const i=0:1:2,p=0:0.01:1"
+  },  
+]

@@ -1,0 +1,147 @@
+\newcommand{\firstmin}[2]{\mathit{first}(#1)_{/\mathit{min}(#2)}}
+\newcommand{\interval}[2]{\mathit{interval}(#1,#2)}
+\newcommand{\maximum}[1]{\mathit{max}(#1)}
+\newcommand{\firstmincut}{first/min-cut}
+\newcommand{\firstmincuts}{\firstmincut s}
+\newcommand{\intervalcut}{interval-cut}
+\newcommand{\intervalcuts}{\intervalcut s}
+\newcommand{\maximumcut}{maximum-cut}
+\newcommand{\state}{\mathtt{state}}
+
+\newcommand{\PRISM}{\textsc{PRISM}}
+
+\newcommand{\lra}{\longrightarrow}
+\newcommand{\opstate}{\mathsf{state}}
+\newcommand{\opavg}{\mathsf{avg}}
+
+\newcommand{\ra}[1]{\renewcommand{\arraystretch}{#1}}
+
+\newcommand{\PU}{\textsc{PU}}
+\newcommand{\RT}{\textsc{RT}}
+\newcommand{\RR}{\textsc{RR}}
+
+% types of properties
+\newcommand{\VisitProb}{\textsc{VisitProb}}
+\newcommand{\StepCount}{\textsc{StepCount}}
+\newcommand{\VisitCount}{\textsc{VisitCount}}
+
+\newcommand{\VisitProbInit}{\textsc{VisitProbInit}}
+\newcommand{\StepCountInit}{\textsc{StepCountInit}}
+\newcommand{\VisitCountInit}{\textsc{VisitCountInit}}
+\newcommand{\VisitProbBetween}{\textsc{VisitProbBtw}}
+\newcommand{\StepCountBetween}{\textsc{StepCountBtw}}
+\newcommand{\SessionCount}{\textsc{SessionCount}}
+\newcommand{\SessionLength}{\textsc{SessionLength}}
+\newcommand{\StateToEndProb}{\textsc{StateToStop}}
+\newcommand{\StateToAPProb}{\textsc{StateToPattern}}
+\newcommand{\LongRunPattern}{\textsc{LongRunPattern}}
+\newcommand{\Response}{\textsc{Response}}
+
+\newcommand{\VP}[3]{\VisitProb(#1,#2,#3)}
+\newcommand{\SC}[2]{\StepCount(#1,#2)}
+\newcommand{\VC}[2]{\VisitProb(#1,#2)}
+
+% pattern labels
+\newcommand{\patternlabel}[1]{\textsc{#1}}
+\newcommand{\OverallViewing}{\patternlabel{Overall Viewing}}
+\newcommand{\Overall}{\patternlabel{Overall}}
+\newcommand{\InDepthViewing}{\patternlabel{InDepth Viewing}}
+\newcommand{\InDepth}{\patternlabel{InDepth}}
+\newcommand{\Glancing}{\patternlabel{Glancing}}
+\newcommand{\Viewing}{\patternlabel{Viewing}}
+\newcommand{\Browsing}{\patternlabel{Browsing}}
+\newcommand{\Loop}{\patternlabel{Loop}}
+
+% the name of the sets of states
+\newcommand{\LStates}{\mathcal{X}}
+\newcommand{\OStates}{\mathcal{Y}}
+
+% Flattened HMM
+\newcommand{\fhmm}{\mathcal{M}}
+\newcommand{\M}{\mathcal{M}}
+
+\ifx\property\undefined
+\newtheorem{property}{Property}
+\fi
+
+% Symbols for DTMCs
+\newcommand{\true}{\mathtt{true}}
+\newcommand{\false}{\mathtt{false}}
+\newcommand{\Probs}{\mathtt{P}}
+\newcommand{\Probss}{\mathtt{S}}
+\newcommand{\Probr}{\mathtt{R}}
+\newcommand{\proba}{\mathbf{P}}
+\newcommand{\probmeasure}{\mathit{\Pr}}
+\newcommand{\Prob}[3]{\mathit{Prob}^{#1}_{#2(#3)}}
+
+
+\newcommand{\Path}{\mathit{Path}}
+\newcommand{\D}{\mathcal{D}}
+\newcommand{\AP}{\mathit{AP}}
+%\newcommand{\probmeasure}{\operatorname{\Pr}}
+%\newcommand{\Prob}[3]{\operatorname{Prob}^{#1}_{#2(#3)}}
+\newcommand{\filter}{\mathit{filter}}
+
+% Symbols for probababilistic temporal logic
+\newcommand{\TG}{{\sf G}}
+\newcommand{\TF}{{\sf F}}
+\newcommand{\TU}{{\sf U}}
+\newcommand{\TA}{{\sf A}}
+\newcommand{\TE}{{\sf E}}
+\newcommand{\TX}{{\sf X}}
+\newcommand{\TC}{{\sf C}}
+\newcommand{\TP}{{\sf P}}
+\newcommand{\TR}{{\sf R}}
+\newcommand{\TW}{{\sf W}}
+
+% State labels for AppTracker
+\newcommand{\ATMainView}{\mathit{ATMainView}}
+
+% Operators and symbols for inference
+%\newcommand{\argmax}{\argmax{operatornamewithlimitslatex}}
+\newcommand{\argmax}[1]{\underset{#1}{\operatorname{arg}\,\operatorname{max}}\;}
+
+\newcommand{\statelabel}[1]{\texttt{#1}}
+\newcommand{\TermsAndConditions}{\statelabel{TermsAndConditions}}
+\newcommand{\TaC}{\statelabel{T\&C}}
+\newcommand{\UseStart}{\statelabel{UseStart}}
+\newcommand{\Main}{\statelabel{Main}}
+\newcommand{\OverallUsage}{\statelabel{OverallUsage}}
+\newcommand{\TopApps}{\statelabel{TopApps}}
+\newcommand{\StackedBars}{\statelabel{StackedBars}}
+\newcommand{\LastSevenDays}{\statelabel{Last7Days}}
+\newcommand{\PeriodSelector}{\statelabel{SelectPeriod}}
+\newcommand{\AppsInPeriod}{\statelabel{AppsInPeriod}}
+\newcommand{\Settings}{\statelabel{Settings}}
+\newcommand{\UseStop}{\statelabel{UseStop}}
+\newcommand{\Stats}{\statelabel{Stats}}
+\newcommand{\UsageBarChartTopApps}{\statelabel{UsageBarChartTopApps}}
+\newcommand{\UserBarChartOverallUsage}{\statelabel{UsageBarChartOverallUsage}}
+\newcommand{\UBCOverallUsage}{\statelabel{UBCOverallUsage}}
+\newcommand{\UBCOU}{\statelabel{UBCOU}}
+\newcommand{\UsageBarChartStats}{\statelabel{UsageBarChartStats}}
+\newcommand{\UBCStats}{\statelabel{UBCStats}}
+\newcommand{\Feedback}{\statelabel{Feedback}}
+\newcommand{\UsageBarChartAppsInPeriod}{\statelabel{UsageBarChartApps}}
+\newcommand{\UBCApps}{\statelabel{UBCApps}}
+\newcommand{\UBCAppsInPeriod}{\statelabel{UBCApps}}
+\newcommand{\Info}{\statelabel{Info}}
+\newcommand{\Task}{\statelabel{Task}}
+
+\newcommand{\startLabel}{\statelabel{startS}}
+\newcommand{\stopLabel}{\statelabel{stopS}}
+
+\newcommand{\PropFour}[2]{\mathit{probToReach}(#1)\mathit{from}(#2)\mathit{DuringOneSession}}
+\newcommand{\PropFive}[2]{\mathit{stepsToReach}(#1)\mathit{from}(#2)}
+%\newcommand{\PropFive}[2]{\mathit{stepsFrom}(#2)\mathit{to}(#1)}
+
+\newcommand{\eqdef}{\mbox{\small$\stackrel{\mbox{\tiny$\triangle$}}{=}$}}
+
+\newcommand{\OverallAP}{\textsf{Overall Viewing}}
+\newcommand{\TimePartitionedAP}{\textsf{Time-partitioned Viewing}}
+
+% best results 
+%\newcommand{\br}[1]{\textcolor{green}{\bf #1}}
+\newcommand{\br}[1]{{\bf #1}}
+% poor results
+\newcommand{\pr}[1]{\textcolor{red}{#1}}

@@ -1,0 +1,635 @@
+<!doctype html>
+<html >
+  <head>
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+
+    <script src="node_modules/angular/angular.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+
+    <script src="https://cdn.rawgit.com/eligrey/canvas-toBlob.js/f1a01896135ab378aa5c0118eadd81da55e698d8/canvas-toBlob.js"></script>
+    <script src="https://cdn.rawgit.com/eligrey/FileSaver.js/e9d941381475b5df8b7d7691013401e171014e89/FileSaver.min.js"></script>
+    <script src="https://d3js.org/d3.v3.min.js"></script>
+
+    <script src="codemirror/codemirror.js"></script>
+    <script src="codemirror/mode/javascript/javascript.js"></script>
+
+    <link rel="stylesheet" href="codemirror/codemirror.css">
+    <link rel="stylesheet" href="app.css">
+
+    <link rel="icon" href="images/popscl.ico">
+    <title>FULL CHAIN</title>
+
+  </head>
+  <body ng-app="app">
+
+    <div class="app container" ng-controller="StartController">
+
+      <div class="row">
+	<div class='lmenu'>
+          <a href="index.html">CHAIN</a><br/>
+          <a href="pam.html">PAM</a><br/>
+          <a href="gpam.html">GPAM</a><br/>
+          <a href="prism.html">PRISM</a><br/>
+          <a href="plots.html">PLOTS</a><br/>
+        </div>
+      </div>
+
+      <div class="row">	
+	<div class='services collapsed'>
+          <div class="btn btn-default" ng-click="toggleServices()">Detail</div>
+          <prism-status></prism-status>
+          <arhmm-status></arhmm-status>
+          <em-status></em-status>
+	</div>
+      </div>
+      
+      <div class="row">
+	<div class="col-xs-12 error-top"><h1 style="color: #305C80">FULL CHAIN</h1>
+	  <p>This is the control instance of the UI, and contains all modelling, analysis and visualisation steps. 
+	    Choose individual modules from the top left menu.</p>
+	</div>
+      </div>
+
+      <div class="row">
+        <div class="col-xs-12 error-top">{{ model.error }}</div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <h3>Input data file</h3>
+          <input class="form-control" type="file" fileread="model.rawfile">
+          Found {{ model.data.length }} lines
+        </div>
+      </div>
+
+      <div class="timecuts">
+        <h3>Time cuts</h3>
+        <div class="row timecut" ng-repeat="cut in model.timecuts">
+          <timecut-config timecut="cut" onremove="removeTimecut($index)" />
+        </div>
+        <div class="row">
+          <div class="col-xs-12">
+            <button class="btn btn-default" ng-click="addTimecut()">+</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-xs-12">
+	  <div class="hspacer"></div>
+	  <h3>Algorithm options</h3>
+          Use PAM/EM instead? <input type="checkbox" ng-model="model.emAnalysis" />
+	  <br/>
+        </div>
+      </div>
+
+      <div ng-if="!model.emAnalysis" class="row arhmmparams">
+        <div class="col-xs-12">
+          <h3>GPAM/ARHMM Parameters</h3>
+          <object-edit object="model.arhmmParameters"></object-edit>
+
+          <h4 my-toggle=".makePRISMfromARHMM-function">makePRISMfromARHMM function <span class="caret"></span></h4>
+          <code-area class="hidden makePRISMfromARHMM-function" f="fs.makePRISMfromARHMM" init="makePRISMfromARHMM">
+          </code-area>
+
+        </div>
+      </div>
+
+      <div ng-if="model.emAnalysis" class="row arhmmparams">
+        <div class="col-xs-12">
+          Is UAM/Admixture? <input type="checkbox" ng-model="model.emAdmixture" />
+          <h3>PAM/EM Parameters</h3>
+          <object-edit object="model.emParameters"></object-edit>
+
+          <h4 my-toggle=".createUserModels">create user models <span class="caret"></span></h4>
+          <code-area class="hidden createUserModels" f="fs.createUserModels" init="createUserModels">
+          </code-area>
+
+          <h4 my-toggle=".dtmc2prism-function">dtmc2prism function <span class="caret"></span></h4>
+          <code-area class="hidden dtmc2prism-function" f="fs.dtmc2prism" init="dtmc2prism">
+          </code-area>
+
+          <div ng-if="model.emAdmixture">
+            <h4 my-toggle=".userAdmixturePRISM-function">userAdmixturePRISM function <span class="caret"></span></h4>
+            <code-area class="hidden userAdmixturePRISM-function" f="fs.userAdmixturePRISM" init="userAdmixturePRISM">
+            </code-area>
+          </div>
+        </div>
+      </div>
+      
+      <div class="row">
+	<div class="col-xs-12">
+	  <div class='btn btn-primary' ng-click="startModelling()">
+            Start modelling
+	  </div>
+	</div>
+	<div class="hspacer"></div>
+      </div>
+
+      <!-- Display the parameters learnt for PAM -->       
+       <div>
+         <div>
+	   <div ng-if="model.emAnalysis && !model.emAdmixture">
+	     <h3>Modelling results</h3>
+             <div ng-repeat="model in model.models">
+               <p>Timecut {{ $index }} with {{ model.emmodel.theta.length }} user traces</p>
+               <div ng-repeat="dtmc in model.emmodel.phi" style="display:inline-block;">
+                 <dtmc-graph dtmc="dtmc" name="{{ 'AP' + ($index + 1) }}"></dtmc-graph>
+               </div>
+               <div>{{ model.emmodel.theta | json }}</div>        
+             </div>        
+	     
+             <div ng-repeat="model in model.models">
+               <p>Timecut {{ $index }} with {{ model.emmodel.theta.length }} user traces</p>
+               <div ng-repeat="dtmc in model.emmodel.phi" style="display:inline-block;">
+                 <div>{{ 'AP' + ($index + 1) }}</div>
+                 <div>{{ dtmc | json }}</div> 
+               </div>
+             </div>   
+	     
+	     <div class="row">
+               <div class="col-xs-12">
+		 <pre>{{ model.dictionary | json }}</pre>
+               </div>
+	     </div>                        
+             <!-- <div style="display:inline-block;" ng-repeat="dtmc in model.emResults.phi">
+		  <dtmc-graph dtmc="dtmc" name="{{ 'AP' + ($index + 1) }}"></dtmc-graph>
+             </div> -->
+           </div>	   
+         </div>
+       </div>
+       
+       <!-- Display the parameters learnt for GPAM -->
+       <div ng-if="!model.emAdmixture && !model.emAnalysis">     
+	 <h3>Modelling results</h3>
+         <div ng-repeat="model in model.models">
+           <p>Timecut {{ $index }} </p>
+           <div ng-repeat="dtmc in model.arhmmmodel.ObsvProb" style="display:inline-block;">
+             <dtmc-graph dtmc="dtmc" name="{{ 'AP' + ($index + 1) }}"></dtmc-graph>
+           </div>
+           <!--br/>
+	       <div id="save_graphs" class='btn btn-primary' ng-click="saveGraphs()">
+                 Save Graphs
+	       </div> 
+	       <br/-->
+     	   <div>{{ 'Dictionary' }}</div>
+     	   <div class="col-xs-12">
+	     <pre>{{ model.arhmmmodel.Alphabet | json }}</pre>
+	   </div>                
+  	   <div>{{ 'Transition probability matrix' }}</div>
+     	   <div>{{ model.arhmmmodel.TranProb | json }}</div>         
+         </div>        
+	 
+         <div ng-repeat="model in model.models">
+           <!-- <p>Timecut {{ $index }}</p> -->
+           <div ng-repeat="dtmc in model.arhmmmodel.ObsvProb" style="display:inline-block;">
+             <div>{{ 'AP' + ($index + 1) }}</div>
+             <div>{{ dtmc | json }}</div> 
+           </div>
+         </div>
+       </div>
+
+       <!--div ng-if="model.models.length>0" class="row">
+	 <div class="hspacer"></div>
+	 <div class="col-xs-12">
+           <div class="btn btn-success" ng-click="saveModel('gpam')">
+	     Download models
+           </div>
+	 </div>
+       </div-->
+       
+      <div class="hspacer"></div>
+              
+       <div class="pctls">
+         <h3>PCTLs</h3>
+         <div class="row pctl" ng-repeat="pctl in model.pctls">
+           <pctl-config pctl="pctl" onremove="removePCTL($index)" />
+         </div>
+         <div class="row">
+           <div class="col-xs-12">
+             <button class="btn btn-default" ng-click="addPCTL()">+</button>
+           </div>
+         </div>
+	 <div class="row">
+           <div class="col-xs-12">
+              <h3>Load more PCTLs</h3>
+              <input class="form-control" type="file" fileread="model.pctlfile">
+              Will analyse {{ model.pctls.length }} PCTL(s) ...
+            </div>
+          </div>
+	  <div class="hspacer"></div>
+       </div>
+       
+       <div class="row">
+         <div class="col-xs-12">	   
+           <button class='btn btn-primary' ng-click='startPropertyAnalysis()'>Start Property Analysis</button>
+         </div>
+         <!--div class="col-xs-12">
+           <div ng-if="working"> working...</div>
+         </div-->
+       </div>
+       
+       <div class="row" ng-if="model.tabledata.length>0">
+         <div class="col-xs-12">
+	   <div class="hspacer"></div>
+           <table class="table">
+             <tr>
+               <th>Timecut</th>
+               <th>Model type</th>
+               <th>k</th>
+               <th>Property name</th>
+               <th>Result</th>
+             </tr>
+             <tr ng-repeat="row in model.tabledata">
+               <td>[{{ row.timecut.start }}, {{ row.timecut.end }})</td>
+               <td>{{ row.modeltype }}</td>
+               <td>{{ row.k }}</td>
+               <td>{{ row.pctl.name }}</td>
+               <td>{{ row.result }}</td>
+             </tr>
+           </table>
+         </div>
+       </div>
+       
+      <div class="row">
+        <div class="col-xs-12">
+	  <div class="hspacer"></div>	  
+	  <h3>Tabulated results</h3>
+          <pre>{{ model.tabledataexport }}</pre>
+        </div>
+      </div>
+
+      <div class="row"  id="intdata">
+       <div class="col-xs-12">
+        <div class='btn btn-success' ng-click="savePrismResults()">
+           Save Results
+        </div>
+       </div>
+      </div>
+      
+      <div class="row">
+        <div class="col-xs-12">
+          <h3>Load results file</h3>
+          <input class="form-control" type="file" fileread="model.chartfile">
+          Found {{ model.chartdata.length }} lines.
+	  <div class="hspacer"></div>
+        </div>
+      </div>
+      
+      <div class="row">
+	<div class="col-xs-12">
+	  <h3>Charts</h3>
+          <div ng-repeat="chartOptions in charts">
+            <div class="form-group">
+              <label>Title</label>
+              <input class="form-control" ng-model="chartOptions.title" placeholder="title" />
+            </div>
+            <div class="form-group">
+              <label>Filter</label>
+              <d-filter input="model.chartdata" output="filteredData" placeholder="filter function"></d-filter>
+            </div>
+            <div class="form-group">
+              <label>Group accessor</label>
+              <code-line f="chartOptions.groupAccessor" placeholder="group accessor" on-compiled="updateChart($index)"></code-line>
+            </div>
+            <div class="form-group">
+              <label>Label accessor</label>
+              <code-line f="chartOptions.labelAccessor" placeholder="label accessor" on-compiled="updateChart($index)"></code-line>
+            </div>
+	  </div>
+          Show sample graph <input type="checkbox" ng-model="chartOptions.showSampleData" />
+          <!-- <bar-chart ng-if="!chartOptions.showSampleData" data="filter( $index, model.tabledata )" options="chartOptions"></bar-chart> -->
+          <bar-chart ng-if="!chartOptions.showSampleData" data="filteredData" options="chartOptions"></bar-chart>
+          <bar-chart ng-if="chartOptions.showSampleData" data="sampleData" options="chartOptions"></bar-chart>
+        </div>
+      </div>
+
+      <div class="row">
+	<div class="col-xs-12">
+	  <div class="hspacer"></div>
+          <button class="btn btn-success" id="saveButton">Export my D3 viz to PNG</button>
+	</div>
+      </div>
+
+      <div class="row">
+        <div class="col-xs-12">
+	  <div class="hspacer"></div>
+          <button class="btn btn-default" ng-click="addChart()">Add chart</button>
+        </div>
+      </div>
+      <div class="hspacer"></div>
+      <!-- <play-ground></play-ground> -->
+    </div>
+    
+
+    <div id="container" class="container">
+      <div class="row">
+        <div class="col-xs-12 progress"></div>
+      </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.17/d3.min.js"></script>
+    <script src="index.js"></script>
+    <script src="data-directives.js"></script>
+    <script src="helper-directives.js"></script>
+    <script src="charts.js"></script>
+    <script src="graphs.js"></script>
+    <script src="analysis.js"></script>
+    <script src="code-directives.js"></script>
+    <script src="services.js"></script>
+
+    <script id="dtmc2prism" type="x-stuff/stuff">
+    
+function (dtmc, dictionary) {
+
+  var str = "\ndtmc\n\n";
+  str += "const init_y = " + dictionary.indexOf("UseStart") + ";\n";
+  str += "\nmodule DTMC\n";
+  str += "  y:[0.." + (dtmc.length - 1) + "] init init_y;\n";
+  str += "\n";
+
+
+  for (var i = 0; i < dtmc.length; i++) {
+    var terms = [];
+    for (var j = 0; j < dtmc[i].length; j++) {
+    if (dtmc[i][j] != 0.0)
+      terms.push(dtmc[i][j] + ":(y'=" + j + ")");
+    }
+
+    if (terms.length > 0)
+    str += "  [] (y=" + i + ") -> " + terms.join(" + ") + ";\n";
+  }
+
+  str += "endmodule\n";
+  str += "\n";
+
+  dictionary.forEach(function (word, i) {
+    str += "label \"" + word + "\" = (y=" + i + ");\n";
+  });
+
+  str += "\n";
+
+  dictionary.forEach(function (word, i) {
+    str += "rewards \"r_" + word + "\"\n";
+    str += "  (y=" + i + ") : 1;\n";
+    str += "endrewards\n\n";
+  });
+
+  str += "rewards \"r_Steps\"\n";
+  str += "	[] true : 1;\n";
+  str += "endrewards\n";
+
+  return str;
+}
+    </script>
+
+    <script id="createUserModels" type="x-stuff/stuff">
+function(cut, dictionary) {
+  var data = cut.data;
+
+  var matrixes = [];
+
+  data.forEach(function(d) {
+    var userTrace = concatSessions(d.sessions);
+    var matrix = createEmptyMatrix();
+
+    for (var i=0;i<userTrace.length-1;i++) {
+      var from = getDictionaryIndex(userTrace[i].data);
+      var to = getDictionaryIndex(userTrace[i+1].data);
+      if (from==-1) console.log("missing ", userTrace[i].data);
+      if (to==-1) console.log("missing ", userTrace[i+1].data);
+      matrix[from][to]++;
+    }
+
+    matrixes.push(matrix);
+  });
+
+  return matrixes;
+
+  function getDictionaryIndex(word) {
+    var i = dictionary.indexOf(word);
+    if (i === -1) {
+      dictionary.push(word);
+      return dictionary.length - 1;
+    } else {
+      return i;
+    }
+  }
+
+  function createEmptyMatrix() {
+    var m = [];
+    for (var i=0;i<dictionary.length;i++) {
+      var mm = [];
+      for (var j=0;j<dictionary.length;j++) {
+        mm.push(0);
+      }
+      m.push(mm);
+    }
+    return m;
+  }
+
+  function concatSessions(sessions) {
+    var trace = [];
+    sessions.forEach(function(session) {
+      session.forEach(function(action) {
+          trace.push(action);
+      });
+    });
+
+    return trace;
+  }
+}
+    </script>
+
+<script id="userAdmixturePRISM" type="x-stuff/stuff">
+function userAdmixturePRISM(emparams, dictionary) {
+  var params = emparams;
+  var thetas = params.theta;
+
+  var A = thetas[0];
+  var B = params.phi;
+  var numHStates = A.length;
+  var numOStates = B[0].length;
+  var iota = thetas[0];
+
+  var str = "\ndtmc\n\n";
+
+  str += "const init_y = " + dictionary.indexOf("UseStart") + ";\n";
+
+  str += "\nmodule DTMC\n";
+
+  str += "  x:[0.." + A.length + "] init 0;\n";
+
+  // init value for y should be the id of UseStart on the alphabet
+  str += "  y:[0.." + (B[0].length - 1) + "] init init_y;\n";
+  str += "\n";
+
+  var terms1 = [];
+  str += "  [] (x=0) & (y=init_y) -> ";
+
+  for (var k = 0; k < numHStates; k++) {
+    if (iota[k] !== 0) {
+      terms1.push(iota[k] + ":(x'=" + (k + 1) + ") & (y'=init_y)");
+    }
+  }
+
+  if (terms1.length > 0) {
+    str += terms1.join(" + ") + ";\n";
+  }
+
+  for (var k = 0; k < numHStates; k++) {
+    for (var i = 0; i < numOStates; i++) {
+      var terms = [];
+      for (var l = 0; l < numHStates; l++) {
+        for (var j = 0; j < numOStates; j++) {
+          if (A[l] * B[l][i][j] !== 0.0) {
+            terms.push(A[l] * B[l][i][j] + ":(x'=" + (l + 1) + ")&(y'=" + j + ")");
+          }
+        }
+      }
+
+      if (terms.length > 0) {
+        str += "  [] (x=" + (k + 1) + ") & (y=" + i + ") -> " + terms.join(" + ") + ";\n";
+      }
+    }
+  }
+
+  str += "endmodule\n";
+  str += "\n";
+
+  dictionary.forEach(function (word, i) {
+    str += "label \"" + word + "\" = (y=" + i + ");\n";
+  });
+
+  str += "\n";
+
+  dictionary.forEach(function (word, i) {
+    str += "rewards \"r_" + word + "\"\n";
+    str += "  (y=" + i + ") : 1;\n";
+    str += "endrewards\n\n";
+    
+    for (var k=0;k<numHStates;k++) {
+    	str += "rewards \"r_" + word + "_AP" + (k+1) + "\"\n";
+    	str += "  (y=" + i + ") & (x=" + (k+1) + ") : 1;\n";
+	    str += "endrewards\n\n";
+    }
+  });
+
+  str += "rewards \"r_Steps\"\n";
+  str += "	[] true : 1;\n";
+  str += "endrewards\n";
+
+	for (var k=0;k<numHStates;k++) {
+		str += "rewards \"r_Steps_AP" + (k+1) + "\"\n";
+		str += "	[] (x=" + (k+1) + ") : 1;\n";
+		str += "endrewards\n\n";
+	}
+
+  function round(m) {
+    return m.map(function (r) {
+      var row = r.map(function (v) { return (Number(v)).toFixed(2); });
+
+      var sum = d3.sum(row);
+      return row.map(function (v) { return v / sum; });
+    });
+  }
+
+  return str;
+}
+</script>
+
+<script id="makePRISMfromARHMM" type="x-stuff/stuff">
+function makePRISMfromARHMM(data) {
+var A = data.TranProb;
+var B = data.ObsvProb;
+var iota = data.InitProb;
+var dictionary = data.Alphabet;
+
+  function round(m) {
+    return m.map(function (r) {
+      var row = r.map(v => (Number(v)).toFixed(2));
+      var sum = d3.sum(row);
+      return row.map(function (v) { return v / sum; });
+    });
+  }
+
+  var str = "\ndtmc\n\n";
+
+str += "const init_y = " + dictionary.indexOf("UseStart") + ";\n";
+
+str += "\nmodule DTMC\n";
+
+str += "  x:[0.." + A.length + "] init 0;\n";
+// init value for y should be the id of UseStart on the alphabet
+str += "  y:[0.." + (B[0].length-1) + "] init init_y;\n";
+str += "\n";
+
+var numHStates = A.length;
+var numOStates = B[0].length;
+
+var terms1 = [];
+str += "  [] (x=0) & (y=init_y) -> ";
+
+for (var k=0; k<numHStates; k++) {
+    if (iota[k] !== 0) {
+        terms1.push(iota[k] + ":(x'=" + (k+1) + ") & (y'=init_y)");
+    }
+}
+
+if (terms1.length>0) {
+    str += terms1.join(" + ") + ";\n";
+}
+
+for (var k=0;k<numHStates;k++) {
+  for (var i=0;i<numOStates;i++) {
+    var terms = [];
+    for (var l=0;l<numHStates;l++) {
+        for (var j=0;j<numOStates;j++) {
+            if (A[k][l]*B[l][i][j] !== 0.0)
+                terms.push(A[k][l]*B[l][i][j] + ":(x'=" + (l+1) + ")&(y'=" + j +")");
+        }
+    }
+    if (terms.length>0) {
+        str += "  [] (x=" + (k+1) + ") & (y=" + i + ") -> " + terms.join(" + ") + ";\n";
+    }
+  }
+}
+str += "endmodule\n";
+
+str += "\n";
+
+dictionary.forEach(function(word,i) {
+    str += "label \"" + word + "\" = (y=" + i + ");\n";
+});
+
+str += "\n";
+
+dictionary.forEach(function(word,i) {
+    
+    for (var k=0;k<numHStates;k++) {
+    	str += "rewards \"r_" + word + "_AP" + (k+1) + "\"\n";
+    	str += "  (y=" + i + ") & (x=" + (k+1) + ") : 1;\n";
+	    str += "endrewards\n\n";
+    }
+});
+
+str += "rewards \"r_Steps\"\n";
+str += "	[] true : 1;\n";
+str += "endrewards\n\n";
+
+for (var k=0;k<numHStates;k++) {
+	str += "rewards \"r_Steps_AP" + (k+1) + "\"\n";
+	str += "	[] (x=" + (k+1) + ") : 1;\n";
+	str += "endrewards\n\n";
+}
+
+
+
+  return str;
+}
+</script>
+
+  </body>
+</html>

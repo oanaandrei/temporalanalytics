@@ -1,0 +1,112 @@
+[
+  {
+  	"name":"VP1_1_2",
+  	"properties":"const N; const j2; const j0; \nfilter(state,P=?[F<=N (y=j2)],y=j0)\n",
+  	"arguments":"-const N=50,j2=0:1:17,j0=0:1:17"
+  },
+  {
+  	"name":"VP1_3_4",
+  	"properties":"const N; const j1; const j2; const j0; \nfilter(state,P=?[!(y=j1) U<=N (y=j2)],y=j0)\n",
+  	"arguments":"-const N=50,j1=0:1:17,j2=0:1:17,j0=0:1:17"
+  },  
+  {
+  	"name":"VP1_5",
+  	"properties":"const N; const j1; const j2; const j0; \nfilter(state,P=?[(!(y=j1)&!\"UseStop\") U<=N (y=j2)],y=j0)\n",
+  	"arguments":"-const N=50,j1=0:1:17,j2=0:1:17,j0=0:1:17"
+  },
+  {
+  	"name":"SC1_1_2",
+  	"properties":"const N; const j1; const j0; \nfilter(state,R{\"r_Steps\"}=?[F (y=j1)],y=j0)\n",
+  	"arguments":"-const N=50,j1=0:1:17,j0=0:1:17"
+  },  
+  {
+  	"name":"VC1_1_2_UseStart",
+  	"properties":"const N; const j0; \nfilter(state,R{\"r_UseStart\"}=?[C<=N],y=j0)\n",
+  	"arguments":"-const N=50,j0=0:1:17"
+  },  
+  {
+  	"name":"VC1_1_2_ATMainView",
+  	"properties":"const N; const j0; \nfilter(state,R{\"r_ATMainView\"}=?[C<=N],y=j0)\n",
+  	"arguments":"-const N=50,j0=0:1:17"
+  },  
+  {
+  	"name":"VC1_1_2_TermsAndConditions",
+  	"properties":"const N; const j0; \nfilter(state,R{\"r_TermsAndConditions\"}=?[C<=N],y=j0)\n",
+  	"arguments":"-const N=50,j0=0:1:17"
+  },  
+  {
+  	"name":"VC1_1_2_ATSettingsView",
+  	"properties":"const N; const j0; \nfilter(state,R{\"r_ATSettingsView\"}=?[C<=N],y=j0)\n",
+  	"arguments":"-const N=50,j0=0:1:17"
+  },  
+  {
+  	"name":"VC1_1_2_ATInfoView",
+  	"properties":"const N; const j0; \nfilter(state,R{\"r_ATInfoView\"}=?[C<=N],y=j0)\n",
+  	"arguments":"-const N=50,j0=0:1:17"
+  },  
+  {
+  	"name":"VC1_1_2_ATOverallUsageView_AllTime",
+  	"properties":"const N; const j0; \nfilter(state,R{\"r_ATOverallUsageView_AllTime\"}=?[C<=N],y=j0)\n",
+  	"arguments":"-const N=50,j0=0:1:17"
+  },  
+  {
+  	"name":"VC1_1_2_ATInDepthMenu",
+  	"properties":"const N; const j0; \nfilter(state,R{\"r_ATInDepthMenu\"}=?[C<=N],y=j0)\n",
+  	"arguments":"-const N=50,j0=0:1:17"
+  },  
+  {
+  	"name":"VC1_1_2_UseStop",
+  	"properties":"const N; const j0; \nfilter(state,R{\"r_UseStop\"}=?[C<=N],y=j0)\n",
+  	"arguments":"-const N=50,j0=0:1:17"
+  },  
+  {
+  	"name":"VC1_1_2_ATAppsInPeriodView_Today",
+  	"properties":"const N; const j0; \nfilter(state,R{\"r_ATAppsInPeriodView_Today\"}=?[C<=N],y=j0)\n",
+  	"arguments":"-const N=50,j0=0:1:17"
+  },    
+  {
+  	"name":"VC1_1_2_ATPeriodSelectorView",
+  	"properties":"const N; const j0; \nfilter(state,R{\"r_ATPeriodSelectorView\"}=?[C<=N],y=j0)\n",
+  	"arguments":"-const N=50,j0=0:1:17"
+  },  
+  {
+  	"name":"VC1_1_2_ATStatsView",
+  	"properties":"const N; const j0; \nfilter(state,R{\"r_ATStatsView\"}=?[C<=N],y=j0)\n",
+  	"arguments":"-const N=50,j0=0:1:17"
+  },  
+  {
+  	"name":"VC1_1_2_ATAppsInPeriodView_ExploreByPeriod",
+  	"properties":"const N; const j0; \nfilter(state,R{\"r_ATAppsInPeriodView_ExploreByPeriod\"}=?[C<=N],y=j0)\n",
+  	"arguments":"-const N=50,j0=0:1:17"
+  },  
+  {
+  	"name":"VC1_1_2_ATUsageBarChart_ATAppsInPeriodView",
+  	"properties":"const N; const j0; \nfilter(state,R{\"r_ATUsageBarChart_ATAppsInPeriodView\"}=?[C<=N],y=j0)\n",
+  	"arguments":"-const N=50,j0=0:1:17"
+  },  
+  {
+  	"name":"VC1_1_2_ATOverallUsageView_ByApp",
+  	"properties":"const N; const j0; \nfilter(state,R{\"r_ATOverallUsageView_ByApp\"}=?[C<=N],y=j0)\n",
+  	"arguments":"-const N=50,j0=0:1:17"
+  },  
+  {
+  	"name":"VC1_1_2_ATUsageBarChart_ATStatsView",
+  	"properties":"const N; const j0; \nfilter(state,R{\"r_ATUsageBarChart_ATStatsView\"}=?[C<=N],y=j0)\n",
+  	"arguments":"-const N=50,j0=0:1:17"
+  },  
+  {
+  	"name":"VC1_1_2_ATUsageBarChart_ATOverallUsageView",
+  	"properties":"const N; const j0; \nfilter(state,R{\"r_ATUsageBarChart_ATOverallUsageView\"}=?[C<=N],y=j0)\n",
+  	"arguments":"-const N=50,j0=0:1:17"
+  },  
+  {
+  	"name":"VC1_1_2_ATFeedbackView",
+  	"properties":"const N; const j0; \nfilter(state,R{\"r_ATFeedbackView\"}=?[C<=N],y=j0)\n",
+  	"arguments":"-const N=50,j0=0:1:17"
+  },    
+  {
+  	"name":"VC1_1_2_ATTaskView",
+  	"properties":"const N; const j0; \nfilter(state,R{\"r_ATTaskView\"}=?[C<=N],y=j0)\n",
+  	"arguments":"-const N=50,j0=0:1:17"
+  } 
+]

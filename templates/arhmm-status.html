@@ -1,0 +1,6 @@
+<div class='service-status arhmm-status' ng-class="{ running: status.running, error: !!status.error }">
+  ARHMM
+  <div class='btn btn-link' ng-click="clear()">&times;</div>
+  <div class='arhmm-status-text'>{{ status.status }}</div>
+  <div class='arhmm-status-output'>{{ status.lastOutput }}</div>
+</div>
