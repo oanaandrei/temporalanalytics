@@ -2,6 +2,7 @@
 Temporal usage analytics for interactive systems
 
 Current developer: Oana Andrei (2016 - 2020)
+
 Previous developers: Mattias Rost (2015 - 2016), Dan Protopopescu (2017 - 2018)
 
 This README documents whatever steps are necessary to get your application up and running.
