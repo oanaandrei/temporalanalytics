@@ -1,6 +1,6 @@
 [
   {
-  	"name":"MAP_State2End",
+  	"name":"MAP_StateToStop",
   	"properties":"const int i; const int j; const double p; \nP>=1[F(x=i & y=j)] & P>=1[G((x=i & y=j) => P>=p[(x=i) U "UseStop"])]\n",
   	"arguments":"-const i=0:1:2,j=0:1:17,p=0:0.01:1"
   },
