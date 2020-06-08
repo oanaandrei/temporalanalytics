@@ -14,29 +14,26 @@ This README documents whatever steps are necessary to get your application up an
 
 ### How do I get set up? ###
 
- * Set up Docker containers
+ * Start Docker locally
+ * Set up Docker containers or check that they are available with the command: docker image ls
  	* Create docker image for the inference algorithm Expectation-Maximisation (image em) from the folder ./inferenceEM_PAM_docker/ 
  	* Create docker image for the inference algorithm Baum-Welch (image arhmm) from the folder ./inferenceBW_GPAM_docker/ 
  	* Pull the image mseve/prism from the Docker hub to create a container locally.
 
- * In the following files set up the appropriate local/remote server location (url) to run the docker containers for the 3 images (em, arhmm, prism):
- 	* in the file analysis.js line 157 : look for the line "'http://.../docker.php'" in the code block including the line "task: 'em'".
- 	* in the file analysis.js line 298 : look for the line "'http://.../docker.php'" in the code block including the line "task: 'arhmm'"
- 	* in the file analysis.js line 350 : look for the line "'http://.../docker.php'" in the code block including the line "task: 'prism'"
- 	* in the file services_errorFilter.js line 167 : look for the line "'http://.../docker.php'" in the code block including the line "image: 'arhmm'"
- 	* in the file services_errorFilter.js line 269 : look for the line "'http://.../docker.php'" in the code block including the line "image: 'mseve/prism'"
- 	* in the file services.js line 167 : look for the line "'http://.../docker.php'" in the code block including the line "image: 'arhmm'"
- 	* in the file services.js line 270 : look for the line "'http://.../docker.php'" in the code block including the line "image: 'mseve/prism'"
+ * In the following files set up the appropriate local/remote server location (url) to run the docker containers for the 3 images (em, arhmm, mseve/prism), currently set up for the local host 127.0.0.1:
+ 	* analysis.js
+ 	* services_errorFilter.js
+ 	* services.js
  	
 
  * If you are not running a server on your computer, then install one. 
  * Start the server.
- * We recommend Chrome as browser and it needs to be opened (from the terminal) with the option "--allow-file-access-from-files".
+ * Chrome browser is recommended, open it (from the terminal) with the option "--allow-file-access-from-files".
 
 
 ### Running the analysis ###
 
- * Open index.html
+ * Open in Chrome the file: index.html
  * Select the type of model in the top-left corner: either PAM or GPAM
 	* Input the data file
  	* Set the time cut: starting day, end day, and the minimum number of days of usage

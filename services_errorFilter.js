@@ -164,7 +164,7 @@ angular.module('app')
       ).join('\n');
 
       $.post(
-        'http://.../docker.php',
+        'http://127.0.0.1/docker.php',
         {
           files: [
             {
@@ -266,7 +266,7 @@ angular.module('app')
 //      });
 
       $.post(
-        'http://.../docker.php',
+        'http://127.0.0.1/docker.php',
         {
           files: [
             {

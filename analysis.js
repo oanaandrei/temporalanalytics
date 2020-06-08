@@ -347,7 +347,7 @@ function PRISM(pctl, model) {
     var props = pctl.properties; //'const N;\nP = ? [F<=N y=4]\n';
     var args = pctl.arguments; //'-const N=50';
     $.post(
-      'https://.../docker.php',
+      'http://127.0.0.1/docker.php',
       {
         task: 'prism',
         files: [

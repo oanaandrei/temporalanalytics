@@ -164,7 +164,7 @@ angular.module('app')
       ).join('\n');
 
       $.post(
-        'https://.../docker.php',
+        'http://127.0.0.1/docker.php',
         {
           task: 'arhmm',
           files: [
@@ -267,7 +267,7 @@ angular.module('app')
 //      });
 
       $.post(
-        'https://.../docker.php',
+        'http://127.0.0.1/docker.php',
         {
           task: 'prism',
           files: [
