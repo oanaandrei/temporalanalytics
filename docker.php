@@ -9,7 +9,7 @@ $task = $_POST['task'];
  // override image and cmd arguments for security reasons
  switch ($task) {
    case "arhmm": // aka GPAM
-     $image = "rost/arhmm";
+     $image = "arhmm";
      $cmd = '';
      break;
    case "em":    // aka PAM

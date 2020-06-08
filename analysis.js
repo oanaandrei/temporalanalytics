@@ -1,4 +1,4 @@
-// devs: Mattias Rost (2015-2016), Dan Protopopescu (2017-2018), Oana Andrei (2016-2020) 
+// devs: Mattias Rost (2015-2016), Dan Protopopescu (2017-2018), Oana Andrei (2016-2020)
 
 angular.module('app')
 
@@ -154,7 +154,7 @@ angular.module('app')
 
       return new Promise((resolve, reject) => {
         $.post(
-          'https://..../docker.php',
+          'http://127.0.0.1/docker.php',
           {
             task: 'em',
             files: [
@@ -169,7 +169,7 @@ angular.module('app')
             iterations: `${iterations}`,
             cmd: `/code/run.sh /data/data.json ${k} ${restarts} ${iterations}`,
             outputs: [
-		// 
+		//
 		'globalEM_parameters.txt',
 		'globalEM_phi.txt',
 		'globalEM_theta.txt',
@@ -184,7 +184,7 @@ angular.module('app')
               console.log(data);
               resolve(data);
           },
-	    // 
+	    //
 	  res => (
 	      {
 		  phi: JSON.parse(res['globalEM_phi.txt']),
@@ -295,7 +295,7 @@ function performARHMM(arhmmParameters, cut) {
     ).join('\n');
 
     $.post(
-      'https://.../docker.php',
+      'http://127.0.0.1/docker.php',
       {
         task: 'arhmm',
         files: [
@@ -490,7 +490,7 @@ for (var k=0;k<numHStates;k++) {
   return str;
 }
 
-var PCTLs = 
+var PCTLs =
 [
   {
   	"name":"VP1_1_2",
@@ -501,7 +501,7 @@ var PCTLs =
   	"name":"VP1_3_4",
   	"properties":"const int N; const int j1; const int j2; const int j0; \nfilter(state,P=?[!(y=j1) U<=N (y=j2)],y=j0)\n",
   	"arguments":"-const N=50,j1=01:1:15,j2=0:1:15,j0=0:1:15"
-  },  
+  },
   {
   	"name":"VP1_5",
   	"properties":"const int N; const int j1; const int j2; const int j0; \nfilter(state,P=?[(!(y=j1)&!\"UseStop\") U<=N (y=j2)],y=j0)\n",
@@ -511,87 +511,87 @@ var PCTLs =
   	"name":"SC1_1_2",
   	"properties":"const int N; const int j1; const int j0; \nfilter(state,R{\"r_Steps\"}=?[F (y=j1)],y=j0)\n",
   	"arguments":"-const N=50,j1=0:1:15,j0=0:1:15"
-  },  
+  },
   {
   	"name":"VC1_1_2_UseStart",
   	"properties":"const int N; const int j0; \nfilter(state,R{\"r_UseStart\"}=?[C<=N],y=j0)\n",
   	"arguments":"-const N=50,j0=0:1:15"
-  },  
+  },
   {
   	"name":"VC1_1_2_TermsAndConditions",
   	"properties":"const int N; const int j0; \nfilter(state,R{\"r_TermsAndConditions\"}=?[C<=N],y=j0)\n",
   	"arguments":"-const N=50,j0=0:1:15"
-  },  
+  },
   {
   	"name":"VC1_1_2_ATMainView",
   	"properties":"const int N; const int j0; \nfilter(state,R{\"r_ATMainView\"}=?[C<=N],y=j0)\n",
   	"arguments":"-const N=50,j0=0:1:15"
-  },  
+  },
   {
   	"name":"VC1_1_2_ATOverallUsageView",
   	"properties":"const int N; const int j0; \nfilter(state,R{\"r_ATOverallUsageView\"}=?[C<=N],y=j0)\n",
   	"arguments":"-const N=50,j0=0:1:15"
-  },  
+  },
   {
   	"name":"VC1_1_2_ATStackedBarsView",
   	"properties":"const int N; const int j0; \nfilter(state,R{\"r_ATStackedBarsView\"}=?[C<=N],y=j0)\n",
   	"arguments":"-const N=50,j0=0:1:15"
-  },  
+  },
   {
   	"name":"VC1_1_2_ATPeriodSelectorView",
   	"properties":"const int N; const int j0; \nfilter(state,R{\"r_ATPeriodSelectorView\"}=?[C<=N],y=j0)\n",
   	"arguments":"-const N=50,j0=0:1:15"
-  },  
+  },
   {
   	"name":"VC1_1_2_ATAppsInPeriodView",
   	"properties":"const int N; const int j0; \nfilter(state,R{\"r_ATAppsInPeriodView\"}=?[C<=N],y=j0)\n",
   	"arguments":"-const N=50,j0=0:1:15"
-  },  
+  },
   {
   	"name":"VC1_1_2_ATSettingsView",
   	"properties":"const int N; const int j0; \nfilter(state,R{\"r_ATSettingsView\"}=?[C<=N],y=j0)\n",
   	"arguments":"-const N=50,j0=0:1:15"
-  },  
+  },
   {
   	"name":"VC1_1_2_UseStop",
   	"properties":"const int N; const int j0; \nfilter(state,R{\"r_UseStop\"}=?[C<=N],y=j0)\n",
   	"arguments":"-const N=50,j0=0:1:15"
-  },  
+  },
   {
   	"name":"VC1_1_2_ATStatsView",
   	"properties":"const int N; const int j0; \nfilter(state,R{\"r_ATStatsView\"}=?[C<=N],y=j0)\n",
   	"arguments":"-const N=50,j0=0:1:15"
-  },  
+  },
   {
   	"name":"VC1_1_2_ATUsageBarChartATOverallUsageView",
   	"properties":"const int N; const int j0; \nfilter(state,R{\"r_ATUsageBarChartATOverallUsageView\"}=?[C<=N],y=j0)\n",
   	"arguments":"-const N=50,j0=0:1:15"
-  },  
+  },
   {
   	"name":"VC1_1_2_ATFeedbackView",
   	"properties":"const int N; const int j0; \nfilter(state,R{\"r_ATFeedbackView\"}=?[C<=N],y=j0)\n",
   	"arguments":"-const N=50,j0=0:1:15"
-  },  
+  },
   {
   	"name":"VC1_1_2_ATUsageBarChartATStatsView",
   	"properties":"const int N; const int j0; \nfilter(state,R{\"r_ATUsageBarChartATStatsView\"}=?[C<=N],y=j0)\n",
   	"arguments":"-const N=50,j0=0:1:15"
-  },  
+  },
   {
   	"name":"VC1_1_2_ATInfoView",
   	"properties":"const int N; const int j0; \nfilter(state,R{\"r_ATInfoView\"}=?[C<=N],y=j0)\n",
   	"arguments":"-const N=50,j0=0:1:15"
-  },  
+  },
   {
   	"name":"VC1_1_2_ATUsageBarChartATAppsInPeriodView",
   	"properties":"const int N; const int j0; \nfilter(state,R{\"r_ATUsageBarChartATAppsInPeriodView\"}=?[C<=N],y=j0)\n",
   	"arguments":"-const N=50,j0=0:1:15"
-  },  
+  },
   {
   	"name":"VC1_1_2_ATTaskView",
   	"properties":"const int N; const int j0; \nfilter(state,R{\"r_ATTaskView\"}=?[C<=N],y=j0)\n",
   	"arguments":"-const N=50,j0=0:1:15"
-  } 
+  }
 ];
 
 /*
@@ -602,13 +602,13 @@ var PCTLs = [
     properties: 'const N; const j; \nP = ? [F<=N y=j]\n',
     arguments: '-const N=50,j=0:1:15',
   },
-  
+
   {
   	"name": "MAP_State2End",
   	"properties": "const int i; const int j; const double p; \nP>=1[F(x=i & y=j)] & P>=1[G((x=i & y=j) => P>=p[(x=i) U \"UseStop\"])]\n",
   	"arguments": "-const i=1:1:5,j=1:1:17,p=0:0.01:1"
   },
-  
+
   {
   	"name": "MAP_State2Pattern",
   	"properties": "const int i; const int j; const int i1; const double p; \nP>=1[F(x=i & y=j)] & P>=1[F((x=i & y=j) & P>=p[X(!\"UseStop\" & x=i1)])]\n",
@@ -876,7 +876,7 @@ var PCTLs = [
   },
 
 ];
-*/ 
+*/
 
 
 
