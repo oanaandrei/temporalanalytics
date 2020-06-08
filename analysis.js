@@ -154,7 +154,7 @@ angular.module('app')
 
       return new Promise((resolve, reject) => {
         $.post(
-          'http://127.0.0.1/docker.php',
+          'http://127.0.0.1:8080/docker.php',
           {
             task: 'em',
             files: [
@@ -295,7 +295,7 @@ function performARHMM(arhmmParameters, cut) {
     ).join('\n');
 
     $.post(
-      'http://127.0.0.1/docker.php',
+      'http://127.0.0.1:8080/docker.php',
       {
         task: 'arhmm',
         files: [
@@ -347,7 +347,7 @@ function PRISM(pctl, model) {
     var props = pctl.properties; //'const N;\nP = ? [F<=N y=4]\n';
     var args = pctl.arguments; //'-const N=50';
     $.post(
-      'http://127.0.0.1/docker.php',
+      'http://127.0.0.1:8080/docker.php',
       {
         task: 'prism',
         files: [
