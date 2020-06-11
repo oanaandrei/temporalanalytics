@@ -48,7 +48,7 @@ public class inference {
 		// -- Add some pre-processing pipes to pre-processing pipeline
 		ArrayList<Pipe> pipeList = new ArrayList<Pipe>();
 		pipeList.add(new Input2CharSequence("UTF-8"));
-		pipeList.add(new CharSequence2TokenSequence(Pattern.compile("\\p{L}[\\p{L}\\p{P}]+\\p{L}")));
+		pipeList.add(new CharSequence2TokenSequence(Pattern.compile("\\p{Alnum}[\\p{Alnum}\\p{P}]+\\p{Alnum}")));
 		pipeList.add(new TokenSequence2FeatureSequence());
 		
 		// -- Create instance list and add through pre-processing pipeline
