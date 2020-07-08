@@ -1,0 +1,13 @@
+const int i;
+const double p;
+const int N;
+
+// ATStackedBarsView
+label "phi1" = ((y=4) & (x=i));
+// ATPeriodSelectorView
+label "phi2" = ((y=5) & (x=i));
+
+P>=1[F<=N "phi1"] & P>=1[F<=N "phi2"] & P>=1[F((! "phi1" & !"phi2") U P>=1[("phi1" & !"phi2") U P>=p[X "phi2"] ])]
+
+
+//P>=1[F ((y=4) & (x=i))] & P>=1[F ((y=5) & (x=i))] & P>=1[F((! ((y=4) & (x=i)) & !((y=5) & (x=i))) U P>=1[(((y=4) & (x=i)) & !((y=5) & (x=i))) U P>=p[X ((y=5) & (x=i))] ])]

@@ -1,0 +1,66 @@
+const int N;
+const int j0;
+const int j1;
+const int j2; 
+
+// -const N=50,j2=0:1:15,j1=0:1:15,j0=0:1:15
+
+// VisitProb_1
+filter(state,P=?[F<=N (y=j2)],y=j0)
+
+// VisitProb_2
+filter(state,P=?[!(y=j1) U<=N (y=j2)],y=j0)
+
+// VPSession
+filter(state,P=?[(!(y=j1)&!"UseStop") U<=N (y=j2)],y=j0)
+
+// StepCount
+filter(state,R{"r_Steps"}=?[F (y=j1)],y=j0)
+
+// VisitCount_UseStart
+filter(state,R{"r_UseStart"}=?[C<=N],y=j0)
+
+// VisitCount_TermsAndConditions
+filter(state,R{"r_TermsAndConditions"}=?[C<=N],y=j0)
+
+// VisitCount_ATMainView 
+filter(state,R{"r_ATMainView"}=?[C<=N],y=j0)
+
+// VisitCount_ATOverallUsageView 
+filter(state,R{"r_ATOverallUsageView"}=?[C<=N],y=j0)
+
+// VisitCount_ATStackedBarsView 
+filter(state,R{"r_ATStackedBarsView"}=?[C<=N],y=j0)
+
+// VisitCount_ATPeriodSelectorView 
+filter(state,R{"r_ATPeriodSelectorView"}=?[C<=N],y=j0)
+
+// VisitCount_ATAppsInPeriodView 
+filter(state,R{"r_ATAppsInPeriodView"}=?[C<=N],y=j0)
+
+// VisitCount_ATSettingsView 
+filter(state,R{"r_ATSettingsView"}=?[C<=N],y=j0)
+
+// VisitCount_UseStop 
+filter(state,R{"r_UseStop"}=?[C<=N],y=j0)
+
+// VisitCount_ATStatsView 
+filter(state,R{"r_ATStatsView"}=?[C<=N],y=j0)
+
+// VisitCount_ATUsageBarChartATOverallUsageView 
+filter(state,R{"r_ATUsageBarChartATOverallUsageView"}=?[C<=N],y=j0)
+
+// VisitCount_ATFeedbackView 
+filter(state,R{"r_ATFeedbackView"}=?[C<=N],y=j0)
+
+//VisitCount_ATUsageBarChartATStatsView 
+filter(state,R{"r_ATUsageBarChartATStatsView"}=?[C<=N],y=j0)
+
+// VisitCount_ATInfoView 
+filter(state,R{"r_ATInfoView"}=?[C<=N],y=j0)
+
+// VisitCount_ATUsageBarChartATAppsInPeriodView 
+filter(state,R{"r_ATUsageBarChartATAppsInPeriodView"}=?[C<=N],y=j0)
+
+// VisitCount_ATTaskView 
+filter(state,R{"r_ATTaskView"}=?[C<=N],y=j0)

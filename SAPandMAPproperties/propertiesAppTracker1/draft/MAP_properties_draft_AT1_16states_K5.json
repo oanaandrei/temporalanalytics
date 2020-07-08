@@ -1,0 +1,462 @@
+[
+  {
+  	"name":"VP2_1",
+  	"properties":"const N; const i2; const j2; \nP=?[F<=N (x=i2 & y=j2)]\n",
+  	"arguments":"-const N=50,i2=1:1:5,j2=0:1:15"
+  },
+  {
+  	"name":"VP2_2",
+  	"properties":"const N; const i2; const j2; const i0; const j0; \nfilter(state,P=?[F<=N (x=i2 & y=j2)],x=i0 & y=j0)\n",
+  	"arguments":"-const N=50,i2=1:1:5,j2=0:1:15,i0=0:1:5,j0=0:1:15"
+  },
+  {
+  	"name":"VP2_3",
+  	"properties":"const N; const i1; const j1; const i2; const j2; const i0; const j0; \nfilter(state,P=?[!(x=i1 & y=j1) U<=N (x=i2 & y=j2)],x=i0 & y=j0)\n",
+  	"arguments":"-const N=50,i1=1:1:5,j1=0:1:15,i2=1:1:5,j2=0:1:15,i0=0:1:5,j0=0:1:15"
+  },  
+  {
+  	"name":"VP2_4",
+  	"properties":"const N; const i1; const i2; const j2; const i0; const j0; \nfilter(state,P=?[!(x=i1) U<=N (x=i2 & y=j2)],x=i0 & y=j0)\n",
+  	"arguments":"-const N=50,i1=1:1:5,i2=1:1:5,j2=0:1:15,i0=0:1:5,j0=0:1:15"
+  },  
+  {
+  	"name":"VP2_5",
+  	"properties":"const N; const i2; const j2; const i0; const j0; \nfilter(state,P=?[!\"UseStop\" U<=N (x=i2 & y=j2)],x=i0 & y=j0)\n",
+  	"arguments":"-const N=50,i2=1:1:5,j2=0:1:15,i0=0:1:5,j0=0:1:15"
+  }, 
+  {
+  	"name":"SC2_1",
+  	"properties":"const N; const i1; const j1; const i0; const j0; \nfilter(state,R{\"r_Steps\"}=?[F (x=i1 & y=j1)],x=i0 & y=j0)\n",
+  	"arguments":"-const N=50,i1=1:1:5,j1=0:1:15,i0=0:1:5,j0=0:1:15"
+  }, 
+  {
+  	"name":"SC2_2_AP1",
+  	"properties":"const N; const i1; const j1; const i0; const j0; \nfilter(state,R{\"r_Steps_AP1\"}=?[F (x=i1 & y=j1)],x=i0 & y=j0)\n",
+  	"arguments":"-const N=50,i1=1:1:5,j1=0:1:15,i0=0:1:5,j0=0:1:15"
+  }, 
+  {
+  	"name":"SC2_2_AP2",
+  	"properties":"const N; const i1; const j1; const i0; const j0; \nfilter(state,R{\"r_Steps_AP2\"}=?[F (x=i1 & y=j1)],x=i0 & y=j0)\n",
+  	"arguments":"-const N=50,i1=1:1:5,j1=0:1:15,i0=0:1:5,j0=0:1:15"
+  },      
+  {
+  	"name":"SC2_2_AP3",
+  	"properties":"const N; const i1; const j1; const i0; const j0; \nfilter(state,R{\"r_Steps_AP3\"}=?[F (x=i1 & y=j1)],x=i0 & y=j0)\n",
+  	"arguments":"-const N=50,i1=1:1:5,j1=0:1:15,i0=0:1:5,j0=0:1:15"
+  },    
+  {
+  	"name":"SC2_2_AP4",
+  	"properties":"const N; const i1; const j1; const i0; const j0; \nfilter(state,R{\"r_Steps_AP4\"}=?[F (x=i1 & y=j1)],x=i0 & y=j0)\n",
+  	"arguments":"-const N=50,i1=1:1:5,j1=0:1:15,i0=0:1:5,j0=0:1:15"
+  },    
+  {
+  	"name":"SC2_2_AP5",
+  	"properties":"const N; const i1; const j1; const i0; const j0; \nfilter(state,R{\"r_Steps_AP5\"}=?[F (x=i1 & y=j1)],x=i0 & y=j0)\n",
+  	"arguments":"-const N=50,i1=1:1:5,j1=0:1:15,i0=0:1:5,j0=0:1:15"
+  },    
+  {
+  	"name":"VC2_1_2_UseStart_AP1",
+  	"properties":"const N; const i0; const j0; \nfilter(state,R{\"r_UseStart_AP1\"}=?[C<=N],x=i0 & y=j0)\n",
+  	"arguments":"-const N=50,i0=0:1:5,j0=0:1:15"
+  },  
+  {
+  	"name":"VC2_1_2_UseStart_AP2",
+  	"properties":"const N; const i0; const j0; \nfilter(state,R{\"r_UseStart_AP2\"}=?[C<=N],x=i0 & y=j0)\n",
+  	"arguments":"-const N=50,i0=0:1:5,j0=0:1:15"
+  },  
+  {
+  	"name":"VC2_1_2_UseStart_AP3",
+  	"properties":"const N; const i0; const j0; \nfilter(state,R{\"r_UseStart_AP3\"}=?[C<=N],x=i0 & y=j0)\n",
+  	"arguments":"-const N=50,i0=0:1:5,j0=0:1:15"
+  },  
+  {
+  	"name":"VC2_1_2_UseStart_AP4",
+  	"properties":"const N; const i0; const j0; \nfilter(state,R{\"r_UseStart_AP4\"}=?[C<=N],x=i0 & y=j0)\n",
+  	"arguments":"-const N=50,i0=0:1:5,j0=0:1:15"
+  },  
+  {
+  	"name":"VC2_1_2_UseStart_AP5",
+  	"properties":"const N; const i0; const j0; \nfilter(state,R{\"r_UseStart_AP5\"}=?[C<=N],x=i0 & y=j0)\n",
+  	"arguments":"-const N=50,i0=0:1:5,j0=0:1:15"
+  },  
+  {
+  	"name":"VC2_1_2_TermsAndConditions_AP1",
+  	"properties":"const N; const i0; const j0; \nfilter(state,R{\"r_TermsAndConditions_AP1\"}=?[C<=N],x=i0 & y=j0)\n",
+  	"arguments":"-const N=50,i0=0:1:5,j0=0:1:15"
+  },  
+  {
+  	"name":"VC2_1_2_TermsAndConditions_AP2",
+  	"properties":"const N; const i0; const j0; \nfilter(state,R{\"r_TermsAndConditions_AP2\"}=?[C<=N],x=i0 & y=j0)\n",
+  	"arguments":"-const N=50,i0=0:1:5,j0=0:1:15"
+  },  
+  {
+  	"name":"VC2_1_2_TermsAndConditions_AP3",
+  	"properties":"const N; const i0; const j0; \nfilter(state,R{\"r_TermsAndConditions_AP3\"}=?[C<=N],x=i0 & y=j0)\n",
+  	"arguments":"-const N=50,i0=0:1:5,j0=0:1:15"
+  },  
+  {
+  	"name":"VC2_1_2_TermsAndConditions_AP4",
+  	"properties":"const N; const i0; const j0; \nfilter(state,R{\"r_TermsAndConditions_AP4\"}=?[C<=N],x=i0 & y=j0)\n",
+  	"arguments":"-const N=50,i0=0:1:5,j0=0:1:15"
+  },  
+  {
+  	"name":"VC2_1_2_TermsAndConditions_AP5",
+  	"properties":"const N; const i0; const j0; \nfilter(state,R{\"r_TermsAndConditions_AP5\"}=?[C<=N],x=i0 & y=j0)\n",
+  	"arguments":"-const N=50,i0=0:1:5,j0=0:1:15"
+  },  
+  {
+  	"name":"VC2_1_2_ATMainView_AP1",
+  	"properties":"const N; const i0; const j0; \nfilter(state,R{\"r_ATMainView_AP1\"}=?[C<=N],x=i0 & y=j0)\n",
+  	"arguments":"-const N=50,i0=0:1:5,j0=0:1:15"
+  },  
+  {
+  	"name":"VC2_1_2_ATMainView_AP2",
+  	"properties":"const N; const i0; const j0; \nfilter(state,R{\"r_ATMainView_AP2\"}=?[C<=N],x=i0 & y=j0)\n",
+  	"arguments":"-const N=50,i0=0:1:5,j0=0:1:15"
+  },  
+  {
+  	"name":"VC2_1_2_ATMainView_AP3",
+  	"properties":"const N; const i0; const j0; \nfilter(state,R{\"r_ATMainView_AP3\"}=?[C<=N],x=i0 & y=j0)\n",
+  	"arguments":"-const N=50,i0=0:1:5,j0=0:1:15"
+  },  
+  {
+  	"name":"VC2_1_2_ATMainView_AP4",
+  	"properties":"const N; const i0; const j0; \nfilter(state,R{\"r_ATMainView_AP4\"}=?[C<=N],x=i0 & y=j0)\n",
+  	"arguments":"-const N=50,i0=0:1:5,j0=0:1:15"
+  },  
+  {
+  	"name":"VC2_1_2_ATMainView_AP5",
+  	"properties":"const N; const i0; const j0; \nfilter(state,R{\"r_ATMainView_AP5\"}=?[C<=N],x=i0 & y=j0)\n",
+  	"arguments":"-const N=50,i0=0:1:5,j0=0:1:15"
+  },  
+  {
+  	"name":"VC2_1_2_ATOverallUsageView_AP1",
+  	"properties":"const N; const i0; const j0; \nfilter(state,R{\"r_ATOverallUsageView_AP1\"}=?[C<=N],x=i0 & y=j0)\n",
+  	"arguments":"-const N=50,i0=0:1:5,j0=0:1:15"
+  },  
+  {
+  	"name":"VC2_1_2_ATOverallUsageView_AP2",
+  	"properties":"const N; const i0; const j0; \nfilter(state,R{\"r_ATOverallUsageView_AP2\"}=?[C<=N],x=i0 & y=j0)\n",
+  	"arguments":"-const N=50,i0=0:1:5,j0=0:1:15"
+  },  
+  {
+  	"name":"VC2_1_2_ATOverallUsageView_AP3",
+  	"properties":"const N; const i0; const j0; \nfilter(state,R{\"r_ATOverallUsageView_AP3\"}=?[C<=N],x=i0 & y=j0)\n",
+  	"arguments":"-const N=50,i0=0:1:5,j0=0:1:15"
+  },  
+  {
+  	"name":"VC2_1_2_ATOverallUsageView_AP4",
+  	"properties":"const N; const i0; const j0; \nfilter(state,R{\"r_ATOverallUsageView_AP4\"}=?[C<=N],x=i0 & y=j0)\n",
+  	"arguments":"-const N=50,i0=0:1:5,j0=0:1:15"
+  },  
+  {
+  	"name":"VC2_1_2_ATOverallUsageView_AP5",
+  	"properties":"const N; const i0; const j0; \nfilter(state,R{\"r_ATOverallUsageView_AP5\"}=?[C<=N],x=i0 & y=j0)\n",
+  	"arguments":"-const N=50,i0=0:1:5,j0=0:1:15"
+  },  
+  {
+  	"name":"VC2_1_2_ATStackedBarsView_AP1",
+  	"properties":"const N; const i0; const j0; \nfilter(state,R{\"r_ATStackedBarsView_AP1\"}=?[C<=N],x=i0 & y=j0)\n",
+  	"arguments":"-const N=50,i0=0:1:5,j0=0:1:15"
+  },  
+  {
+  	"name":"VC2_1_2_ATStackedBarsView_AP2",
+  	"properties":"const N; const i0; const j0; \nfilter(state,R{\"r_ATStackedBarsView_AP2\"}=?[C<=N],x=i0 & y=j0)\n",
+  	"arguments":"-const N=50,i0=0:1:5,j0=0:1:15"
+  },  
+  {
+  	"name":"VC2_1_2_ATStackedBarsView_AP3",
+  	"properties":"const N; const i0; const j0; \nfilter(state,R{\"r_ATStackedBarsView_AP3\"}=?[C<=N],x=i0 & y=j0)\n",
+  	"arguments":"-const N=50,i0=0:1:5,j0=0:1:15"
+  },  
+  {
+  	"name":"VC2_1_2_ATStackedBarsView_AP4",
+  	"properties":"const N; const i0; const j0; \nfilter(state,R{\"r_ATStackedBarsView_AP4\"}=?[C<=N],x=i0 & y=j0)\n",
+  	"arguments":"-const N=50,i0=0:1:5,j0=0:1:15"
+  },  
+  {
+  	"name":"VC2_1_2_ATStackedBarsView_AP5",
+  	"properties":"const N; const i0; const j0; \nfilter(state,R{\"r_ATStackedBarsView_AP5\"}=?[C<=N],x=i0 & y=j0)\n",
+  	"arguments":"-const N=50,i0=0:1:5,j0=0:1:15"
+  },  
+  {
+  	"name":"VC2_1_2_ATPeriodSelectorView_AP1",
+  	"properties":"const N; const i0; const j0; \nfilter(state,R{\"r_ATPeriodSelectorView_AP1\"}=?[C<=N],x=i0 & y=j0)\n",
+  	"arguments":"-const N=50,i0=0:1:5,j0=0:1:15"
+  },  
+  {
+  	"name":"VC2_1_2_ATPeriodSelectorView_AP2",
+  	"properties":"const N; const i0; const j0; \nfilter(state,R{\"r_ATPeriodSelectorView_AP2\"}=?[C<=N],x=i0 & y=j0)\n",
+  	"arguments":"-const N=50,i0=0:1:5,j0=0:1:15"
+  },  
+  {
+  	"name":"VC2_1_2_ATPeriodSelectorView_AP3",
+  	"properties":"const N; const i0; const j0; \nfilter(state,R{\"r_ATPeriodSelectorView_AP3\"}=?[C<=N],x=i0 & y=j0)\n",
+  	"arguments":"-const N=50,i0=0:1:5,j0=0:1:15"
+  },  
+  {
+  	"name":"VC2_1_2_ATPeriodSelectorView_AP4",
+  	"properties":"const N; const i0; const j0; \nfilter(state,R{\"r_ATPeriodSelectorView_AP4\"}=?[C<=N],x=i0 & y=j0)\n",
+  	"arguments":"-const N=50,i0=0:1:5,j0=0:1:15"
+  },  
+  {
+  	"name":"VC2_1_2_ATPeriodSelectorView_AP5",
+  	"properties":"const N; const i0; const j0; \nfilter(state,R{\"r_ATPeriodSelectorView_AP5\"}=?[C<=N],x=i0 & y=j0)\n",
+  	"arguments":"-const N=50,i0=0:1:5,j0=0:1:15"
+  },  
+  {
+  	"name":"VC2_1_2_ATAppsInPeriodView_AP1",
+  	"properties":"const N; const i0; const j0; \nfilter(state,R{\"r_ATAppsInPeriodView_AP2\"}=?[C<=N],x=i0 & y=j0)\n",
+  	"arguments":"-const N=50,i0=0:1:5,j0=0:1:15"
+  },  
+  {
+  	"name":"VC2_1_2_ATAppsInPeriodView_AP2",
+  	"properties":"const N; const i0; const j0; \nfilter(state,R{\"r_ATAppsInPeriodView_AP2\"}=?[C<=N],x=i0 & y=j0)\n",
+  	"arguments":"-const N=50,i0=0:1:5,j0=0:1:15"
+  },  
+  {
+  	"name":"VC2_1_2_ATAppsInPeriodView_AP3",
+  	"properties":"const N; const i0; const j0; \nfilter(state,R{\"r_ATAppsInPeriodView_AP3\"}=?[C<=N],x=i0 & y=j0)\n",
+  	"arguments":"-const N=50,i0=0:1:5,j0=0:1:15"
+  },  
+  {
+  	"name":"VC2_1_2_ATAppsInPeriodView_AP4",
+  	"properties":"const N; const i0; const j0; \nfilter(state,R{\"r_ATAppsInPeriodView_AP4\"}=?[C<=N],x=i0 & y=j0)\n",
+  	"arguments":"-const N=50,i0=0:1:5,j0=0:1:15"
+  },  
+  {
+  	"name":"VC2_1_2_ATAppsInPeriodView_AP5",
+  	"properties":"const N; const i0; const j0; \nfilter(state,R{\"r_ATAppsInPeriodView_AP5\"}=?[C<=N],x=i0 & y=j0)\n",
+  	"arguments":"-const N=50,i0=0:1:5,j0=0:1:15"
+  },  
+  {
+  	"name":"VC2_1_2_ATSettingsView_AP1",
+  	"properties":"const N; const i0; const j0; \nfilter(state,R{\"r_ATSettingsView_AP1\"}=?[C<=N],x=i0 & y=j0)\n",
+  	"arguments":"-const N=50,i0=0:1:5,j0=0:1:15"
+  },  
+  {
+  	"name":"VC2_1_2_ATSettingsView_AP2",
+  	"properties":"const N; const i0; const j0; \nfilter(state,R{\"r_ATSettingsView_AP2\"}=?[C<=N],x=i0 & y=j0)\n",
+  	"arguments":"-const N=50,i0=0:1:5,j0=0:1:15"
+  },  
+  {
+  	"name":"VC2_1_2_ATSettingsView_AP3",
+  	"properties":"const N; const i0; const j0; \nfilter(state,R{\"r_ATSettingsView_AP3\"}=?[C<=N],x=i0 & y=j0)\n",
+  	"arguments":"-const N=50,i0=0:1:5,j0=0:1:15"
+  },  
+  {
+  	"name":"VC2_1_2_ATSettingsView_AP4",
+  	"properties":"const N; const i0; const j0; \nfilter(state,R{\"r_ATSettingsView_AP4\"}=?[C<=N],x=i0 & y=j0)\n",
+  	"arguments":"-const N=50,i0=0:1:5,j0=0:1:15"
+  },  
+  {
+  	"name":"VC2_1_2_ATSettingsView_AP5",
+  	"properties":"const N; const i0; const j0; \nfilter(state,R{\"r_ATSettingsView_AP5\"}=?[C<=N],x=i0 & y=j0)\n",
+  	"arguments":"-const N=50,i0=0:1:5,j0=0:1:15"
+  },  
+  {
+  	"name":"VC2_1_2_UseStop_AP1",
+  	"properties":"const N; const i0; const j0; \nfilter(state,R{\"r_UseStop_AP1\"}=?[C<=N],x=i0 & y=j0)\n",
+  	"arguments":"-const N=50,i0=0:1:5,j0=0:1:15"
+  },  
+  {
+  	"name":"VC2_1_2_UseStop_AP2",
+  	"properties":"const N; const i0; const j0; \nfilter(state,R{\"r_UseStop_AP2\"}=?[C<=N],x=i0 & y=j0)\n",
+  	"arguments":"-const N=50,i0=0:1:5,j0=0:1:15"
+  },  
+  {
+  	"name":"VC2_1_2_UseStop_AP3",
+  	"properties":"const N; const i0; const j0; \nfilter(state,R{\"r_UseStop_AP3\"}=?[C<=N],x=i0 & y=j0)\n",
+  	"arguments":"-const N=50,i0=0:1:5,j0=0:1:15"
+  },  
+  {
+  	"name":"VC2_1_2_UseStop_AP4",
+  	"properties":"const N; const i0; const j0; \nfilter(state,R{\"r_UseStop_AP4\"}=?[C<=N],x=i0 & y=j0)\n",
+  	"arguments":"-const N=50,i0=0:1:5,j0=0:1:15"
+  },  
+  {
+  	"name":"VC2_1_2_UseStop_AP5",
+  	"properties":"const N; const i0; const j0; \nfilter(state,R{\"r_UseStop_AP5\"}=?[C<=N],x=i0 & y=j0)\n",
+  	"arguments":"-const N=50,i0=0:1:5,j0=0:1:15"
+  },  
+  {
+  	"name":"VC2_1_2_ATStatsView_AP1",
+  	"properties":"const N; const i0; const j0; \nfilter(state,R{\"r_ATStatsView_AP1\"}=?[C<=N],x=i0 & y=j0)\n",
+  	"arguments":"-const N=50,i0=0:1:5,j0=0:1:15"
+  },  
+  {
+  	"name":"VC2_1_2_ATStatsView_AP2",
+  	"properties":"const N; const i0; const j0; \nfilter(state,R{\"r_ATStatsView_AP2\"}=?[C<=N],x=i0 & y=j0)\n",
+  	"arguments":"-const N=50,i0=0:1:5,j0=0:1:15"
+  },  
+  {
+  	"name":"VC2_1_2_ATStatsView_AP3",
+  	"properties":"const N; const i0; const j0; \nfilter(state,R{\"r_ATStatsView_AP3\"}=?[C<=N],x=i0 & y=j0)\n",
+  	"arguments":"-const N=50,i0=0:1:5,j0=0:1:15"
+  },  
+  {
+  	"name":"VC2_1_2_ATStatsView_AP4",
+  	"properties":"const N; const i0; const j0; \nfilter(state,R{\"r_ATStatsView_AP4\"}=?[C<=N],x=i0 & y=j0)\n",
+  	"arguments":"-const N=50,i0=0:1:5,j0=0:1:15"
+  },  
+  {
+  	"name":"VC2_1_2_ATStatsView_AP5",
+  	"properties":"const N; const i0; const j0; \nfilter(state,R{\"r_ATStatsView_AP5\"}=?[C<=N],x=i0 & y=j0)\n",
+  	"arguments":"-const N=50,i0=0:1:5,j0=0:1:15"
+  },  
+  {
+  	"name":"VC2_1_2_ATUsageBarChartATOverallUsageView_AP1",
+  	"properties":"const N; const i0; const j0; \nfilter(state,R{\"r_ATUsageBarChartATOverallUsageView_AP1\"}=?[C<=N],x=i0 & y=j0)\n",
+  	"arguments":"-const N=50,i0=0:1:5,j0=0:1:15"
+  },  
+  {
+  	"name":"VC2_1_2_ATUsageBarChartATOverallUsageView_AP2",
+  	"properties":"const N; const i0; const j0; \nfilter(state,R{\"r_ATUsageBarChartATOverallUsageView_AP2\"}=?[C<=N],x=i0 & y=j0)\n",
+  	"arguments":"-const N=50,i0=0:1:5,j0=0:1:15"
+  },  
+  {
+  	"name":"VC2_1_2_ATUsageBarChartATOverallUsageView_AP3",
+  	"properties":"const N; const i0; const j0; \nfilter(state,R{\"r_ATUsageBarChartATOverallUsageView_AP3\"}=?[C<=N],x=i0 & y=j0)\n",
+  	"arguments":"-const N=50,i0=0:1:5,j0=0:1:15"
+  },  
+  {
+  	"name":"VC2_1_2_ATUsageBarChartATOverallUsageView_AP4",
+  	"properties":"const N; const i0; const j0; \nfilter(state,R{\"r_ATUsageBarChartATOverallUsageView_AP4\"}=?[C<=N],x=i0 & y=j0)\n",
+  	"arguments":"-const N=50,i0=0:1:5,j0=0:1:15"
+  },  
+  {
+  	"name":"VC2_1_2_ATUsageBarChartATOverallUsageView_AP5",
+  	"properties":"const N; const i0; const j0; \nfilter(state,R{\"r_ATUsageBarChartATOverallUsageView_AP5\"}=?[C<=N],x=i0 & y=j0)\n",
+  	"arguments":"-const N=50,i0=0:1:5,j0=0:1:15"
+  },  
+  {
+  	"name":"VC2_1_2_ATFeedbackView_AP1",
+  	"properties":"const N; const i0; const j0; \nfilter(state,R{\"r_ATFeedbackView_AP1\"}=?[C<=N],x=i0 & y=j0)\n",
+  	"arguments":"-const N=50,i0=0:1:5,j0=0:1:15"
+  },  
+  {
+  	"name":"VC2_1_2_ATFeedbackView_AP2",
+  	"properties":"const N; const i0; const j0; \nfilter(state,R{\"r_ATFeedbackView_AP2\"}=?[C<=N],x=i0 & y=j0)\n",
+  	"arguments":"-const N=50,i0=0:1:5,j0=0:1:15"
+  },  
+  {
+  	"name":"VC2_1_2_ATFeedbackView_AP3",
+  	"properties":"const N; const i0; const j0; \nfilter(state,R{\"r_ATFeedbackView_AP3\"}=?[C<=N],x=i0 & y=j0)\n",
+  	"arguments":"-const N=50,i0=0:1:5,j0=0:1:15"
+  },  
+  {
+  	"name":"VC2_1_2_ATFeedbackView_AP4",
+  	"properties":"const N; const i0; const j0; \nfilter(state,R{\"r_ATFeedbackView_AP4\"}=?[C<=N],x=i0 & y=j0)\n",
+  	"arguments":"-const N=50,i0=0:1:5,j0=0:1:15"
+  },  
+  {
+  	"name":"VC2_1_2_ATFeedbackView_AP5",
+  	"properties":"const N; const i0; const j0; \nfilter(state,R{\"r_ATFeedbackView_AP5\"}=?[C<=N],x=i0 & y=j0)\n",
+  	"arguments":"-const N=50,i0=0:1:5,j0=0:1:15"
+  },  
+  {
+  	"name":"VC2_1_2_ATUsageBarChartATStatsView_AP1",
+  	"properties":"const N; const i0; const j0; \nfilter(state,R{\"r_ATUsageBarChartATStatsView_AP1\"}=?[C<=N],x=i0 & y=j0)\n",
+  	"arguments":"-const N=50,i0=0:1:5,j0=0:1:15"
+  },  
+  {
+  	"name":"VC2_1_2_ATUsageBarChartATStatsView_AP2",
+  	"properties":"const N; const i0; const j0; \nfilter(state,R{\"r_ATUsageBarChartATStatsView_AP2\"}=?[C<=N],x=i0 & y=j0)\n",
+  	"arguments":"-const N=50,i0=0:1:5,j0=0:1:15"
+  },  
+  {
+  	"name":"VC2_1_2_ATUsageBarChartATStatsView_AP3",
+  	"properties":"const N; const i0; const j0; \nfilter(state,R{\"r_ATUsageBarChartATStatsView_AP3\"}=?[C<=N],x=i0 & y=j0)\n",
+  	"arguments":"-const N=50,i0=0:1:5,j0=0:1:15"
+  },  
+  {
+  	"name":"VC2_1_2_ATUsageBarChartATStatsView_AP4",
+  	"properties":"const N; const i0; const j0; \nfilter(state,R{\"r_ATUsageBarChartATStatsView_AP4\"}=?[C<=N],x=i0 & y=j0)\n",
+  	"arguments":"-const N=50,i0=0:1:5,j0=0:1:15"
+  },  
+  {
+  	"name":"VC2_1_2_ATUsageBarChartATStatsView_AP5",
+  	"properties":"const N; const i0; const j0; \nfilter(state,R{\"r_ATUsageBarChartATStatsView_AP5\"}=?[C<=N],x=i0 & y=j0)\n",
+  	"arguments":"-const N=50,i0=0:1:5,j0=0:1:15"
+  },  
+  {
+  	"name":"VC2_1_2_ATInfoView_AP1",
+  	"properties":"const N; const i0; const j0; \nfilter(state,R{\"r_ATInfoView_AP1\"}=?[C<=N],x=i0 & y=j0)\n",
+  	"arguments":"-const N=50,i0=0:1:5,j0=0:1:15"
+  },  
+  {
+  	"name":"VC2_1_2_ATInfoView_AP2",
+  	"properties":"const N; const i0; const j0; \nfilter(state,R{\"r_ATInfoView_AP2\"}=?[C<=N],x=i0 & y=j0)\n",
+  	"arguments":"-const N=50,i0=0:1:5,j0=0:1:15"
+  },  
+  {
+  	"name":"VC2_1_2_ATInfoView_AP3",
+  	"properties":"const N; const i0; const j0; \nfilter(state,R{\"r_ATInfoView_AP3\"}=?[C<=N],x=i0 & y=j0)\n",
+  	"arguments":"-const N=50,i0=0:1:5,j0=0:1:15"
+  },  
+  {
+  	"name":"VC2_1_2_ATInfoView_AP4",
+  	"properties":"const N; const i0; const j0; \nfilter(state,R{\"r_ATInfoView_AP4\"}=?[C<=N],x=i0 & y=j0)\n",
+  	"arguments":"-const N=50,i0=0:1:5,j0=0:1:15"
+  },  
+  {
+  	"name":"VC2_1_2_ATInfoView_AP5",
+  	"properties":"const N; const i0; const j0; \nfilter(state,R{\"r_ATInfoView_AP5\"}=?[C<=N],x=i0 & y=j0)\n",
+  	"arguments":"-const N=50,i0=0:1:5,j0=0:1:15"
+  },  
+  {
+  	"name":"VC2_1_2_ATUsageBarChartATAppsInPeriodView_AP1",
+  	"properties":"const N; const i0; const j0; \nfilter(state,R{\"r_ATUsageBarChartATAppsInPeriodView_AP1\"}=?[C<=N],x=i0 & y=j0)\n",
+  	"arguments":"-const N=50,i0=0:1:5,j0=0:1:15"
+  },  
+  {
+  	"name":"VC2_1_2_ATUsageBarChartATAppsInPeriodView_AP2",
+  	"properties":"const N; const i0; const j0; \nfilter(state,R{\"r_ATUsageBarChartATAppsInPeriodView_AP2\"}=?[C<=N],x=i0 & y=j0)\n",
+  	"arguments":"-const N=50,i0=0:1:5,j0=0:1:15"
+  },  
+  {
+  	"name":"VC2_1_2_ATUsageBarChartATAppsInPeriodView_AP3",
+  	"properties":"const N; const i0; const j0; \nfilter(state,R{\"r_ATUsageBarChartATAppsInPeriodView_AP3\"}=?[C<=N],x=i0 & y=j0)\n",
+  	"arguments":"-const N=50,i0=0:1:5,j0=0:1:15"
+  },  
+  {
+  	"name":"VC2_1_2_ATUsageBarChartATAppsInPeriodView_AP4",
+  	"properties":"const N; const i0; const j0; \nfilter(state,R{\"r_ATUsageBarChartATAppsInPeriodView_AP4\"}=?[C<=N],x=i0 & y=j0)\n",
+  	"arguments":"-const N=50,i0=0:1:5,j0=0:1:15"
+  },  
+  {
+  	"name":"VC2_1_2_ATUsageBarChartATAppsInPeriodView_AP5",
+  	"properties":"const N; const i0; const j0; \nfilter(state,R{\"r_ATUsageBarChartATAppsInPeriodView_AP5\"}=?[C<=N],x=i0 & y=j0)\n",
+  	"arguments":"-const N=50,i0=0:1:5,j0=0:1:15"
+  },  
+  {
+  	"name":"VC2_1_2_ATTaskView_AP1",
+  	"properties":"const N; const i0; const j0; \nfilter(state,R{\"r_ATTaskView_AP1\"}=?[C<=N],x=i0 & y=j0)\n",
+  	"arguments":"-const N=50,i0=0:1:5,j0=0:1:15"
+  }, 
+  {
+  	"name":"VC2_1_2_ATTaskView_AP2",
+  	"properties":"const N; const i0; const j0; \nfilter(state,R{\"r_ATTaskView_AP2\"}=?[C<=N],x=i0 & y=j0)\n",
+  	"arguments":"-const N=50,i0=0:1:5,j0=0:1:15"
+  },
+  {
+  	"name":"VC2_1_2_ATTaskView_AP3",
+  	"properties":"const N; const i0; const j0; \nfilter(state,R{\"r_ATTaskView_AP3\"}=?[C<=N],x=i0 & y=j0)\n",
+  	"arguments":"-const N=50,i0=0:1:5,j0=0:1:15"
+  },    
+  {
+  	"name":"VC2_1_2_ATTaskView_AP4",
+  	"properties":"const N; const i0; const j0; \nfilter(state,R{\"r_ATTaskView_AP4\"}=?[C<=N],x=i0 & y=j0)\n",
+  	"arguments":"-const N=50,i0=0:1:5,j0=0:1:15"
+  },
+  {
+  	"name":"VC2_1_2_ATTaskView_AP5",
+  	"properties":"const N; const i0; const j0; \nfilter(state,R{\"r_ATTaskView_AP5\"}=?[C<=N],x=i0 & y=j0)\n",
+  	"arguments":"-const N=50,i0=0:1:5,j0=0:1:15"
+  },
+  {
+  	"name":"PG3_SteadyState",
+  	"properties":"const i; \nS=?[x=i]\n",
+  	"arguments":"-const i=1:1:5"
+  }  
+]

@@ -1,0 +1,186 @@
+const int N;
+const int i;
+const int i0;
+const int i1; 
+const int i2;
+const int j0;
+const int j1; 
+const int j2;
+
+// -const N=50,i=1:1:3,i0=0:1:3,i1=0:1:3,i2=0:1:3,j2=0:1:15,j1=0:1:15,j0=0:1:15
+
+// LongRunPattern
+S=?[x=i]
+
+// VPinit
+P=?[F<=N (x=i2 & y=j2)]
+
+// VisitProb
+filter(state,P=?[F<=N (x=i2 & y=j2)],x=i0 & y=j0)
+
+//VisitProb_1
+filter(state,P=?[!(x=i1 & y=j1) U<=N (x=i2 & y=j2)],x=i0 & y=j0)
+  	
+// VisitProb_2
+filter(state,P=?[!(x=i1) U<=N (x=i2 & y=j2)],x=i0 & y=j0)
+
+// VPSession
+filter(state,P=?[!"UseStop" U<=N (x=i2 & y=j2)],x=i0 & y=j0)
+
+// StepCount
+filter(state,R{"r_Steps"}=?[F (x=i1 & y=j1)],x=i0 & y=j0)
+
+// StepCount_AP1
+filter(state,R{"r_Steps_AP1"}=?[F (x=i1 & y=j1)],x=i0 & y=j0)
+
+// StepCount_AP2
+filter(state,R{"r_Steps_AP2"}=?[F (x=i1 & y=j1)],x=i0 & y=j0)
+
+// StepCount_AP3
+filter(state,R{"r_Steps_AP3"}=?[F (x=i1 & y=j1)],x=i0 & y=j0)
+
+// VisitCount_UseStart_AP1
+filter(state,R{"r_UseStart_AP1"}=?[C<=N],x=i0 & y=j0)
+
+// VisitCount_UseStart_AP2
+filter(state,R{"r_UseStart_AP2"}=?[C<=N],x=i0 & y=j0)
+
+// VisitCount_UseStart_AP3
+filter(state,R{"r_UseStart_AP3"}=?[C<=N],x=i0 & y=j0)
+
+// VisitCount_TermsAndConditions_AP1
+filter(state,R{"r_TermsAndConditions_AP1"}=?[C<=N],x=i0 & y=j0)
+
+// VisitCount_TermsAndConditions_AP2
+filter(state,R{"r_TermsAndConditions_AP2"}=?[C<=N],x=i0 & y=j0)
+
+// VisitCount_TermsAndConditions_AP3
+filter(state,R{"r_TermsAndConditions_AP3"}=?[C<=N],x=i0 & y=j0)
+ 
+// VisitCount_ATMainView_AP1
+filter(state,R{"r_ATMainView_AP1"}=?[C<=N],x=i0 & y=j0)
+ 
+// VisitCount_ATMainView_AP2
+filter(state,R{"r_ATMainView_AP2"}=?[C<=N],x=i0 & y=j0)
+
+// VisitCount_ATMainView_AP3
+filter(state,R{"r_ATMainView_AP3"}=?[C<=N],x=i0 & y=j0)
+
+// VisitCount_ATOverallUsageView_AP1
+filter(state,R{"r_ATOverallUsageView_AP1"}=?[C<=N],x=i0 & y=j0)
+
+// VisitCount_ATOverallUsageView_AP2
+filter(state,R{"r_ATOverallUsageView_AP2"}=?[C<=N],x=i0 & y=j0)
+
+// VisitCount_ATOverallUsageView_AP3
+filter(state,R{"r_ATOverallUsageView_AP3"}=?[C<=N],x=i0 & y=j0)
+ 
+// VisitCount_ATStackedBarsView_AP1
+filter(state,R{"r_ATStackedBarsView_AP1"}=?[C<=N],x=i0 & y=j0)
+
+// VisitCount_ATStackedBarsView_AP2
+filter(state,R{"r_ATStackedBarsView_AP2"}=?[C<=N],x=i0 & y=j0)
+
+// VisitCount_ATStackedBarsView_AP3
+filter(state,R{"r_ATStackedBarsView_AP3"}=?[C<=N],x=i0 & y=j0)
+
+// VisitCount_ATPeriodSelectorView_AP1
+filter(state,R{"r_ATPeriodSelectorView_AP1"}=?[C<=N],x=i0 & y=j0)
+
+// VisitCount_ATPeriodSelectorView_AP2
+filter(state,R{"r_ATPeriodSelectorView_AP2"}=?[C<=N],x=i0 & y=j0)
+
+// VisitCount_ATPeriodSelectorView_AP3
+filter(state,R{"r_ATPeriodSelectorView_AP3"}=?[C<=N],x=i0 & y=j0)
+
+// VisitCount_ATAppsInPeriodView_AP1
+filter(state,R{"r_ATAppsInPeriodView_AP2"}=?[C<=N],x=i0 & y=j0)
+
+// VisitCount_ATAppsInPeriodView_AP2
+filter(state,R{"r_ATAppsInPeriodView_AP2"}=?[C<=N],x=i0 & y=j0)
+
+// VisitCount_ATAppsInPeriodView_AP3
+filter(state,R{"r_ATAppsInPeriodView_AP3"}=?[C<=N],x=i0 & y=j0)
+
+// VisitCount_ATSettingsView_AP1
+filter(state,R{"r_ATSettingsView_AP1"}=?[C<=N],x=i0 & y=j0)
+ 
+// VisitCount_ATSettingsView_AP2
+filter(state,R{"r_ATSettingsView_AP2"}=?[C<=N],x=i0 & y=j0)
+
+// VisitCount_ATSettingsView_AP3
+filter(state,R{"r_ATSettingsView_AP3"}=?[C<=N],x=i0 & y=j0)
+ 
+// VisitCount_UseStop_AP1
+filter(state,R{"r_UseStop_AP1"}=?[C<=N],x=i0 & y=j0)
+ 
+// VisitCount_UseStop_AP2
+filter(state,R{"r_UseStop_AP2"}=?[C<=N],x=i0 & y=j0)
+
+// VisitCount_UseStop_AP3
+filter(state,R{"r_UseStop_AP3"}=?[C<=N],x=i0 & y=j0)
+
+// VisitCount_ATStatsView_AP1
+filter(state,R{"r_ATStatsView_AP1"}=?[C<=N],x=i0 & y=j0)
+
+// VisitCount_ATStatsView_AP2
+filter(state,R{"r_ATStatsView_AP2"}=?[C<=N],x=i0 & y=j0)
+
+// VisitCount_ATStatsView_AP3
+filter(state,R{"r_ATStatsView_AP3"}=?[C<=N],x=i0 & y=j0)
+
+// VisitCount_ATUsageBarChartATOverallUsageView_AP1
+filter(state,R{"r_ATUsageBarChartATOverallUsageView_AP1"}=?[C<=N],x=i0 & y=j0)
+ 
+// VisitCount_ATUsageBarChartATOverallUsageView_AP2
+filter(state,R{"r_ATUsageBarChartATOverallUsageView_AP2"}=?[C<=N],x=i0 & y=j0)
+
+// VisitCount_ATUsageBarChartATOverallUsageView_AP3
+filter(state,R{"r_ATUsageBarChartATOverallUsageView_AP3"}=?[C<=N],x=i0 & y=j0)
+
+// VisitCount_ATFeedbackView_AP1
+filter(state,R{"r_ATFeedbackView_AP1"}=?[C<=N],x=i0 & y=j0)
+ 
+// VisitCount_ATFeedbackView_AP2
+filter(state,R{"r_ATFeedbackView_AP2"}=?[C<=N],x=i0 & y=j0)
+
+// VisitCount_ATFeedbackView_AP3
+filter(state,R{"r_ATFeedbackView_AP3"}=?[C<=N],x=i0 & y=j0)
+ 
+// VisitCount_ATUsageBarChartATStatsView_AP1
+filter(state,R{"r_ATUsageBarChartATStatsView_AP1"}=?[C<=N],x=i0 & y=j0)
+ 
+// VisitCount_ATUsageBarChartATStatsView_AP2
+filter(state,R{"r_ATUsageBarChartATStatsView_AP2"}=?[C<=N],x=i0 & y=j0)
+
+// VisitCount_ATUsageBarChartATStatsView_AP3
+filter(state,R{"r_ATUsageBarChartATStatsView_AP3"}=?[C<=N],x=i0 & y=j0)
+ 
+// VisitCount_ATInfoView_AP1
+filter(state,R{"r_ATInfoView_AP1"}=?[C<=N],x=i0 & y=j0)
+
+// VisitCount_ATInfoView_AP2
+filter(state,R{"r_ATInfoView_AP2"}=?[C<=N],x=i0 & y=j0)
+
+// VisitCount_ATInfoView_AP3
+filter(state,R{"r_ATInfoView_AP3"}=?[C<=N],x=i0 & y=j0)
+ 
+// VisitCount_ATUsageBarChartATAppsInPeriodView_AP1
+filter(state,R{"r_ATUsageBarChartATAppsInPeriodView_AP1"}=?[C<=N],x=i0 & y=j0)
+
+// VisitCount_ATUsageBarChartATAppsInPeriodView_AP2
+filter(state,R{"r_ATUsageBarChartATAppsInPeriodView_AP2"}=?[C<=N],x=i0 & y=j0)
+
+// VisitCount_ATUsageBarChartATAppsInPeriodView_AP3
+filter(state,R{"r_ATUsageBarChartATAppsInPeriodView_AP3"}=?[C<=N],x=i0 & y=j0)
+ 
+// VisitCount_ATTaskView_AP1
+filter(state,R{"r_ATTaskView_AP1"}=?[C<=N],x=i0 & y=j0)
+
+// VisitCount_ATTaskView_AP2
+filter(state,R{"r_ATTaskView_AP2"}=?[C<=N],x=i0 & y=j0)
+
+// VisitCount_ATTaskView_AP3
+filter(state,R{"r_ATTaskView_AP3"}=?[C<=N],x=i0 & y=j0)
+ 
+ 

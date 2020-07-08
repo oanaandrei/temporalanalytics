@@ -1,0 +1,31 @@
+filter(state,P=?[F<=50 "ATPeriodSelectorView"],"ATOverallUsageView")
+
+filter(state,P=?[F<=50 "ATAppsInPeriodView"],"ATOverallUsageView")
+
+filter(state,P=?[F<=50 "ATOverallUsageView"],"ATPeriodSelectorView")
+
+filter(state,P=?[F<=50 "ATOverallUsageView"],"ATAppsInPeriodView")
+
+filter(state,P=?[F<=50 "ATPeriodSelectorView"],"ATUsageBarChartATOverallUsageView")
+
+filter(state,P=?[F<=50 "ATAppsInPeriodView"],"ATUsageBarChartATOverallUsageView")
+
+filter(state,P=?[F<=50 "ATUsageBarChartATOverallUsageView"],"ATPeriodSelectorView")
+
+filter(state,P=?[F<=50 "ATUsageBarChartATOverallUsageView"],"ATAppsInPeriodView")
+
+filter(state,R{"r_Steps"}=?[F "ATPeriodSelectorView"],"ATOverallUsageView")
+
+filter(state,R{"r_Steps"}=?[F "ATAppsInPeriodView"],"ATOverallUsageView")
+
+filter(state,R{"r_Steps"}=?[F "ATOverallUsageView"],"ATPeriodSelectorView")
+
+filter(state,R{"r_Steps"}=?[F "ATOverallUsageView"],"ATAppsInPeriodView")
+
+filter(state,R{"r_Steps"}=?[F "ATPeriodSelectorView"],"ATUsageBarChartATOverallUsageView")
+
+filter(state,R{"r_Steps"}=?[F "ATAppsInPeriodView"],"ATUsageBarChartATOverallUsageView")
+
+filter(state,R{"r_Steps"}=?[F "ATUsageBarChartATOverallUsageView"],"ATPeriodSelectorView")
+
+filter(state,R{"r_Steps"}=?[F "ATUsageBarChartATOverallUsageView"],"ATAppsInPeriodView")

@@ -1,11 +1,11 @@
 [
   {
-  	"name":"MAP_StateToStop",
+  	"name":"MAP_State2End",
   	"properties":"const int i; const int j; const double p; \nP>=1[F(x=i & y=j)] & P>=1[G((x=i & y=j) => P>=p[(x=i) U \"UseStop\"])]\n",
   	"arguments":"-const i=0:1:2,j=2:1:15,p=0:0.01:1"
   },
   {
-  	"name":"MAP_StateToPattern",
+  	"name":"MAP_State2Pattern",
   	"properties":"const int i; const int j; const int i1; const double p; \nP>=1[F(x=i & y=j)] & P>=1[G((x=i & y=j) => P>=p[(x=i) U (x=i1)])]\n",
   	"arguments":"-const i=0:1:2,j=2:1:15,i1=1:1:2,p=0:0.01:1"
   },

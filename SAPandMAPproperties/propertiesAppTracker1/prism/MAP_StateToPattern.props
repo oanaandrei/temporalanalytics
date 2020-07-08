@@ -1,0 +1,7 @@
+const int i;
+const int j;
+const int i1;
+const double p;
+
+P>=1[F(x=i & y=j)] & P>=1[G((x=i & y=j) => P>=p[(x=i) U (x=i1)])]
+
