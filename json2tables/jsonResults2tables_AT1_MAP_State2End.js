@@ -1,5 +1,6 @@
-// Oana Andrei 2016-2020
-
+// Oana Andrei 2019 - 2020
+// Printing in latex or csv format the result of general MAP properties VisitProbInit, StepCountInit, VisitCountInit with various state formulas 
+// Status: on going
 
 var fs = require('fs');
 
@@ -21,9 +22,9 @@ fs.readFile(process.argv[2], function(err, data) {
   var K = parseInt(process.argv[3]);
   var fileType = process.argv[4];
   var dictType = process.argv[5];
-  
+
   var MAX_STEPS_REWARD = 2000.00;
-  
+
   // default dictionary OverallUsage, StackedBars, PeriodSelectors, Stats - states at level 1 in the hierarchical menu
   var dict_4statesL1 = [
   //	{ id: "0", label: "UseStart", shortLabel: "UseStart" },
@@ -31,7 +32,7 @@ fs.readFile(process.argv[2], function(err, data) {
   //	{ id: "2", label: "ATMainView", shortLabel: "Main" },
   	{ id: "3", label: "ATOverallUsageView", shortLabel: "OverallUsage" },
   	{ id: "4", label: "ATStackedBarsView", shortLabel: "StackedBars" },
-  	{ id: "5", label: "ATPeriodSelectorView", shortLabel: "PeriodSelector" }, 
+  	{ id: "5", label: "ATPeriodSelectorView", shortLabel: "PeriodSelector" },
   //  	{ id: "6", label: "ATAppsInPeriodView", shortLabel: "AppsInPeriod" },
   //  	{ id: "7", label: "ATSettingsView", shortLabel: "Settings" },
   //  	{ id: "8", label: "UseStop", shortLabel: "UseStop" },
@@ -42,8 +43,8 @@ fs.readFile(process.argv[2], function(err, data) {
   //	{ id: "13", label: "ATInfoView", shortLabel: "Info" },
   //	{ id: "14", label: "ATUsageBarChartATAppsInPeriodView", shortLabel: "UBCAppsInPeriod" },
   //	{ id: "15", label: "ATTaskView", shortLabel: "Task" }
-  	]; 	
- 
+  	];
+
 	// UseStop only dictionary
   var dict_UseStop = [
   //	{ id: "0", label: "UseStart", shortLabel: "UseStart" },
@@ -51,7 +52,7 @@ fs.readFile(process.argv[2], function(err, data) {
   //	{ id: "2", label: "ATMainView", shortLabel: "Main" },
   //	{ id: "3", label: "ATOverallUsageView", shortLabel: "OverallUsage" },
   //	{ id: "4", label: "ATStackedBarsView", shortLabel: "StackedBars" },
-  //	{ id: "5", label: "ATPeriodSelectorView", shortLabel: "PeriodSelector" }, 
+  //	{ id: "5", label: "ATPeriodSelectorView", shortLabel: "PeriodSelector" },
   //  	{ id: "6", label: "ATAppsInPeriodView", shortLabel: "AppsInPeriod" },
   //  	{ id: "7", label: "ATSettingsView", shortLabel: "Settings" },
     	{ id: "8", label: "UseStop", shortLabel: "UseStop" },
@@ -63,7 +64,7 @@ fs.readFile(process.argv[2], function(err, data) {
   //	{ id: "14", label: "ATUsageBarChartATAppsInPeriodView", shortLabel: "UBCAppsInPeriod" },
   //	{ id: "15", label: "ATTaskView", shortLabel: "Task" }
   	];
-  	
+
 	// 8 states dictionary
   var dict_8statesL1 = [
   //	{ id: "0", label: "UseStart", shortLabel: "UseStart" },
@@ -71,7 +72,7 @@ fs.readFile(process.argv[2], function(err, data) {
   //	{ id: "2", label: "ATMainView", shortLabel: "Main" },
   	{ id: "3", label: "ATOverallUsageView", shortLabel: "OverallUsage" },
   	{ id: "4", label: "ATStackedBarsView", shortLabel: "StackedBars" },
-  	{ id: "5", label: "ATPeriodSelectorView", shortLabel: "PeriodSelector" }, 
+  	{ id: "5", label: "ATPeriodSelectorView", shortLabel: "PeriodSelector" },
   	{ id: "6", label: "ATAppsInPeriodView", shortLabel: "AppsInPeriod" },
   //  	{ id: "7", label: "ATSettingsView", shortLabel: "Settings" },
   //  	{ id: "8", label: "UseStop", shortLabel: "UseStop" },
@@ -84,7 +85,7 @@ fs.readFile(process.argv[2], function(err, data) {
   //	{ id: "15", label: "ATTaskView", shortLabel: "Task" }
   	];
 
-  	
+
   // 4 states dictionary at depth 2 in the menu
   var dict_4statesL2 = [
   //	{ id: "0", label: "UseStart", shortLabel: "UseStart" },
@@ -92,7 +93,7 @@ fs.readFile(process.argv[2], function(err, data) {
   //	{ id: "2", label: "ATMainView", shortLabel: "Main" },
   // { id: "3", label: "ATOverallUsageView", shortLabel: "OverallUsage" },
   // { id: "4", label: "ATStackedBarsView", shortLabel: "StackedBars" },
-  // { id: "5", label: "ATPeriodSelectorView", shortLabel: "PeriodSelector" }, 
+  // { id: "5", label: "ATPeriodSelectorView", shortLabel: "PeriodSelector" },
    { id: "6", label: "ATAppsInPeriodView", shortLabel: "AppsInPeriod" },
   //  	{ id: "7", label: "ATSettingsView", shortLabel: "Settings" },
   //  	{ id: "8", label: "UseStop", shortLabel: "UseStop" },
@@ -103,7 +104,7 @@ fs.readFile(process.argv[2], function(err, data) {
   //	{ id: "13", label: "ATInfoView", shortLabel: "Info" },
 	{ id: "14", label: "ATUsageBarChartATAppsInPeriodView", shortLabel: "UBCAppsInPeriod" },
   //	{ id: "15", label: "ATTaskView", shortLabel: "Task" }
-  	];  	
+  	];
 
 
   var almostFullDict = [
@@ -112,7 +113,7 @@ fs.readFile(process.argv[2], function(err, data) {
 	{ id: "2", label: "ATMainView", shortLabel: "Main" },
   	{ id: "3", label: "ATOverallUsageView", shortLabel: "OverallUsage" },
   	{ id: "4", label: "ATStackedBarsView", shortLabel: "StackedBars" },
-  	{ id: "5", label: "ATPeriodSelectorView", shortLabel: "PeriodSelector" }, 
+  	{ id: "5", label: "ATPeriodSelectorView", shortLabel: "PeriodSelector" },
   	{ id: "6", label: "ATAppsInPeriodView", shortLabel: "AppsInPeriod" },
   	{ id: "7", label: "ATSettingsView", shortLabel: "Settings" },
   	//{ id: "8", label: "UseStop", shortLabel: "UseStop" },
@@ -124,14 +125,14 @@ fs.readFile(process.argv[2], function(err, data) {
 	{ id: "14", label: "ATUsageBarChartATAppsInPeriodView", shortLabel: "UBCAppsInPeriod" },
 	{ id: "15", label: "ATTaskView", shortLabel: "Task" }
   	];
-  	
+
   var fullDict = [
 	{ id: "0", label: "UseStart", shortLabel: "UseStart" },
 	{ id: "1", label: "TermsAndConditions", shortLabel: "TC" },
 	{ id: "2", label: "ATMainView", shortLabel: "Main" },
   	{ id: "3", label: "ATOverallUsageView", shortLabel: "OverallUsage" },
   	{ id: "4", label: "ATStackedBarsView", shortLabel: "StackedBars" },
-  	{ id: "5", label: "ATPeriodSelectorView", shortLabel: "PeriodSelector" }, 
+  	{ id: "5", label: "ATPeriodSelectorView", shortLabel: "PeriodSelector" },
   	{ id: "6", label: "ATAppsInPeriodView", shortLabel: "AppsInPeriod" },
   	{ id: "7", label: "ATSettingsView", shortLabel: "Settings" },
   	{ id: "8", label: "UseStop", shortLabel: "UseStop" },
@@ -177,9 +178,9 @@ fs.readFile(process.argv[2], function(err, data) {
 
   // Property MAP_VP1
   var table_headerMAP_State2End = "\\begin{table}[!h]\n\\center\n\\caption{Property MAP.State2End for K = " + K + "}\\label{table:MAP_State2End_K" + K + "_" + dictType + "}\n{\\footnotesize\n\\begin{tabular}{|c|";
-  
+
   var table_header = "";
-  
+
   var terms1 = [];
   for (var s=0; s<nStates; s++) {
 	  terms1.push("|r");
@@ -187,11 +188,11 @@ fs.readFile(process.argv[2], function(err, data) {
   		terms1.push("r");
   	  }
   }
-    
+
   if (terms1.length>0) {
     table_header += terms1.join("|") + "|}\n\\hline\n{\\bf \\scriptsize Time} & ";
   }
-  
+
   var terms3 = [];
   for (var l=0; l<nStates-1; l++) {
   	terms3.push("\\multicolumn{" + K + "}{@{}c@{}||}{\\bf \\scriptsize \\" + dict[l].shortLabel + "}");
@@ -211,34 +212,34 @@ fs.readFile(process.argv[2], function(err, data) {
   if (terms4.length>0) {
     table_header += terms4.join(" ") + " {\\bf cut} & ";
   }
-  
+
   var terms2 = [];
   for (var l=0; l<nStates; l++) {
   	for (var k=0; k<K; k++) {
   		terms2.push("{\\bf \\scriptsize AP" + (k+1) + "}");
   	}
   }
-  
+
   if (terms2.length>0) {
     table_header += terms2.join(" & ") + "\\\\ \n \\hline\\hline \n";
   }
-  
+
   var strMAP_State2End = table_headerMAP_State2End + table_header;
 
-  // Transposed 
+  // Transposed
   var table_headerMAP_State2End_transposed = "\\begin{table}[!h]\n\\center\n\\caption{Property MAP.State2End for GPAM(" + K + ")}\\label{table:MAP_State2End_K" + K + "_" + dictType + "_transposed}\n{\\footnotesize\n\\begin{tabular}{|c|";
-  
+
   var table_header_transposed = "";
-  
+
   var terms1_transposed = [];
   for (var i=0; i<nTimecuts*K; i++) {
 	  terms1_transposed.push("r");
   }
-    
+
   if (terms1_transposed.length>0) {
     table_header_transposed += terms1.join("") + "|}\n\\hline\n{\\bf \\scriptsize State} & ";
   }
-  
+
   var terms3_transposed = [];
   for (var l=0; l<nTimecuts-1; l++) {
   	terms3_transposed.push("\\multicolumn{" + K + "}{@{}c@{}||}{\\bf \\scriptsize [" + timecuts[l].start + "," + timecuts[l].end + "]}");
@@ -258,22 +259,22 @@ fs.readFile(process.argv[2], function(err, data) {
   if (terms4_transposed.length>0) {
     table_header_transposed += terms4_transposed.join(" ") + "& ";
   }
-  
+
   var terms2_transposed = [];
   for (var l=0; l<nTimecuts; l++) {
   	for (var k=0; k<K; k++) {
   		terms2_transposed.push("{\\bf \\scriptsize AP" + (k+1) + "}");
   	}
   }
-  
+
   if (terms2_transposed.length>0) {
     table_header_transposed += terms2_transposed.join(" & ") + "\\\\ \n \\hline\\hline \n";
   }
-  
+
   var strMAP_State2End = table_headerMAP_State2End + table_header;
   var strMAP_State2End_transposed = table_headerMAP_State2End_transposed + table_header_transposed;
 
-  // CSV format 	
+  // CSV format
   var csv_header = "Time interval,";
   var terms_csv = [];
   for (var i=0; i<nStates; i++) {
@@ -283,7 +284,7 @@ fs.readFile(process.argv[2], function(err, data) {
   }
   if (terms_csv.length>0) {
     csv_header += terms_csv.join(",") + "\n";
-  }  
+  }
 
   var csv_header_transposed = "Time interval,";
   var terms_csv_transposed = [];
@@ -294,7 +295,7 @@ fs.readFile(process.argv[2], function(err, data) {
   }
   if (terms_csv_transposed.length>0) {
     csv_header_transposed += terms_csv_transposed.join(",") + "\n";
-  }  
+  }
 
 
   // Define array of results for property
@@ -302,13 +303,13 @@ fs.readFile(process.argv[2], function(err, data) {
   for (var i = 0; i < nTimecuts; i++) {
   	tableMAP_State2End[i] = new Array(K*nStates);
   }
-	
+
   var tableMAP_State2End_transposed = new Array(nStates);
   for (var i = 0; i < nStates; i++) {
   	tableMAP_State2End_transposed[i] = new Array(K*nTimecuts);
   }
 
-  
+
   // Fill in arrays with results for each property, each line corresponds to a time cut
   var index = 0;
   var indextimecut = -1;
@@ -333,7 +334,7 @@ fs.readFile(process.argv[2], function(err, data) {
   			else {
   				console.log("Unknown value, not true or false, but " + entry.result.value);
   			}
-  
+
   	}
   });
   //console.log(JSON.stringify(tableMAP_State2End));
@@ -362,11 +363,11 @@ fs.readFile(process.argv[2], function(err, data) {
   			else {
   				console.log("Unknown value, not true or false, but " + entry.result.value);
   			}
-  
+
   	}
   });
    //console.log(JSON.stringify(tableMAP_State2End_transposed));
-  
+
   var Kcolouring = new Array(K);
 
 // Printing results into a latex table
@@ -374,7 +375,7 @@ fs.readFile(process.argv[2], function(err, data) {
   for (var l=0; l<nTimecuts; l++){
 	for (var i=0; i<nStates*K; i++) Kcolouring[i] = 0;
 	strMAP_State2End += "[" + timecuts[l].start + "," + timecuts[l].end + "]";
-  	
+
   	// colouring
   	for(var s=0; s<nStates*K-K+1; s=s+K){
   		for (var x=s; x<s+K-1; x++) {
@@ -388,85 +389,85 @@ fs.readFile(process.argv[2], function(err, data) {
   				} else if (tableMAP_State2End[l][y] === "---") {
   					Kcolouring[x]++;
   					Kcolouring[y] = -1;
-  				
+
   				} else {
-  					if (parseFloat(tableMAP_State2End[l][y]) > parseFloat(tableMAP_State2End[l][x])) { 
+  					if (parseFloat(tableMAP_State2End[l][y]) > parseFloat(tableMAP_State2End[l][x])) {
   						Kcolouring[y]++;
-	  				} else if (parseFloat(tableMAP_State2End[l][y]) < parseFloat(tableMAP_State2End[l][x])) { 
+	  				} else if (parseFloat(tableMAP_State2End[l][y]) < parseFloat(tableMAP_State2End[l][x])) {
 	  					Kcolouring[x]++;
-  					} else { 
+  					} else {
   						Kcolouring[y]++; Kcolouring[x]++;
-  					}	
+  					}
   				}
   			}
   		}
   		for (var x=s; x<s+K; x++) {
-  			strMAP_State2End += " & " + orderingColourHighBest(Kcolouring[x],K) + tableMAP_State2End[l][x] + "}"; 
-  		}  		
+  			strMAP_State2End += " & " + orderingColourHighBest(Kcolouring[x],K) + tableMAP_State2End[l][x] + "}";
+  		}
   	}
-//		// no colouring 	
+//		// no colouring
 //  	for (var i=0; i<nStates*K; i++) {
 //  		strMAP_State2End +=  " & " + tableMAP_State2End[l][i];
 //  	}
 
   	strMAP_State2End += "\\\\ \\hline \n";
   }
-  strMAP_State2End += "\\end{tabular}\n}\n\\end{table}";	
+  strMAP_State2End += "\\end{tabular}\n}\n\\end{table}";
 
 
 // Printing transposed results into a latex table
   for (var l=0; l<nStates; l++){
 	strMAP_State2End_transposed += "" + dict[l].shortLabel + "";
 	for (var i=0; i<nTimecuts*K; i++) {
-	  	strMAP_State2End_transposed += " & " + tableMAP_State2End_transposed[l][i]; 
+	  	strMAP_State2End_transposed += " & " + tableMAP_State2End_transposed[l][i];
   	}
   	strMAP_State2End_transposed += "\\\\ \\hline \n";
   }
-  strMAP_State2End_transposed += "\\end{tabular}\n}\n\\end{table}";	
+  strMAP_State2End_transposed += "\\end{tabular}\n}\n\\end{table}";
 
 
 
-  // CSV file	
+  // CSV file
   var csvMAP_State2End = csv_header;
   for (var i=0; i<nTimecuts; i++) {
   	csvMAP_State2End += timecuts[i].start + " - " + timecuts[i].end + "," + tableMAP_State2End[i].join(",") + "\n";
-  }  
-  
+  }
+
   var csvMAP_State2End_transposed = csv_header_transposed;
   for (var i=0; i<nStates; i++) {
   	csvMAP_State2End_transposed += "\\" + dict[i].shortLabel + "," + tableMAP_State2End_transposed[i].join(",") + "\n";
   }
-  
-  
+
+
   if (fileType.indexOf("latex") == 0) {
   	console.log(strMAP_State2End_transposed + "\n\n");
   }
   else if (fileType.indexOf("csv") == 0) {
-  	console.log(csvMAP_State2End_transposed); 
+  	console.log(csvMAP_State2End_transposed);
   }
-  
+
   //console.log(strMAP_State2End + "\n\n");
-  
-  //console.log(csvMAP_State2End);  
-    
+
+  //console.log(csvMAP_State2End);
+
   function isUseStart(stateIndex_j){
   	//console.log(stateIndex_j);
-  	//console.log(parseInt(stateIndex_j)); 	
+  	//console.log(parseInt(stateIndex_j));
   	if (fullDict[parseInt(stateIndex_j)].label.indexOf("UseStart") == 0) {
   		//console.log("Initial state for j0= " + parseInt(stateIndex_j));
 		return true;
 	}
 	return false;
   }
-  
+
   function indexStateDictionary(stateIndex_j) {
 	for (var l=0; l<nStates; l++) {
-		if(parseInt(dict[l].id) == parseInt(stateIndex_j)) return l; 
+		if(parseInt(dict[l].id) == parseInt(stateIndex_j)) return l;
 	}
 	return -1;
-  }  
+  }
 
-  
+
   function indexTimecut(start,end) {
   	for (var l=0; l<nTimecuts; l++) {
   		if (timecuts[l].start === start && timecuts[l].end === end) return l;
@@ -474,8 +475,8 @@ fs.readFile(process.argv[2], function(err, data) {
   	console.log("\nTime cut undefined: " + start + " " + end);
   	return -1;
   }
-   
-   
+
+
   function orderingColourHighBest(n,K) {
   	switch(K){
   		case 2: return colourK2(n);
@@ -484,7 +485,7 @@ fs.readFile(process.argv[2], function(err, data) {
   		case 5: return colourK5(n);
   	}
   }
- 
+
   function orderingColourLowBest(n,K) {
   	switch(K){
   		case 2: { if (n === -1) return colourK2(-1); else return colourK2(K-1-n); }
@@ -493,7 +494,7 @@ fs.readFile(process.argv[2], function(err, data) {
   		case 5: { if (n === -1) return colourK5(-1); else return colourK5(K-1-n); }
   	}
   }
-    
+
   function colourK2(n) {
   	switch(n) {
   		case 1: return "\\textcolor{blue}{";
@@ -531,7 +532,7 @@ fs.readFile(process.argv[2], function(err, data) {
   		case -1: return "\\textcolor{grey}{";
   	}
   }
-  
 
-  
+
+
 });

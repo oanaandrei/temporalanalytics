@@ -1,0 +1,10 @@
+
+node jsonResults2tables_AT1_MAP_State2End.js reducedPrismResults_GPAM_State2End_K2.json 2 csv full > State2End_fullDict_K2.csv
+
+node jsonResults2tables_AT1_MAP_State2End.js reducedPrismResults_GPAM_State2End_K3.json 3 csv full > State2End_fullDict_K3.csv
+
+node jsonResults2tables_AT1_MAP_State2End.js reducedPrismResults_GPAM_State2End_K4.json 4 csv full > State2End_fullDict_K4.csv
+
+node jsonResults2tables_AT1_MAP_State2End.js reducedPrismResults_GPAM_State2End_K5.json 5 csv full > State2End_fullDict_K5.csv
+
+

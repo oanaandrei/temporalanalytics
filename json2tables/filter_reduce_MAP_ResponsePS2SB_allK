@@ -1,0 +1,8 @@
+
+node filter_MAP_Response.js prismResults_GPAM_ResponsePS2SB_K2.json 2 > reducedPrismResults_GPAM_ResponsePS2SB_K2.json
+
+node filter_MAP_Response.js prismResults_GPAM_ResponsePS2SB_K3.json 3 > reducedPrismResults_GPAM_ResponsePS2SB_K3.json
+
+node filter_MAP_Response.js prismResults_GPAM_ResponsePS2SB_K4.json 4 > reducedPrismResults_GPAM_ResponsePS2SB_K4.json
+
+node filter_MAP_Response.js prismResults_GPAM_ResponsePS2SB_K5.json 5 > reducedPrismResults_GPAM_ResponsePS2SB_K5.json

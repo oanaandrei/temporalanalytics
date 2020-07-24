@@ -1,0 +1,11 @@
+node jsonResults2tables_AT1_MAP.js results_GPAM_K2.json 2 latex UseStop PG3 > GPAM_MAP_PG3_K2.tex
+
+node jsonResults2tables_AT1_MAP.js results_GPAM_K3.json 3 latex UseStop PG3 > GPAM_MAP_PG3_K3.tex
+
+node jsonResults2tables_AT1_MAP.js results_GPAM_K4.json 4 latex UseStop PG3 > GPAM_MAP_PG3_K4.tex
+
+node jsonResults2tables_AT1_MAP.js results_GPAM_K5.json 5 latex UseStop PG3 > GPAM_MAP_PG3_K5.tex
+
+cat GPAM_MAP_PG3_K2.tex GPAM_MAP_PG3_K3.tex GPAM_MAP_PG3_K4.tex GPAM_MAP_PG3_K5.tex > GPAM_MAP_PG3_K2345.tex
+
+

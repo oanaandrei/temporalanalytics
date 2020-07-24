@@ -1,0 +1,19 @@
+cat prismResultGPAM_ResponsePS2SB_0_1_1_K2.json prismResultGPAM_ResponsePS2SB_0_7_7_K2.json prismResultGPAM_ResponsePS2SB_0_30_30_K2.json prismResultGPAM_ResponsePS2SB_30_60_60_K2.json prismResultGPAM_ResponsePS2SB_60_90_90_K2.json > prismResults_GPAM_ResponsePS2SB_K2.json 
+
+sed -i '.bak' 's/\]\[/,/g' prismResults_GPAM_ResponsePS2SB_K2.json 
+
+
+cat prismResultGPAM_ResponsePS2SB_0_1_1_K3.json prismResultGPAM_ResponsePS2SB_0_7_7_K3.json prismResultGPAM_ResponsePS2SB_0_30_30_K3.json prismResultGPAM_ResponsePS2SB_30_60_60_K3.json prismResultGPAM_ResponsePS2SB_60_90_90_K3.json > prismResults_GPAM_ResponsePS2SB_K3.json 
+
+sed -i '.bak' 's/\]\[/,/g' prismResults_GPAM_ResponsePS2SB_K3.json 
+
+
+cat prismResultGPAM_ResponsePS2SB_0_1_1_K4.json prismResultGPAM_ResponsePS2SB_0_7_7_K4.json prismResultGPAM_ResponsePS2SB_0_30_30_K4.json prismResultGPAM_ResponsePS2SB_30_60_60_K4.json prismResultGPAM_ResponsePS2SB_60_90_90_K4.json > prismResults_GPAM_ResponsePS2SB_K4.json 
+
+sed -i '.bak' 's/\]\[/,/g' prismResults_GPAM_ResponsePS2SB_K4.json 
+
+
+cat prismResultGPAM_ResponsePS2SB_0_1_1_K5.json prismResultGPAM_ResponsePS2SB_0_7_7_K5.json prismResultGPAM_ResponsePS2SB_0_30_30_K5.json prismResultGPAM_ResponsePS2SB_30_60_60_K5.json prismResultGPAM_ResponsePS2SB_60_90_90_K5.json > prismResults_GPAM_ResponsePS2SB_K5.json 
+
+sed -i '.bak' 's/\]\[/,/g' prismResults_GPAM_ResponsePS2SB_K5.json 
+

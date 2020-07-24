@@ -1,0 +1,11 @@
+
+node jsonResults2tables_AT1_MAP_ResponsePS2BS.js reducedPrismResults_GPAM_ResponsePS2SB_K2.json 2 latex > ResponsePS2SB_K2.tex
+
+node jsonResults2tables_AT1_MAP_ResponsePS2BS.js reducedPrismResults_GPAM_ResponsePS2SB_K3.json 3 latex > ResponsePS2SB_K3.tex
+
+node jsonResults2tables_AT1_MAP_ResponsePS2BS.js reducedPrismResults_GPAM_ResponsePS2SB_K4.json 4 latex > ResponsePS2SB_K4.tex
+
+node jsonResults2tables_AT1_MAP_ResponsePS2BS.js reducedPrismResults_GPAM_ResponsePS2SB_K5.json 5 latex > ResponsePS2SB_K5.tex
+
+
+cat ResponsePS2SB_K2.tex ResponsePS2SB_K3.tex ResponsePS2SB_K4.tex ResponsePS2SB_K5.tex > ResponsePS2SB_K2345.tex

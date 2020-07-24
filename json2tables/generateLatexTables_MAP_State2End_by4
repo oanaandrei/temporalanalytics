@@ -1,0 +1,22 @@
+
+node jsonResults2tables_AT1_MAP_State2End.js reducedPrismResults_GPAM_State2End_K2.json 2 latex 4statesL1 > State2End_4L1_K2.tex
+
+node jsonResults2tables_AT1_MAP_State2End.js reducedPrismResults_GPAM_State2End_K3.json 3 latex 4statesL1 > State2End_4L1_K3.tex
+
+node jsonResults2tables_AT1_MAP_State2End.js reducedPrismResults_GPAM_State2End_K4.json 4 latex 4statesL1 > State2End_4L1_K4.tex
+
+node jsonResults2tables_AT1_MAP_State2End.js reducedPrismResults_GPAM_State2End_K5.json 5 latex 4statesL1 > State2End_4L1_K5.tex
+
+cat State2End_4L1_K2.tex State2End_4L1_K3.tex State2End_4L1_K4.tex State2End_4L1_K5.tex > State2End_4L1_K2345.tex
+
+
+node jsonResults2tables_AT1_MAP_State2End.js reducedPrismResults_GPAM_State2End_K2.json 2 latex 4statesL2 > State2End_4L2_K2.tex
+
+node jsonResults2tables_AT1_MAP_State2End.js reducedPrismResults_GPAM_State2End_K3.json 3 latex 4statesL2 > State2End_4L2_K3.tex
+
+node jsonResults2tables_AT1_MAP_State2End.js reducedPrismResults_GPAM_State2End_K4.json 4 latex 4statesL2 > State2End_4L2_K4.tex
+
+node jsonResults2tables_AT1_MAP_State2End.js reducedPrismResults_GPAM_State2End_K5.json 5 latex 4statesL2 > State2End_4L2_K5.tex
+
+cat State2End_4L2_K2.tex State2End_4L2_K3.tex State2End_4L2_K4.tex State2End_4L2_K5.tex > State2End_4L2_K2345.tex
+

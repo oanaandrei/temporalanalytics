@@ -1,0 +1,89 @@
+node jsonResults2tables_AT1_SAP.js results_Pattern_PAM_K2.json 2 csv threelevels SC2 0 1 > PAM_3levels_SAP_SC2_0_1_K2.csv
+
+node jsonResults2tables_AT1_SAP.js results_Pattern_PAM_K3.json 3 csv threelevels SC2 0 1 > PAM_3levels_SAP_SC2_0_1_K3.csv
+
+node jsonResults2tables_AT1_SAP.js results_Pattern_PAM_K4.json 4 csv threelevels SC2 0 1 > PAM_3levels_SAP_SC2_0_1_K4.csv
+
+node jsonResults2tables_AT1_SAP.js results_Pattern_PAM_K5.json 5 csv threelevels SC2 0 1 > PAM_3levels_SAP_SC2_0_1_K5.csv
+
+
+node jsonResults2tables_AT1_SAP.js results_Pattern_PAM_K2.json 2 csv threelevels VP2 0 1 > PAM_3levels_SAP_VP2_0_1_K2.csv
+
+node jsonResults2tables_AT1_SAP.js results_Pattern_PAM_K3.json 3 csv threelevels VP2 0 1 > PAM_3levels_SAP_VP2_0_1_K3.csv
+
+node jsonResults2tables_AT1_SAP.js results_Pattern_PAM_K4.json 4 csv threelevels VP2 0 1 > PAM_3levels_SAP_VP2_0_1_K4.csv
+
+node jsonResults2tables_AT1_SAP.js results_Pattern_PAM_K5.json 5 csv threelevels VP2 0 1 > PAM_3levels_SAP_VP2_0_1_K5.csv
+
+
+node jsonResults2tables_AT1_SAP.js results_Pattern_PAM_K2.json 2 csv threelevels SC2 0 7 > PAM_3levels_SAP_SC2_0_7_K2.csv
+
+node jsonResults2tables_AT1_SAP.js results_Pattern_PAM_K3.json 3 csv threelevels SC2 0 7 > PAM_3levels_SAP_SC2_0_7_K3.csv
+
+node jsonResults2tables_AT1_SAP.js results_Pattern_PAM_K4.json 4 csv threelevels SC2 0 7 > PAM_3levels_SAP_SC2_0_7_K4.csv
+
+node jsonResults2tables_AT1_SAP.js results_Pattern_PAM_K5.json 5 csv threelevels SC2 0 7 > PAM_3levels_SAP_SC2_0_7_K5.csv
+
+
+node jsonResults2tables_AT1_SAP.js results_Pattern_PAM_K2.json 2 csv threelevels VP2 0 7 > PAM_3levels_SAP_VP2_0_7_K2.csv
+
+node jsonResults2tables_AT1_SAP.js results_Pattern_PAM_K3.json 3 csv threelevels VP2 0 7 > PAM_3levels_SAP_VP2_0_7_K3.csv
+
+node jsonResults2tables_AT1_SAP.js results_Pattern_PAM_K4.json 4 csv threelevels VP2 0 7 > PAM_3levels_SAP_VP2_0_7_K4.csv
+
+node jsonResults2tables_AT1_SAP.js results_Pattern_PAM_K5.json 5 csv threelevels VP2 0 7 > PAM_3levels_SAP_VP2_0_7_K5.csv
+
+
+node jsonResults2tables_AT1_SAP.js results_Pattern_PAM_K2.json 2 csv threelevels SC2 0 30 > PAM_3levels_SAP_SC2_0_30_K2.csv
+
+node jsonResults2tables_AT1_SAP.js results_Pattern_PAM_K3.json 3 csv threelevels SC2 0 30 > PAM_3levels_SAP_SC2_0_30_K3.csv
+
+node jsonResults2tables_AT1_SAP.js results_Pattern_PAM_K4.json 4 csv threelevels SC2 0 30 > PAM_3levels_SAP_SC2_0_30_K4.csv
+
+node jsonResults2tables_AT1_SAP.js results_Pattern_PAM_K5.json 5 csv threelevels SC2 0 30 > PAM_3levels_SAP_SC2_0_30_K5.csv
+
+
+node jsonResults2tables_AT1_SAP.js results_Pattern_PAM_K2.json 2 csv threelevels VP2 0 30 > PAM_3levels_SAP_VP2_0_30_K2.csv
+
+node jsonResults2tables_AT1_SAP.js results_Pattern_PAM_K3.json 3 csv threelevels VP2 0 30 > PAM_3levels_SAP_VP2_0_30_K3.csv
+
+node jsonResults2tables_AT1_SAP.js results_Pattern_PAM_K4.json 4 csv threelevels VP2 0 30 > PAM_3levels_SAP_VP2_0_30_K4.csv
+
+node jsonResults2tables_AT1_SAP.js results_Pattern_PAM_K5.json 5 csv threelevels VP2 0 30 > PAM_3levels_SAP_VP2_0_30_K5.csv
+
+
+node jsonResults2tables_AT1_SAP.js results_Pattern_PAM_K2.json 2 csv threelevels SC2 30 60 > PAM_3levels_SAP_SC2_30_60_K2.csv
+
+node jsonResults2tables_AT1_SAP.js results_Pattern_PAM_K3.json 3 csv threelevels SC2 30 60 > PAM_3levels_SAP_SC2_30_60_K3.csv
+
+node jsonResults2tables_AT1_SAP.js results_Pattern_PAM_K4.json 4 csv threelevels SC2 30 60 > PAM_3levels_SAP_SC2_30_60_K4.csv
+
+node jsonResults2tables_AT1_SAP.js results_Pattern_PAM_K5.json 5 csv threelevels SC2 30 60 > PAM_3levels_SAP_SC2_30_60_K5.csv
+
+
+node jsonResults2tables_AT1_SAP.js results_Pattern_PAM_K2.json 2 csv threelevels VP2 30 60 > PAM_3levels_SAP_VP2_30_60_K2.csv
+
+node jsonResults2tables_AT1_SAP.js results_Pattern_PAM_K3.json 3 csv threelevels VP2 30 60 > PAM_3levels_SAP_VP2_30_60_K3.csv
+
+node jsonResults2tables_AT1_SAP.js results_Pattern_PAM_K4.json 4 csv threelevels VP2 30 60 > PAM_3levels_SAP_VP2_30_60_K4.csv
+
+node jsonResults2tables_AT1_SAP.js results_Pattern_PAM_K5.json 5 csv threelevels VP2 30 60 > PAM_3levels_SAP_VP2_30_60_K5.csv
+
+
+node jsonResults2tables_AT1_SAP.js results_Pattern_PAM_K2.json 2 csv threelevels SC2 60 90 > PAM_3levels_SAP_SC2_60_90_K2.csv
+
+node jsonResults2tables_AT1_SAP.js results_Pattern_PAM_K3.json 3 csv threelevels SC2 60 90 > PAM_3levels_SAP_SC2_60_90_K3.csv
+
+node jsonResults2tables_AT1_SAP.js results_Pattern_PAM_K4.json 4 csv threelevels SC2 60 90 > PAM_3levels_SAP_SC2_60_90_K4.csv
+
+node jsonResults2tables_AT1_SAP.js results_Pattern_PAM_K5.json 5 csv threelevels SC2 60 90 > PAM_3levels_SAP_SC2_60_90_K5.csv
+
+
+node jsonResults2tables_AT1_SAP.js results_Pattern_PAM_K2.json 2 csv threelevels VP2 60 90 > PAM_3levels_SAP_VP2_60_90_K2.csv
+
+node jsonResults2tables_AT1_SAP.js results_Pattern_PAM_K3.json 3 csv threelevels VP2 60 90 > PAM_3levels_SAP_VP2_60_90_K3.csv
+
+node jsonResults2tables_AT1_SAP.js results_Pattern_PAM_K4.json 4 csv threelevels VP2 60 90 > PAM_3levels_SAP_VP2_60_90_K4.csv
+
+node jsonResults2tables_AT1_SAP.js results_Pattern_PAM_K5.json 5 csv threelevels VP2 60 90 > PAM_3levels_SAP_VP2_60_90_K5.csv
+

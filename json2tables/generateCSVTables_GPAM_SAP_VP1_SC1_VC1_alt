@@ -1,0 +1,29 @@
+node jsonResults2tables_AT1_SAP.js results_Pattern_GPAM_K2.json 2 csv alt SC1 > GPAM_SAP_SC1_K2_alt.csv
+
+node jsonResults2tables_AT1_SAP.js results_Pattern_GPAM_K3.json 3 csv alt SC1 > GPAM_SAP_SC1_K3_alt.csv
+
+node jsonResults2tables_AT1_SAP.js results_Pattern_GPAM_K4.json 4 csv alt SC1 > GPAM_SAP_SC1_K4_alt.csv
+
+node jsonResults2tables_AT1_SAP.js results_Pattern_GPAM_K5.json 5 csv alt SC1 > GPAM_SAP_SC1_K5_alt.csv
+
+
+
+node jsonResults2tables_AT1_SAP.js results_Pattern_GPAM_K2.json 2 csv alt VC1 > GPAM_SAP_VC1_K2_alt.csv
+
+node jsonResults2tables_AT1_SAP.js results_Pattern_GPAM_K3.json 3 csv alt VC1 > GPAM_SAP_VC1_K3_alt.csv
+
+node jsonResults2tables_AT1_SAP.js results_Pattern_GPAM_K4.json 4 csv alt VC1 > GPAM_SAP_VC1_K4_alt.csv
+
+node jsonResults2tables_AT1_SAP.js results_Pattern_GPAM_K5.json 5 csv alt VC1 > GPAM_SAP_VC1_K5_alt.csv
+
+
+
+node jsonResults2tables_AT1_SAP.js results_Pattern_GPAM_K2.json 2 csv alt VP1 > GPAM_SAP_VP1_K2_alt.csv
+
+node jsonResults2tables_AT1_SAP.js results_Pattern_GPAM_K3.json 3 csv alt VP1 > GPAM_SAP_VP1_K3_alt.csv
+
+node jsonResults2tables_AT1_SAP.js results_Pattern_GPAM_K4.json 4 csv alt VP1 > GPAM_SAP_VP1_K4_alt.csv
+
+node jsonResults2tables_AT1_SAP.js results_Pattern_GPAM_K5.json 5 csv alt VP1 > GPAM_SAP_VP1_K5_alt.csv
+
+

@@ -1,0 +1,8 @@
+[
+	{ 
+		"name":"MAP_Response",
+		"properties":"const int i; const int j1; const int j2; const double p; \nP>=1[F (y=j1 & x=i)] & P>=1[F (y=j2 & x=i)] & P>=1[F((!(y=j1 & x=i) & !(y=j2 & x=i)) U P>=1[((y=j1 & x=i) & !(y=j2 & x=i)) U P>=p[X (y=j2 & x=i)] ])]\n",
+		"arguments":"-const i=1:1:2,j1=0:1:15,j2=0:1:15,p=0:0.01:1",
+	}
+]
+

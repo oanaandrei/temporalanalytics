@@ -1,0 +1,132 @@
+node jsonResults2tables_AT1_SAP.js results_Pattern_GPAM_K2.json 2 latex 4statesL1 SC1 > GPAM_SAP_SC1_K2_4statesL1.tex
+
+node jsonResults2tables_AT1_SAP.js results_Pattern_GPAM_K3.json 3 latex 4statesL1 SC1 > GPAM_SAP_SC1_K3_4statesL1.tex
+
+node jsonResults2tables_AT1_SAP.js results_Pattern_GPAM_K4.json 4 latex 4statesL1 SC1 > GPAM_SAP_SC1_K4_4statesL1.tex
+
+node jsonResults2tables_AT1_SAP.js results_Pattern_GPAM_K5.json 5 latex 4statesL1 SC1 > GPAM_SAP_SC1_K5_4statesL1.tex
+
+cat GPAM_SAP_SC1_K2_4statesL1.tex GPAM_SAP_SC1_K3_4statesL1.tex GPAM_SAP_SC1_K4_4statesL1.tex GPAM_SAP_SC1_K5_4statesL1.tex > GPAM_SAP_SC1_K2345_4statesL1.tex
+
+
+node jsonResults2tables_AT1_SAP.js results_Pattern_GPAM_K2.json 2 latex 8statesL1 SC1 > GPAM_SAP_SC1_K2_8statesL1.tex
+
+node jsonResults2tables_AT1_SAP.js results_Pattern_GPAM_K3.json 3 latex 8statesL1 SC1 > GPAM_SAP_SC1_K3_8statesL1.tex
+
+node jsonResults2tables_AT1_SAP.js results_Pattern_GPAM_K4.json 4 latex 8statesL1 SC1 > GPAM_SAP_SC1_K4_8statesL1.tex
+
+node jsonResults2tables_AT1_SAP.js results_Pattern_GPAM_K5.json 5 latex 8statesL1 SC1 > GPAM_SAP_SC1_K5_8statesL1.tex
+
+cat GPAM_SAP_SC1_K2_8statesL1.tex GPAM_SAP_SC1_K3_8statesL1.tex GPAM_SAP_SC1_K4_8statesL1.tex GPAM_SAP_SC1_K5_8statesL1.tex > GPAM_SAP_SC1_K2345_8statesL1.tex
+
+
+node jsonResults2tables_AT1_SAP.js results_Pattern_GPAM_K2.json 2 latex 4statesL2 SC1 > GPAM_SAP_SC1_K2_4statesL2.tex
+
+node jsonResults2tables_AT1_SAP.js results_Pattern_GPAM_K3.json 3 latex 4statesL2 SC1 > GPAM_SAP_SC1_K3_4statesL2.tex
+
+node jsonResults2tables_AT1_SAP.js results_Pattern_GPAM_K4.json 4 latex 4statesL2 SC1 > GPAM_SAP_SC1_K4_4statesL2.tex
+
+node jsonResults2tables_AT1_SAP.js results_Pattern_GPAM_K5.json 5 latex 4statesL2 SC1 > GPAM_SAP_SC1_K5_4statesL2.tex
+
+cat GPAM_SAP_SC1_K2_4statesL2.tex GPAM_SAP_SC1_K3_4statesL2.tex GPAM_SAP_SC1_K4_4statesL2.tex GPAM_SAP_SC1_K5_4statesL2.tex > GPAM_SAP_SC1_K2345_4statesL2.tex
+
+
+node jsonResults2tables_AT1_SAP.js results_Pattern_GPAM_K2.json 2 latex UseStop SC1 > GPAM_SAP_SC1_K2_UseStop.tex
+
+node jsonResults2tables_AT1_SAP.js results_Pattern_GPAM_K3.json 3 latex UseStop SC1 > GPAM_SAP_SC1_K3_UseStop.tex
+
+node jsonResults2tables_AT1_SAP.js results_Pattern_GPAM_K4.json 4 latex UseStop SC1 > GPAM_SAP_SC1_K4_UseStop.tex
+
+node jsonResults2tables_AT1_SAP.js results_Pattern_GPAM_K5.json 5 latex UseStop SC1 > GPAM_SAP_SC1_K5_UseStop.tex
+
+cat GPAM_SAP_SC1_K2_UseStop.tex GPAM_SAP_SC1_K3_UseStop.tex GPAM_SAP_SC1_K4_UseStop.tex GPAM_SAP_SC1_K5_UseStop.tex > GPAM_SAP_SC1_K2345_UseStop.tex
+
+
+node jsonResults2tables_AT1_SAP.js results_Pattern_GPAM_K2.json 2 latex 4statesL1 VC1 > GPAM_SAP_VC1_K2_4statesL1.tex
+
+node jsonResults2tables_AT1_SAP.js results_Pattern_GPAM_K3.json 3 latex 4statesL1 VC1 > GPAM_SAP_VC1_K3_4statesL1.tex
+
+node jsonResults2tables_AT1_SAP.js results_Pattern_GPAM_K4.json 4 latex 4statesL1 VC1 > GPAM_SAP_VC1_K4_4statesL1.tex
+
+node jsonResults2tables_AT1_SAP.js results_Pattern_GPAM_K5.json 5 latex 4statesL1 VC1 > GPAM_SAP_VC1_K5_4statesL1.tex
+
+cat GPAM_SAP_VC1_K2_4statesL1.tex GPAM_SAP_VC1_K3_4statesL1.tex GPAM_SAP_VC1_K4_4statesL1.tex GPAM_SAP_VC1_K5_4statesL1.tex > GPAM_SAP_VC1_K2345_4statesL1.tex
+
+
+node jsonResults2tables_AT1_SAP.js results_Pattern_GPAM_K2.json 2 latex 8statesL1 VC1 > GPAM_SAP_VC1_K2_8statesL1.tex
+
+node jsonResults2tables_AT1_SAP.js results_Pattern_GPAM_K3.json 3 latex 8statesL1 VC1 > GPAM_SAP_VC1_K3_8statesL1.tex
+
+node jsonResults2tables_AT1_SAP.js results_Pattern_GPAM_K4.json 4 latex 8statesL1 VC1 > GPAM_SAP_VC1_K4_8statesL1.tex
+
+node jsonResults2tables_AT1_SAP.js results_Pattern_GPAM_K5.json 5 latex 8statesL1 VC1 > GPAM_SAP_VC1_K5_8statesL1.tex
+
+cat GPAM_SAP_VC1_K2_8statesL1.tex GPAM_SAP_VC1_K3_8statesL1.tex GPAM_SAP_VC1_K4_8statesL1.tex GPAM_SAP_VC1_K5_8statesL1.tex > GPAM_SAP_VC1_K2345_8statesL1.tex
+
+
+node jsonResults2tables_AT1_SAP.js results_Pattern_GPAM_K2.json 2 latex 4statesL2 VC1 > GPAM_SAP_VC1_K2_4statesL2.tex
+
+node jsonResults2tables_AT1_SAP.js results_Pattern_GPAM_K3.json 3 latex 4statesL2 VC1 > GPAM_SAP_VC1_K3_4statesL2.tex
+
+node jsonResults2tables_AT1_SAP.js results_Pattern_GPAM_K4.json 4 latex 4statesL2 VC1 > GPAM_SAP_VC1_K4_4statesL2.tex
+
+node jsonResults2tables_AT1_SAP.js results_Pattern_GPAM_K5.json 5 latex 4statesL2 VC1 > GPAM_SAP_VC1_K5_4statesL2.tex
+
+cat GPAM_SAP_VC1_K2_4statesL2.tex GPAM_SAP_VC1_K3_4statesL2.tex GPAM_SAP_VC1_K4_4statesL2.tex GPAM_SAP_VC1_K5_4statesL2.tex > GPAM_SAP_VC1_K2345_4statesL2.tex
+
+
+node jsonResults2tables_AT1_SAP.js results_Pattern_GPAM_K2.json 2 latex UseStop VC1 > GPAM_SAP_VC1_K2_UseStop.tex
+
+node jsonResults2tables_AT1_SAP.js results_Pattern_GPAM_K3.json 3 latex UseStop VC1 > GPAM_SAP_VC1_K3_UseStop.tex
+
+node jsonResults2tables_AT1_SAP.js results_Pattern_GPAM_K4.json 4 latex UseStop VC1 > GPAM_SAP_VC1_K4_UseStop.tex
+
+node jsonResults2tables_AT1_SAP.js results_Pattern_GPAM_K5.json 5 latex UseStop VC1 > GPAM_SAP_VC1_K5_UseStop.tex
+
+cat GPAM_SAP_VC1_K2_UseStop.tex GPAM_SAP_VC1_K3_UseStop.tex GPAM_SAP_VC1_K4_UseStop.tex GPAM_SAP_VC1_K5_UseStop.tex > GPAM_SAP_VC1_K2345_UseStop.tex
+
+
+node jsonResults2tables_AT1_SAP.js results_Pattern_GPAM_K2.json 2 latex 4statesL1 VP1 > GPAM_SAP_VP1_K2_4statesL1.tex
+
+node jsonResults2tables_AT1_SAP.js results_Pattern_GPAM_K3.json 3 latex 4statesL1 VP1 > GPAM_SAP_VP1_K3_4statesL1.tex
+
+node jsonResults2tables_AT1_SAP.js results_Pattern_GPAM_K4.json 4 latex 4statesL1 VP1 > GPAM_SAP_VP1_K4_4statesL1.tex
+
+node jsonResults2tables_AT1_SAP.js results_Pattern_GPAM_K5.json 5 latex 4statesL1 VP1 > GPAM_SAP_VP1_K5_4statesL1.tex
+
+cat GPAM_SAP_VP1_K2_4statesL1.tex GPAM_SAP_VP1_K3_4statesL1.tex GPAM_SAP_VP1_K4_4statesL1.tex GPAM_SAP_VP1_K5_4statesL1.tex > GPAM_SAP_VP1_K2345_4statesL1.tex
+
+
+node jsonResults2tables_AT1_SAP.js results_Pattern_GPAM_K2.json 2 latex 8statesL1 VP1 > GPAM_SAP_VP1_K2_8statesL1.tex
+
+node jsonResults2tables_AT1_SAP.js results_Pattern_GPAM_K3.json 3 latex 8statesL1 VP1 > GPAM_SAP_VP1_K3_8statesL1.tex
+
+node jsonResults2tables_AT1_SAP.js results_Pattern_GPAM_K4.json 4 latex 8statesL1 VP1 > GPAM_SAP_VP1_K4_8statesL1.tex
+
+node jsonResults2tables_AT1_SAP.js results_Pattern_GPAM_K5.json 5 latex 8statesL1 VP1 > GPAM_SAP_VP1_K5_8statesL1.tex
+
+cat GPAM_SAP_VP1_K2_8statesL1.tex GPAM_SAP_VP1_K3_8statesL1.tex GPAM_SAP_VP1_K4_8statesL1.tex GPAM_SAP_VP1_K5_8statesL1.tex > GPAM_SAP_VP1_K2345_8statesL1.tex
+
+
+node jsonResults2tables_AT1_SAP.js results_Pattern_GPAM_K2.json 2 latex 4statesL2 VP1 > GPAM_SAP_VP1_K2_4statesL2.tex
+
+node jsonResults2tables_AT1_SAP.js results_Pattern_GPAM_K3.json 3 latex 4statesL2 VP1 > GPAM_SAP_VP1_K3_4statesL2.tex
+
+node jsonResults2tables_AT1_SAP.js results_Pattern_GPAM_K4.json 4 latex 4statesL2 VP1 > GPAM_SAP_VP1_K4_4statesL2.tex
+
+node jsonResults2tables_AT1_SAP.js results_Pattern_GPAM_K5.json 5 latex 4statesL2 VP1 > GPAM_SAP_VP1_K5_4statesL2.tex
+
+cat GPAM_SAP_VP1_K2_4statesL2.tex GPAM_SAP_VP1_K3_4statesL2.tex GPAM_SAP_VP1_K4_4statesL2.tex GPAM_SAP_VP1_K5_4statesL2.tex > GPAM_SAP_VP1_K2345_4statesL2.tex
+
+
+node jsonResults2tables_AT1_SAP.js results_Pattern_GPAM_K2.json 2 latex UseStop VP1 > GPAM_SAP_VP1_K2_UseStop.tex
+
+node jsonResults2tables_AT1_SAP.js results_Pattern_GPAM_K3.json 3 latex UseStop VP1 > GPAM_SAP_VP1_K3_UseStop.tex
+
+node jsonResults2tables_AT1_SAP.js results_Pattern_GPAM_K4.json 4 latex UseStop VP1 > GPAM_SAP_VP1_K4_UseStop.tex
+
+node jsonResults2tables_AT1_SAP.js results_Pattern_GPAM_K5.json 5 latex UseStop VP1 > GPAM_SAP_VP1_K5_UseStop.tex
+
+cat GPAM_SAP_VP1_K2_UseStop.tex GPAM_SAP_VP1_K3_UseStop.tex GPAM_SAP_VP1_K4_UseStop.tex GPAM_SAP_VP1_K5_UseStop.tex > GPAM_SAP_VP1_K2345_UseStop.tex
+
+

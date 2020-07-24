@@ -1,0 +1,99 @@
+node jsonResults2tables_AT1_MAP.js results_GPAM_K2.json 2 latex 5statesL1 SC1 > GPAM_MAP_SC1_K2_5statesL1.tex
+
+node jsonResults2tables_AT1_MAP.js results_GPAM_K3.json 3 latex 5statesL1 SC1 > GPAM_MAP_SC1_K3_5statesL1.tex
+
+node jsonResults2tables_AT1_MAP.js results_GPAM_K4.json 4 latex 5statesL1 SC1 > GPAM_MAP_SC1_K4_5statesL1.tex
+
+node jsonResults2tables_AT1_MAP.js results_GPAM_K5.json 5 latex 5statesL1 SC1 > GPAM_MAP_SC1_K5_5statesL1.tex
+
+cat GPAM_MAP_SC1_K2_5statesL1.tex GPAM_MAP_SC1_K3_5statesL1.tex GPAM_MAP_SC1_K4_5statesL1.tex GPAM_MAP_SC1_K5_5statesL1.tex > GPAM_MAP_SC1_K2345_5statesL1.tex
+
+
+node jsonResults2tables_AT1_MAP.js results_GPAM_K2.json 2 latex UBCstates SC1 > GPAM_MAP_SC1_K2_UBCstates.tex
+
+node jsonResults2tables_AT1_MAP.js results_GPAM_K3.json 3 latex UBCstates SC1 > GPAM_MAP_SC1_K3_UBCstates.tex
+
+node jsonResults2tables_AT1_MAP.js results_GPAM_K4.json 4 latex UBCstates SC1 > GPAM_MAP_SC1_K4_UBCstates.tex
+
+node jsonResults2tables_AT1_MAP.js results_GPAM_K5.json 5 latex UBCstates SC1 > GPAM_MAP_SC1_K5_UBCstates.tex
+
+cat GPAM_MAP_SC1_K2_UBCstates.tex GPAM_MAP_SC1_K3_UBCstates.tex GPAM_MAP_SC1_K4_UBCstates.tex GPAM_MAP_SC1_K5_UBCstates.tex > GPAM_MAP_SC1_K2345_UBCstates.tex
+
+
+node jsonResults2tables_AT1_MAP.js results_GPAM_K2.json 2 latex UseStop SC1 > GPAM_MAP_SC1_K2_UseStop.tex
+
+node jsonResults2tables_AT1_MAP.js results_GPAM_K3.json 3 latex UseStop SC1 > GPAM_MAP_SC1_K3_UseStop.tex
+
+node jsonResults2tables_AT1_MAP.js results_GPAM_K4.json 4 latex UseStop SC1 > GPAM_MAP_SC1_K4_UseStop.tex
+
+node jsonResults2tables_AT1_MAP.js results_GPAM_K5.json 5 latex UseStop SC1 > GPAM_MAP_SC1_K5_UseStop.tex
+
+cat GPAM_MAP_SC1_K2_UseStop.tex GPAM_MAP_SC1_K3_UseStop.tex GPAM_MAP_SC1_K4_UseStop.tex GPAM_MAP_SC1_K5_UseStop.tex > GPAM_MAP_SC1_K2345_UseStop.tex
+
+
+node jsonResults2tables_AT1_MAP.js results_GPAM_K2.json 2 latex 5statesL1 VC1 > GPAM_MAP_VC1_K2_5statesL1.tex
+
+node jsonResults2tables_AT1_MAP.js results_GPAM_K3.json 3 latex 5statesL1 VC1 > GPAM_MAP_VC1_K3_5statesL1.tex
+
+node jsonResults2tables_AT1_MAP.js results_GPAM_K4.json 4 latex 5statesL1 VC1 > GPAM_MAP_VC1_K4_5statesL1.tex
+
+node jsonResults2tables_AT1_MAP.js results_GPAM_K5.json 5 latex 5statesL1 VC1 > GPAM_MAP_VC1_K5_5statesL1.tex
+
+cat GPAM_MAP_VC1_K2_5statesL1.tex GPAM_MAP_VC1_K3_5statesL1.tex GPAM_MAP_VC1_K4_5statesL1.tex GPAM_MAP_VC1_K5_5statesL1.tex > GPAM_MAP_VC1_K2345_5statesL1.tex
+
+
+node jsonResults2tables_AT1_MAP.js results_GPAM_K2.json 2 latex UBCstates VC1 > GPAM_MAP_VC1_K2_UBCstates.tex
+
+node jsonResults2tables_AT1_MAP.js results_GPAM_K3.json 3 latex UBCstates VC1 > GPAM_MAP_VC1_K3_UBCstates.tex
+
+node jsonResults2tables_AT1_MAP.js results_GPAM_K4.json 4 latex UBCstates VC1 > GPAM_MAP_VC1_K4_UBCstates.tex
+
+node jsonResults2tables_AT1_MAP.js results_GPAM_K5.json 5 latex UBCstates VC1 > GPAM_MAP_VC1_K5_UBCstates.tex
+
+cat GPAM_MAP_VC1_K2_UBCstates.tex GPAM_MAP_VC1_K3_UBCstates.tex GPAM_MAP_VC1_K4_UBCstates.tex GPAM_MAP_VC1_K5_UBCstates.tex > GPAM_MAP_VC1_K2345_UBCstates.tex
+
+
+node jsonResults2tables_AT1_MAP.js results_GPAM_K2.json 2 latex UseStop VC1 > GPAM_MAP_VC1_K2_UseStop.tex
+
+node jsonResults2tables_AT1_MAP.js results_GPAM_K3.json 3 latex UseStop VC1 > GPAM_MAP_VC1_K3_UseStop.tex
+
+node jsonResults2tables_AT1_MAP.js results_GPAM_K4.json 4 latex UseStop VC1 > GPAM_MAP_VC1_K4_UseStop.tex
+
+node jsonResults2tables_AT1_MAP.js results_GPAM_K5.json 5 latex UseStop VC1 > GPAM_MAP_VC1_K5_UseStop.tex
+
+cat GPAM_MAP_VC1_K2_UseStop.tex GPAM_MAP_VC1_K3_UseStop.tex GPAM_MAP_VC1_K4_UseStop.tex GPAM_MAP_VC1_K5_UseStop.tex > GPAM_MAP_VC1_K2345_UseStop.tex
+
+
+node jsonResults2tables_AT1_MAP.js results_GPAM_K2.json 2 latex 5statesL1 VP1 > GPAM_MAP_VP1_K2_5statesL1.tex
+
+node jsonResults2tables_AT1_MAP.js results_GPAM_K3.json 3 latex 5statesL1 VP1 > GPAM_MAP_VP1_K3_5statesL1.tex
+
+node jsonResults2tables_AT1_MAP.js results_GPAM_K4.json 4 latex 5statesL1 VP1 > GPAM_MAP_VP1_K4_5statesL1.tex
+
+node jsonResults2tables_AT1_MAP.js results_GPAM_K5.json 5 latex 5statesL1 VP1 > GPAM_MAP_VP1_K5_5statesL1.tex
+
+cat GPAM_MAP_VP1_K2_5statesL1.tex GPAM_MAP_VP1_K3_5statesL1.tex GPAM_MAP_VP1_K4_5statesL1.tex GPAM_MAP_VP1_K5_5statesL1.tex > GPAM_MAP_VP1_K2345_5statesL1.tex
+
+
+node jsonResults2tables_AT1_MAP.js results_GPAM_K2.json 2 latex UBCstates VP1 > GPAM_MAP_VP1_K2_UBCstates.tex
+
+node jsonResults2tables_AT1_MAP.js results_GPAM_K3.json 3 latex UBCstates VP1 > GPAM_MAP_VP1_K3_UBCstates.tex
+
+node jsonResults2tables_AT1_MAP.js results_GPAM_K4.json 4 latex UBCstates VP1 > GPAM_MAP_VP1_K4_UBCstates.tex
+
+node jsonResults2tables_AT1_MAP.js results_GPAM_K5.json 5 latex UBCstates VP1 > GPAM_MAP_VP1_K5_UBCstates.tex
+
+cat GPAM_MAP_VP1_K2_UBCstates.tex GPAM_MAP_VP1_K3_UBCstates.tex GPAM_MAP_VP1_K4_UBCstates.tex GPAM_MAP_VP1_K5_UBCstates.tex > GPAM_MAP_VP1_K2345_UBCstates.tex
+
+
+node jsonResults2tables_AT1_MAP.js results_GPAM_K2.json 2 latex UseStop VP1 > GPAM_MAP_VP1_K2_UseStop.tex
+
+node jsonResults2tables_AT1_MAP.js results_GPAM_K3.json 3 latex UseStop VP1 > GPAM_MAP_VP1_K3_UseStop.tex
+
+node jsonResults2tables_AT1_MAP.js results_GPAM_K4.json 4 latex UseStop VP1 > GPAM_MAP_VP1_K4_UseStop.tex
+
+node jsonResults2tables_AT1_MAP.js results_GPAM_K5.json 5 latex UseStop VP1 > GPAM_MAP_VP1_K5_UseStop.tex
+
+cat GPAM_MAP_VP1_K2_UseStop.tex GPAM_MAP_VP1_K3_UseStop.tex GPAM_MAP_VP1_K4_UseStop.tex GPAM_MAP_VP1_K5_UseStop.tex > GPAM_MAP_VP1_K2345_UseStop.tex
+
+

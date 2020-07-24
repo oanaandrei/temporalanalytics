@@ -1,0 +1,36 @@
+node jsonResults2tables_AT1_SAP.js results_Pattern_GPAM_K2.json 2 csv twolevels SC2 30 60 > GPAM_2levels_SAP_SC2_30_60_K2.csv
+
+node jsonResults2tables_AT1_SAP.js results_Pattern_GPAM_K3.json 3 csv twolevels SC2 30 60 > GPAM_2levels_SAP_SC2_30_60_K3.csv
+
+node jsonResults2tables_AT1_SAP.js results_Pattern_GPAM_K4.json 4 csv twolevels SC2 30 60 > GPAM_2levels_SAP_SC2_30_60_K4.csv
+
+node jsonResults2tables_AT1_SAP.js results_Pattern_GPAM_K5.json 5 csv twolevels SC2 30 60 > GPAM_2levels_SAP_SC2_30_60_K5.csv
+
+
+node jsonResults2tables_AT1_SAP.js results_Pattern_GPAM_K2.json 2 csv twolevels VP2 30 60 > GPAM_2levels_SAP_VP2_30_60_K2.csv
+
+node jsonResults2tables_AT1_SAP.js results_Pattern_GPAM_K3.json 3 csv twolevels VP2 30 60 > GPAM_2levels_SAP_VP2_30_60_K3.csv
+
+node jsonResults2tables_AT1_SAP.js results_Pattern_GPAM_K4.json 4 csv twolevels VP2 30 60 > GPAM_2levels_SAP_VP2_30_60_K4.csv
+
+node jsonResults2tables_AT1_SAP.js results_Pattern_GPAM_K5.json 5 csv twolevels VP2 30 60 > GPAM_2levels_SAP_VP2_30_60_K5.csv
+
+
+node jsonResults2tables_AT1_SAP.js results_Pattern_GPAM_K2.json 2 csv twolevels SC2 60 90 > GPAM_2levels_SAP_SC2_60_90_K2.csv
+
+node jsonResults2tables_AT1_SAP.js results_Pattern_GPAM_K3.json 3 csv twolevels SC2 60 90 > GPAM_2levels_SAP_SC2_60_90_K3.csv
+
+node jsonResults2tables_AT1_SAP.js results_Pattern_GPAM_K4.json 4 csv twolevels SC2 60 90 > GPAM_2levels_SAP_SC2_60_90_K4.csv
+
+node jsonResults2tables_AT1_SAP.js results_Pattern_GPAM_K5.json 5 csv twolevels SC2 60 90 > GPAM_2levels_SAP_SC2_60_90_K5.csv
+
+
+node jsonResults2tables_AT1_SAP.js results_Pattern_GPAM_K2.json 2 csv twolevels VP2 60 90 > GPAM_2levels_SAP_VP2_60_90_K2.csv
+
+node jsonResults2tables_AT1_SAP.js results_Pattern_GPAM_K3.json 3 csv twolevels VP2 60 90 > GPAM_2levels_SAP_VP2_60_90_K3.csv
+
+node jsonResults2tables_AT1_SAP.js results_Pattern_GPAM_K4.json 4 csv twolevels VP2 60 90 > GPAM_2levels_SAP_VP2_60_90_K4.csv
+
+node jsonResults2tables_AT1_SAP.js results_Pattern_GPAM_K5.json 5 csv twolevels VP2 60 90 > GPAM_2levels_SAP_VP2_60_90_K5.csv
+
+

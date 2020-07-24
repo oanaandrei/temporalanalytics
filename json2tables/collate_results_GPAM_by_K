@@ -1,0 +1,20 @@
+cat prism_GPAM_0_1_1_K2.json prism_GPAM_0_7_7_K2.json prism_GPAM_0_30_30_K2.json prism_GPAM_30_60_60_K2.json prism_GPAM_60_90_90_K2.json > results_GPAM_K2.json 
+
+sed -i '.bak' 's/\]\[/,/g' results_GPAM_K2.json 
+
+
+cat prism_GPAM_0_1_1_K3.json prism_GPAM_0_7_7_K3.json prism_GPAM_0_30_30_K3.json prism_GPAM_30_60_60_K3.json prism_GPAM_60_90_90_K3.json > results_GPAM_K3.json 
+
+sed -i '.bak' 's/\]\[/,/g' results_GPAM_K3.json 
+
+
+
+cat prism_GPAM_0_1_1_K4.json prism_GPAM_0_7_7_K4.json prism_GPAM_0_30_30_K4.json prism_GPAM_30_60_60_K4.json prism_GPAM_60_90_90_K4.json > results_GPAM_K4.json 
+
+sed -i '.bak' 's/\]\[/,/g' results_GPAM_K4.json 
+
+
+
+cat prism_GPAM_0_1_1_K5.json prism_GPAM_0_7_7_K5.json prism_GPAM_0_30_30_K5.json prism_GPAM_30_60_60_K5.json prism_GPAM_60_90_90_K5.json > results_GPAM_K5.json 
+
+sed -i '.bak' 's/\]\[/,/g' results_GPAM_K5.json 

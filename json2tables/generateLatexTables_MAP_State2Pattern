@@ -1,0 +1,11 @@
+
+node jsonResults2tables_AT1_MAP_State2Pattern.js reducedPrismResults_GPAM_State2Pattern_K2.json 2 latex full > State2Pattern_K2_t.tex
+
+node jsonResults2tables_AT1_MAP_State2Pattern.js reducedPrismResults_GPAM_State2Pattern_K3.json 3 latex full > State2Pattern_K3_t.tex
+
+node jsonResults2tables_AT1_MAP_State2Pattern.js reducedPrismResults_GPAM_State2Pattern_K4.json 4 latex full > State2Pattern_K4_t.tex
+
+node jsonResults2tables_AT1_MAP_State2Pattern.js reducedPrismResults_GPAM_State2Pattern_K5.json 5 latex full > State2Pattern_K5_t.tex
+
+cat State2Pattern_K2_t.tex State2Pattern_K3_t.tex State2Pattern_K4_t.tex State2Pattern_K5_t.tex > State2Pattern_K2345_t.tex
+

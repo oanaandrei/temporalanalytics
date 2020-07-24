@@ -1,0 +1,18 @@
+cat prismSAP-Pattern_GPAM-0-1-1-K2.json prismSAP-Pattern_GPAM-0-7-7-K2.json prismSAP-Pattern_GPAM-0-30-30-K2.json prismSAP-Pattern_GPAM-30-60-60-K2.json prismSAP-Pattern_GPAM-60-90-90-K2.json > results_SAP_GPAM2.json 
+
+sed -i '.bak' 's/\]\[/,/g' results_SAP_GPAM2.json 
+
+
+cat prismSAP-Pattern_GPAM-0-1-1-K3.json prismSAP-Pattern_GPAM-0-7-7-K3.json prismSAP-Pattern_GPAM-0-30-30-K3.json prismSAP-Pattern_GPAM-30-60-60-K3.json prismSAP-Pattern_GPAM-60-90-90-K3.json > results_SAP_GPAM3.json 
+
+sed -i '.bak' 's/\]\[/,/g' results_SAP_GPAM3.json 
+
+
+cat prismSAP-Pattern_GPAM-0-1-1-K4.json prismSAP-Pattern_GPAM-0-7-7-K4.json prismSAP-Pattern_GPAM-0-30-30-K4.json prismSAP-Pattern_GPAM-30-60-60-K4.json prismSAP-Pattern_GPAM-60-90-90-K4.json > results_SAP_GPAM4.json 
+
+sed -i '.bak' 's/\]\[/,/g' results_SAP_GPAM4.json 
+
+
+cat prismSAP-Pattern_GPAM-0-1-1-K5.json prismSAP-Pattern_GPAM-0-7-7-K5.json prismSAP-Pattern_GPAM-0-30-30-K5.json prismSAP-Pattern_GPAM-30-60-60-K5.json prismSAP-Pattern_GPAM-60-90-90-K5.json > results_SAP_GPAM5.json 
+
+sed -i '.bak' 's/\]\[/,/g' results_SAP_GPAM5.json 

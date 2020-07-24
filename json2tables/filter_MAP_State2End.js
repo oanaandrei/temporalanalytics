@@ -1,4 +1,5 @@
-// Oana Andrei 2016-2020
+// Oana: 13 January 2018 
+// Status: done
 
 var fs = require('fs');
 

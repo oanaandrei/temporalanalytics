@@ -1,0 +1,108 @@
+node jsonResults2tables_AT1_SAP.js results_Pattern_GPAM_K2.json 2 csv 4statesL1 SC1 > GPAM_SAP_SC1_K2_4statesL1.csv
+
+node jsonResults2tables_AT1_SAP.js results_Pattern_GPAM_K3.json 3 csv 4statesL1 SC1 > GPAM_SAP_SC1_K3_4statesL1.csv
+
+node jsonResults2tables_AT1_SAP.js results_Pattern_GPAM_K4.json 4 csv 4statesL1 SC1 > GPAM_SAP_SC1_K4_4statesL1.csv
+
+node jsonResults2tables_AT1_SAP.js results_Pattern_GPAM_K5.json 5 csv 4statesL1 SC1 > GPAM_SAP_SC1_K5_4statesL1.csv
+
+
+node jsonResults2tables_AT1_SAP.js results_Pattern_GPAM_K2.json 2 csv 8statesL1 SC1 > GPAM_SAP_SC1_K2_8statesL1.csv
+
+node jsonResults2tables_AT1_SAP.js results_Pattern_GPAM_K3.json 3 csv 8statesL1 SC1 > GPAM_SAP_SC1_K3_8statesL1.csv
+
+node jsonResults2tables_AT1_SAP.js results_Pattern_GPAM_K4.json 4 csv 8statesL1 SC1 > GPAM_SAP_SC1_K4_8statesL1.csv
+
+node jsonResults2tables_AT1_SAP.js results_Pattern_GPAM_K5.json 5 csv 8statesL1 SC1 > GPAM_SAP_SC1_K5_8statesL1.csv
+
+
+node jsonResults2tables_AT1_SAP.js results_Pattern_GPAM_K2.json 2 csv 4statesL2 SC1 > GPAM_SAP_SC1_K2_4statesL2.csv
+
+node jsonResults2tables_AT1_SAP.js results_Pattern_GPAM_K3.json 3 csv 4statesL2 SC1 > GPAM_SAP_SC1_K3_4statesL2.csv
+
+node jsonResults2tables_AT1_SAP.js results_Pattern_GPAM_K4.json 4 csv 4statesL2 SC1 > GPAM_SAP_SC1_K4_4statesL2.csv
+
+node jsonResults2tables_AT1_SAP.js results_Pattern_GPAM_K5.json 5 csv 4statesL2 SC1 > GPAM_SAP_SC1_K5_4statesL2.csv
+
+
+node jsonResults2tables_AT1_SAP.js results_Pattern_GPAM_K2.json 2 csv UseStop SC1 > GPAM_SAP_SC1_K2_UseStop.csv
+
+node jsonResults2tables_AT1_SAP.js results_Pattern_GPAM_K3.json 3 csv UseStop SC1 > GPAM_SAP_SC1_K3_UseStop.csv
+
+node jsonResults2tables_AT1_SAP.js results_Pattern_GPAM_K4.json 4 csv UseStop SC1 > GPAM_SAP_SC1_K4_UseStop.csv
+
+node jsonResults2tables_AT1_SAP.js results_Pattern_GPAM_K5.json 5 csv UseStop SC1 > GPAM_SAP_SC1_K5_UseStop.csv
+
+
+node jsonResults2tables_AT1_SAP.js results_Pattern_GPAM_K2.json 2 csv 4statesL1 VC1 > GPAM_SAP_VC1_K2_4statesL1.csv
+
+node jsonResults2tables_AT1_SAP.js results_Pattern_GPAM_K3.json 3 csv 4statesL1 VC1 > GPAM_SAP_VC1_K3_4statesL1.csv
+
+node jsonResults2tables_AT1_SAP.js results_Pattern_GPAM_K4.json 4 csv 4statesL1 VC1 > GPAM_SAP_VC1_K4_4statesL1.csv
+
+node jsonResults2tables_AT1_SAP.js results_Pattern_GPAM_K5.json 5 csv 4statesL1 VC1 > GPAM_SAP_VC1_K5_4statesL1.csv
+
+
+node jsonResults2tables_AT1_SAP.js results_Pattern_GPAM_K2.json 2 csv 8statesL1 VC1 > GPAM_SAP_VC1_K2_8statesL1.csv
+
+node jsonResults2tables_AT1_SAP.js results_Pattern_GPAM_K3.json 3 csv 8statesL1 VC1 > GPAM_SAP_VC1_K3_8statesL1.csv
+
+node jsonResults2tables_AT1_SAP.js results_Pattern_GPAM_K4.json 4 csv 8statesL1 VC1 > GPAM_SAP_VC1_K4_8statesL1.csv
+
+node jsonResults2tables_AT1_SAP.js results_Pattern_GPAM_K5.json 5 csv 8statesL1 VC1 > GPAM_SAP_VC1_K5_8statesL1.csv
+
+
+node jsonResults2tables_AT1_SAP.js results_Pattern_GPAM_K2.json 2 csv 4statesL2 VC1 > GPAM_SAP_VC1_K2_4statesL2.csv
+
+node jsonResults2tables_AT1_SAP.js results_Pattern_GPAM_K3.json 3 csv 4statesL2 VC1 > GPAM_SAP_VC1_K3_4statesL2.csv
+
+node jsonResults2tables_AT1_SAP.js results_Pattern_GPAM_K4.json 4 csv 4statesL2 VC1 > GPAM_SAP_VC1_K4_4statesL2.csv
+
+node jsonResults2tables_AT1_SAP.js results_Pattern_GPAM_K5.json 5 csv 4statesL2 VC1 > GPAM_SAP_VC1_K5_4statesL2.csv
+
+
+node jsonResults2tables_AT1_SAP.js results_Pattern_GPAM_K2.json 2 csv UseStop VC1 > GPAM_SAP_VC1_K2_UseStop.csv
+
+node jsonResults2tables_AT1_SAP.js results_Pattern_GPAM_K3.json 3 csv UseStop VC1 > GPAM_SAP_VC1_K3_UseStop.csv
+
+node jsonResults2tables_AT1_SAP.js results_Pattern_GPAM_K4.json 4 csv UseStop VC1 > GPAM_SAP_VC1_K4_UseStop.csv
+
+node jsonResults2tables_AT1_SAP.js results_Pattern_GPAM_K5.json 5 csv UseStop VC1 > GPAM_SAP_VC1_K5_UseStop.csv
+
+
+node jsonResults2tables_AT1_SAP.js results_Pattern_GPAM_K2.json 2 csv 4statesL1 VP1 > GPAM_SAP_VP1_K2_4statesL1.csv
+
+node jsonResults2tables_AT1_SAP.js results_Pattern_GPAM_K3.json 3 csv 4statesL1 VP1 > GPAM_SAP_VP1_K3_4statesL1.csv
+
+node jsonResults2tables_AT1_SAP.js results_Pattern_GPAM_K4.json 4 csv 4statesL1 VP1 > GPAM_SAP_VP1_K4_4statesL1.csv
+
+node jsonResults2tables_AT1_SAP.js results_Pattern_GPAM_K5.json 5 csv 4statesL1 VP1 > GPAM_SAP_VP1_K5_4statesL1.csv
+
+
+node jsonResults2tables_AT1_SAP.js results_Pattern_GPAM_K2.json 2 csv 8statesL1 VP1 > GPAM_SAP_VP1_K2_8statesL1.csv
+
+node jsonResults2tables_AT1_SAP.js results_Pattern_GPAM_K3.json 3 csv 8statesL1 VP1 > GPAM_SAP_VP1_K3_8statesL1.csv
+
+node jsonResults2tables_AT1_SAP.js results_Pattern_GPAM_K4.json 4 csv 8statesL1 VP1 > GPAM_SAP_VP1_K4_8statesL1.csv
+
+node jsonResults2tables_AT1_SAP.js results_Pattern_GPAM_K5.json 5 csv 8statesL1 VP1 > GPAM_SAP_VP1_K5_8statesL1.csv
+
+
+node jsonResults2tables_AT1_SAP.js results_Pattern_GPAM_K2.json 2 csv 4statesL2 VP1 > GPAM_SAP_VP1_K2_4statesL2.csv
+
+node jsonResults2tables_AT1_SAP.js results_Pattern_GPAM_K3.json 3 csv 4statesL2 VP1 > GPAM_SAP_VP1_K3_4statesL2.csv
+
+node jsonResults2tables_AT1_SAP.js results_Pattern_GPAM_K4.json 4 csv 4statesL2 VP1 > GPAM_SAP_VP1_K4_4statesL2.csv
+
+node jsonResults2tables_AT1_SAP.js results_Pattern_GPAM_K5.json 5 csv 4statesL2 VP1 > GPAM_SAP_VP1_K5_4statesL2.csv
+
+
+node jsonResults2tables_AT1_SAP.js results_Pattern_GPAM_K2.json 2 csv UseStop VP1 > GPAM_SAP_VP1_K2_UseStop.csv
+
+node jsonResults2tables_AT1_SAP.js results_Pattern_GPAM_K3.json 3 csv UseStop VP1 > GPAM_SAP_VP1_K3_UseStop.csv
+
+node jsonResults2tables_AT1_SAP.js results_Pattern_GPAM_K4.json 4 csv UseStop VP1 > GPAM_SAP_VP1_K4_UseStop.csv
+
+node jsonResults2tables_AT1_SAP.js results_Pattern_GPAM_K5.json 5 csv UseStop VP1 > GPAM_SAP_VP1_K5_UseStop.csv
+
+

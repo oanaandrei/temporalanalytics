@@ -1,0 +1,38 @@
+node jsonResults2tables_AT1_SAP.js results_Pattern_GPAM_K2.json 2 latex alt SC1 > GPAM_SAP_SC1_K2_alt.tex
+
+node jsonResults2tables_AT1_SAP.js results_Pattern_GPAM_K3.json 3 latex alt SC1 > GPAM_SAP_SC1_K3_alt.tex
+
+node jsonResults2tables_AT1_SAP.js results_Pattern_GPAM_K4.json 4 latex alt SC1 > GPAM_SAP_SC1_K4_alt.tex
+
+node jsonResults2tables_AT1_SAP.js results_Pattern_GPAM_K5.json 5 latex alt SC1 > GPAM_SAP_SC1_K5_alt.tex
+
+cat GPAM_SAP_SC1_K2_alt.tex GPAM_SAP_SC1_K3_alt.tex GPAM_SAP_SC1_K4_alt.tex GPAM_SAP_SC1_K5_alt.tex > GPAM_SAP_SC1_K2345_alt.tex
+
+
+
+
+
+node jsonResults2tables_AT1_SAP.js results_Pattern_GPAM_K2.json 2 latex alt VC1 > GPAM_SAP_VC1_K2_alt.tex
+
+node jsonResults2tables_AT1_SAP.js results_Pattern_GPAM_K3.json 3 latex alt VC1 > GPAM_SAP_VC1_K3_alt.tex
+
+node jsonResults2tables_AT1_SAP.js results_Pattern_GPAM_K4.json 4 latex alt VC1 > GPAM_SAP_VC1_K4_alt.tex
+
+node jsonResults2tables_AT1_SAP.js results_Pattern_GPAM_K5.json 5 latex alt VC1 > GPAM_SAP_VC1_K5_alt.tex
+
+cat GPAM_SAP_VC1_K2_alt.tex GPAM_SAP_VC1_K3_alt.tex GPAM_SAP_VC1_K4_alt.tex GPAM_SAP_VC1_K5_alt.tex > GPAM_SAP_VC1_K2345_alt.tex
+
+
+
+
+node jsonResults2tables_AT1_SAP.js results_Pattern_GPAM_K2.json 2 latex alt VP1 > GPAM_SAP_VP1_K2_alt.tex
+
+node jsonResults2tables_AT1_SAP.js results_Pattern_GPAM_K3.json 3 latex alt VP1 > GPAM_SAP_VP1_K3_alt.tex
+
+node jsonResults2tables_AT1_SAP.js results_Pattern_GPAM_K4.json 4 latex alt VP1 > GPAM_SAP_VP1_K4_alt.tex
+
+node jsonResults2tables_AT1_SAP.js results_Pattern_GPAM_K5.json 5 latex alt VP1 > GPAM_SAP_VP1_K5_alt.tex
+
+cat GPAM_SAP_VP1_K2_alt.tex GPAM_SAP_VP1_K3_alt.tex GPAM_SAP_VP1_K4_alt.tex GPAM_SAP_VP1_K5_alt.tex > GPAM_SAP_VP1_K2345_alt.tex
+
+

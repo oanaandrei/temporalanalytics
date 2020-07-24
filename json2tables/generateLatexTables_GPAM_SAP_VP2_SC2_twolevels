@@ -1,0 +1,44 @@
+node jsonResults2tables_AT1_SAP.js results_Pattern_GPAM_K2.json 2 latex twolevels SC2 30 60 > GPAM_2levels_SAP_SC2_30_60_K2.tex
+
+node jsonResults2tables_AT1_SAP.js results_Pattern_GPAM_K3.json 3 latex twolevels SC2 30 60 > GPAM_2levels_SAP_SC2_30_60_K3.tex
+
+node jsonResults2tables_AT1_SAP.js results_Pattern_GPAM_K4.json 4 latex twolevels SC2 30 60 > GPAM_2levels_SAP_SC2_30_60_K4.tex
+
+node jsonResults2tables_AT1_SAP.js results_Pattern_GPAM_K5.json 5 latex twolevels SC2 30 60 > GPAM_2levels_SAP_SC2_30_60_K5.tex
+
+cat GPAM_2levels_SAP_SC2_30_60_K2.tex GPAM_2levels_SAP_SC2_30_60_K3.tex GPAM_2levels_SAP_SC2_30_60_K4.tex GPAM_2levels_SAP_SC2_30_60_K5.tex > GPAM_2levels_SAP_SC2_30_60_K2345.tex
+
+
+node jsonResults2tables_AT1_SAP.js results_Pattern_GPAM_K2.json 2 latex twolevels VP2 30 60 > GPAM_2levels_SAP_VP2_30_60_K2.tex
+
+node jsonResults2tables_AT1_SAP.js results_Pattern_GPAM_K3.json 3 latex twolevels VP2 30 60 > GPAM_2levels_SAP_VP2_30_60_K3.tex
+
+node jsonResults2tables_AT1_SAP.js results_Pattern_GPAM_K4.json 4 latex twolevels VP2 30 60 > GPAM_2levels_SAP_VP2_30_60_K4.tex
+
+node jsonResults2tables_AT1_SAP.js results_Pattern_GPAM_K5.json 5 latex twolevels VP2 30 60 > GPAM_2levels_SAP_VP2_30_60_K5.tex
+
+cat GPAM_2levels_SAP_VP2_30_60_K2.tex GPAM_2levels_SAP_VP2_30_60_K3.tex GPAM_2levels_SAP_VP2_30_60_K4.tex GPAM_2levels_SAP_VP2_30_60_K5.tex > GPAM_2levels_SAP_VP2_30_60_K2345.tex
+
+
+node jsonResults2tables_AT1_SAP.js results_Pattern_GPAM_K2.json 2 latex twolevels SC2 60 90 > GPAM_2levels_SAP_SC2_60_90_K2.tex
+
+node jsonResults2tables_AT1_SAP.js results_Pattern_GPAM_K3.json 3 latex twolevels SC2 60 90 > GPAM_2levels_SAP_SC2_60_90_K3.tex
+
+node jsonResults2tables_AT1_SAP.js results_Pattern_GPAM_K4.json 4 latex twolevels SC2 60 90 > GPAM_2levels_SAP_SC2_60_90_K4.tex
+
+node jsonResults2tables_AT1_SAP.js results_Pattern_GPAM_K5.json 5 latex twolevels SC2 60 90 > GPAM_2levels_SAP_SC2_60_90_K5.tex
+
+cat GPAM_2levels_SAP_SC2_60_90_K2.tex GPAM_2levels_SAP_SC2_60_90_K3.tex GPAM_2levels_SAP_SC2_60_90_K4.tex GPAM_2levels_SAP_SC2_60_90_K5.tex > GPAM_2levels_SAP_SC2_60_90_K2345.tex
+
+
+node jsonResults2tables_AT1_SAP.js results_Pattern_GPAM_K2.json 2 latex twolevels VP2 60 90 > GPAM_2levels_SAP_VP2_60_90_K2.tex
+
+node jsonResults2tables_AT1_SAP.js results_Pattern_GPAM_K3.json 3 latex twolevels VP2 60 90 > GPAM_2levels_SAP_VP2_60_90_K3.tex
+
+node jsonResults2tables_AT1_SAP.js results_Pattern_GPAM_K4.json 4 latex twolevels VP2 60 90 > GPAM_2levels_SAP_VP2_60_90_K4.tex
+
+node jsonResults2tables_AT1_SAP.js results_Pattern_GPAM_K5.json 5 latex twolevels VP2 60 90 > GPAM_2levels_SAP_VP2_60_90_K5.tex
+
+cat GPAM_2levels_SAP_VP2_60_90_K2.tex GPAM_2levels_SAP_VP2_60_90_K3.tex GPAM_2levels_SAP_VP2_60_90_K4.tex GPAM_2levels_SAP_VP2_60_90_K5.tex > GPAM_2levels_SAP_VP2_60_90_K2345.tex
+
+
