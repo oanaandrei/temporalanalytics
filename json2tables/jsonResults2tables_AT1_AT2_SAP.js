@@ -610,11 +610,10 @@ fs.readFile(process.argv[2], function(err, data) {
     data.forEach(function(entry) {
       if (entry.pctl.name.indexOf("VisitProbInit") == 0 && isUseStopState(entry.result.j)) {
         indextimecut = indexTimecut(parseInt(entry.timecut.start),parseInt(entry.timecut.end));
-        index = 0;
         patternId = parseInt(entry.k);
         // Only if we found an entry for a state among the ones to be listed in the table: this is successful if the dictionary selected based on the input option contains the UseStop state
         //console.log("j= " + entry.result.j + " in pattern " + patternId + " at current dictIndex " + index);
-          index = index * K + patternId - 1;
+          index = patternId - 1;
           if (entry.result.value == null){
             tableSAP_Session[indextimecut][index] = "---";;
           }
@@ -629,9 +628,8 @@ fs.readFile(process.argv[2], function(err, data) {
 
         if (entry.pctl.name.indexOf("SessionLength") == 0) {
           indextimecut = indexTimecut(parseInt(entry.timecut.start),parseInt(entry.timecut.end));
-          index = 0;
-          // to do
-          index = K + index*K + patternId - 1;
+          patternId = parseInt(entry.k);
+          index = K + patternId - 1;
           if (entry.result.value == null) {
             tableSAP_Session[indextimecut][index] = "---";//"$\\infty$";
           }
@@ -645,9 +643,8 @@ fs.readFile(process.argv[2], function(err, data) {
         }
         if (entry.pctl.name.indexOf("SessionCount") == 0) {
           indextimecut = indexTimecut(parseInt(entry.timecut.start),parseInt(entry.timecut.end));
-          index = 0;
-          // to do
-          index = 2*K + index*K + patternId - 1;
+          patternId = parseInt(entry.k);
+          index = 2*K + patternId - 1;
           if (entry.result.value == null) {
   					tableSAP_Session[indextimecut][index] = "---";
   				}
