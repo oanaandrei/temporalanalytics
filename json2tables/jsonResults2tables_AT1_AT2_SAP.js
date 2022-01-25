@@ -1180,10 +1180,10 @@ fs.readFile(process.argv[2], function(err, data) {
 
   function isUseStopState(stateIndex_j){
   	//console.log(stateIndex_j);
-  	if (fullDictAT1[parseInt(stateIndex_j)].label.indexOf("UseStop") == 0) {
+  	if (parseInt(stateIndex_j) < fullDictAT1.length && fullDictAT1[parseInt(stateIndex_j)].label.indexOf("UseStop") == 0) {
 		    return true;
 	  }
-    if (fullDictAT2[parseInt(stateIndex_j)].label.indexOf("UseStop") == 0) {
+    if (parseInt(stateIndex_j) < fullDictAT2.length && fullDictAT2[parseInt(stateIndex_j)].label.indexOf("UseStop") == 0) {
         return true;
     }
     return false;
